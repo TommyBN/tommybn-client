@@ -1,0 +1,15 @@
+.container {
+    color: white;
+}
+
+.title, h2, .centerized {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.int-int2 {
+    display: flex;
+    flex-direction: column;
+}

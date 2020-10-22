@@ -1,0 +1,21 @@
+<div class="container">
+    
+    <h4>כניסה למשתמשים רשומים</h4>
+    <div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="errors" [style.visibility]="loginForm.valid ? 'hidden' : 'visible'">
+                {{message}}
+                </div>
+            <div class="form-input">
+                שם: <br><input type="text" formControlName="username">
+            </div>
+            <div class="form-input">
+                סיסמא: <br><input type="password" formControlName="password">
+            </div>
+            <div>
+                <button type="submit">כניסה</button>
+            </div>
+        </form>    
+    </div>
+
+</div>

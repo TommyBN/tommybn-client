@@ -1,0 +1,72 @@
+
+
+<div class="container">
+
+  <span class="arrow" mwlCalendarPreviousView
+  [view]="view"
+  [(viewDate)]="viewDate"
+  (viewDateChange)="viewDateChange.next(viewDate)">
+  &#8592;
+  </span>
+  
+  <div class="row text-center">
+    <div class="col-md-12">
+      <div style="font-size: 2em;">{{ viewDate | calendarDate: view + 'ViewTitle':locale }}</div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="btn-group">
+       
+        
+        <!-- <div
+          class="btn btn-outline-secondary"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)"
+        >
+          Today
+        </div> -->
+       
+        
+      </div>
+    </div>
+    
+    <!-- <div class="col-md-4">
+      <div class="btn-group">
+        <div
+          class="btn btn-light"
+          (click)="viewChange.emit('month')"
+          [class.active]="view === 'month'"
+          >
+          Month
+        </div>
+        <div
+        class="btn btn-light"
+        (click)="viewChange.emit('week')"
+        [class.active]="view === 'week'"
+        >
+        Week
+      </div>
+      <div
+      class="btn btn-light"
+      (click)="viewChange.emit('day')"
+          [class.active]="view === 'day'"
+          >
+          Day
+        </div>
+      </div>
+    </div> -->
+  </div>
+  
+  <span class="arrow" mwlCalendarNextView
+  [view]="view"
+  [(viewDate)]="viewDate"
+  (viewDateChange)="viewDateChange.next(viewDate)">
+  &#8594;
+  </span>
+  
+</div>
+
+<br />
+

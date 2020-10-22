@@ -1,0 +1,27 @@
+<div id="main" class="add-todo">
+    <form (ngSubmit)="onSubmit()" #newTodoForm="ngForm">
+        <div class="container">
+            <div class="form-group">
+                <label for="title">מה צריך לעשות?</label>
+                <input type="text" class="form-control" 
+                [(ngModel)]="newTodo.title" name="title" id="title" 
+                 #title="ngModel" required>
+            </div>
+            <div class="form-group">
+                <label for="start">(בשעות)כמה זמן זה לוקח?</label>
+                <input type="number" class="form-control"  
+                [(ngModel)]="event.duration" #duration="ngModel" name="duration" 
+                id="duration" required >
+            </div>
+            <div class="form-group">
+                <label for="start">עד מתי?</label>
+                <input type="date" class="form-control"  
+                [(ngModel)]="event.start" #start="ngModel" name="start" 
+                id="start" required >
+            </div>
+            <button type="submit" [disabled]="!newTodoForm.valid">הוסף</button>
+        </div>
+    </form>
+</div>
+
+

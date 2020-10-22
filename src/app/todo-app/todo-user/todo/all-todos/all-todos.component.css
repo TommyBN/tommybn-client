@@ -1,0 +1,110 @@
+/* sections css*/
+*{ 
+    direction:rtl;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.container{
+    padding:5%;
+    text-align: right;
+}
+
+.general-buttons{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button{
+    cursor: default;
+    border-radius: 3px;
+    /* width: fit-content; */
+}
+button:hover { background-color: rgb(117, 113, 107) }
+
+.header{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#path{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.main{
+    padding:5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+h5{
+    display: inline;
+}
+
+.deleteTodo{
+    color: red
+}
+
+.deleteTodos{
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.assignments{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+.todo{
+    padding: 5%;
+}
+
+
+
+
+/* sports section*/
+
+.even, .odd{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.even > div:nth-child(even){
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+    padding: 10%;
+    border: 1px solid rgb(233, 102, 102);
+    cursor: pointer;
+}
+
+.even > div:nth-child(odd){
+    visibility: hidden;
+}
+
+.odd > div:nth-child(odd){
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+    padding: 10%;
+    border: 1px solid rgb(233, 102, 102);
+    cursor: pointer;
+}
+
+.odd > div:nth-child(even){
+    visibility: hidden;
+}

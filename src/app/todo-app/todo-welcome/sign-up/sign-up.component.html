@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h3>הרשמה</h3>
+    <form *ngIf="!newUserSignedUp" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="errors" [style.visibility]="signUpForm.valid ? 'hidden' : 'visible'">
+        {{message}}
+        </div>
+        <div class="form-input">
+            שם משתמש:
+            <br><input type="text" formControlName="username">
+        </div>
+        <div class="form-input">
+            סיסמא: 
+            <br><input type="password" formControlName="password">
+        </div>
+        <div class="form-input">
+            אשר סיסמא: 
+            <br><input type="password" formControlName="passConfirm">
+        </div>
+        <div>
+            <button type="submit">הרשם</button>
+        </div>
+    </form>  
+    <div *ngIf="newUserSignedUp" class="success">
+        <h2>נרשמת בהצלחה למערכת!</h2>
+        <h3>כעת ניתן להיכנס</h3>
+    </div>  
+</div>

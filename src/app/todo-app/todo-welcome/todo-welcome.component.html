@@ -1,0 +1,47 @@
+<div class="navbar">
+    <div id="logo">
+        <span class="logo"> נעשה ונשמע </span>
+    </div>
+    <div id="referer">
+        <div onclick="JavaScript:window.location.hash = '#login'" class="referer">
+          כניסה
+        </div>
+        <div onclick="JavaScript:window.location.hash = '#sign-up'" class="referer">
+           הרשמה
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="funky">
+        <h2> הכל מסתכם במשימה אחת פשוטה.</h2>
+    </div>
+
+    <div class="test">
+        <!-- שם: <input type="text"> -->
+        <button (click)="testDB()">testDB</button>
+        <h2 #test></h2>
+    </div>
+
+    <div class="monkey">
+        <h3 style="text-decoration: underline">
+            הרשמה חינם
+        </h3> 
+        <h5>אין צורך בפרטים אישיים</h5>
+        <p>(בקרוב - גרסת תוכנה הניתנת להורדה)</p>
+    </div>
+    
+    <div id="forms">
+        
+        <div id="sign-up">
+            <app-sign-up></app-sign-up>
+        </div>
+        
+        <div id="login">
+            <app-login></app-login>
+        </div>
+
+    </div>
+
+</div>

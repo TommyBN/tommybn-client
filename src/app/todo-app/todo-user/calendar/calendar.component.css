@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   }
+
+   #day {
+       border: 1px solid springgreen;
+   }
+
+   #event {
+       border: 1px solid steelblue;
+   }
+
+   #month {
+       border: 1px solid salmon;
+   }
+
+   .pane-content { padding: 0 10px; }
+h3 { font-size: 1.2em; margin: 10px 0; padding: 0; }
+p { margin: 0; padding: 0; }

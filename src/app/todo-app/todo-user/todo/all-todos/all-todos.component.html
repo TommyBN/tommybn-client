@@ -1,0 +1,29 @@
+
+
+<div class="container">
+    <span class="deleteTodos clickable" *ngIf="userTodos" 
+        (click)="showDeleteIcon = true"><span>&#10007;&nbsp;</span>מחיקת מטלות
+    </span>
+    <div class="main">
+        <div class="todo" *ngFor="let todo of userTodos; let i = index"> 
+            <div *ngIf="currentTodoIndex != i" >
+                <span class="clickable deleteTodo" *ngIf="showDeleteIcon" 
+                    (click)="currentTodoToDelete = i">&#10007;
+                </span>
+                <span *ngIf="!showDeleteIcon">&#10036;&nbsp;</span>
+                    <span (click)="showTodo(todo.event._id)">{{todo.title}}</span>
+                <span class="clickable" (click)="openEditForm(i)">&#9998;</span>
+                <div class="deleteTodo" *ngIf="currentTodoToDelete == i">האם למחוק את המטלה? 
+                    <button class="deleteTodo" (click)="deleteTodo(todo._id)">מחק</button>
+                    <button>ביטול</button>
+                </div>
+            </div>
+            <div *ngIf="currentTodoIndex == i">
+                <input [(ngModel)]="todo.title" type="text">
+                <button (click)="editTodo(todo._id, todo.title)">Save</button>
+            </div>
+        </div>
+        <button (click)="toggleAddForm()" >הוסף משימה&nbsp;&#43;</button>
+        <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNewTodo($event)"></app-add-todo>
+    </div>
+</div>

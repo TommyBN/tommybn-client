@@ -1,0 +1,47 @@
+/* sections css*/
+#main{
+    height: 100%;
+    color: rgb(42, 13, 80);
+    margin: 10%;
+    border-radius: 5px;
+}
+
+.add-goal{
+    border: 1px solid green;
+}
+
+.add-todo{
+    border: 1px solid blue;
+}
+
+.container{
+    padding:5%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.general-buttons{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+button, input{
+    cursor: default;
+    border-radius: 3px;
+    width: fit-content;
+    margin: 2%;
+}
+button:hover, input:hover{ background-color: rgb(117, 113, 107); }
+
+input { 
+    border-radius: 10px;
+    width: 100% }
+
+input[formControlName="description"] {
+    width: 70%;
+}
+
+*{ direction:rtl}
+

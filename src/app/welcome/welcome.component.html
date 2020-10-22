@@ -1,0 +1,44 @@
+
+<div class="bar">
+  <div id="logo">
+    <h4>TommyBN <br> Software Developer</h4>
+  </div>
+</div>
+
+
+<div class="container" >
+
+  <div class="form-container" 
+    
+    [style.display]="showName ? 'none' : 'block'">
+    <div>
+      <h3>Your name please:</h3>
+    </div>
+    <div>
+      <input [(ngModel)]="name"  type="text" (click)="checkValidation()" (keyup)="checkValidation()">
+      <span id="skip">skip</span>
+    </div>
+    <div>
+      <button [disabled]="!formValid" (click)="calculateLetters(); showName=true">OK, now what?</button>
+    </div>
+  </div>
+
+  <app-hello (refreshPageEmitter)="do($event)" [name]="name" [hollyNumber]="hollyNumber" *ngIf="showName"></app-hello>
+
+  <div id="codeMaster" [style.marginTop]="showName ? '50%' : '-10%'" >
+    <h2>Thanks to:</h2>
+      My greatfull thanks to EG-coder, my code master, who helped me upload the site.
+  </div>
+ 
+  
+</div>
+
+
+
+
+
+
+
+
+
+
