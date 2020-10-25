@@ -27,10 +27,10 @@ export class TodoService{
     }
 
 
-    addTodo(todo): Observable<Todo>{
-        let body = { todo: todo, userId: this.userService.userId }
-        return <Observable<Todo>>this.http.post(`${this.url}/new`, body)
-    }
+    // addTodo(todo): Observable<Todo>{
+    //     let body = { todo: todo, userId: this.userService.userId }
+    //     return <Observable<Todo>>this.http.post(`${this.url}/new`, body)
+    // }
 
     updateTodo(id, newTitle): Observable<any>{
         return this.http.get(`${this.url}/${id}/${newTitle}`)

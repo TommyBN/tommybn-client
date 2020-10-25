@@ -4,6 +4,7 @@ import { CalendarEvent } from 'angular-calendar';
 import { UserService } from '../../user.service';
 import * as moment from 'moment';
 import { EventsService } from '../../calendar/events.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-add-todo',
@@ -11,42 +12,28 @@ import { EventsService } from '../../calendar/events.service';
     styleUrls: ['../../user-forms.css']
 })
 export class EditTodoComponent implements OnInit {
-    
+
     @Output() emitTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
-    public newTodo: Todo;
-    public newTodoTitle: string;
-    public newTodoStartsAt: Date;
-    public newTodoEvent: CalendarEvent = {
-        title: '',
-        start: null,
-        end: null,
-        draggable: true
-    };
-    
-    public event:any;
+    @Output() emitEvent: EventEmitter<CalendarEvent> = new EventEmitter<CalendarEvent>();
+
+    public createEvent: boolean = false;
+
+    public todoForm: FormGroup = new FormGroup({
+        title: new FormControl('', Validators.required),
+        duration: new FormControl(''),
+        date: new FormControl('')
+    })
 
     constructor(
         private userService: UserService,
         private todoService: TodoService,
         private eventsService: EventsService) { }
 
-    ngOnInit() { 
-        this.newTodo = { title:'',event_id: '', user_id: ''} 
-        this.event = { title: '', start: new Date()}
-    }
 
-    async onSubmit() {
-        // //create event
-        // this.event.title = this.newTodo.title;
-        // // this.event.color = "yellow";
-        // this.event.start = await moment(this.event.start).toDate();
-        // this.event.draggable = true;
-        // let body = { ...this.event, user_id: this.userService.userId };
+    ngOnInit() {    }
 
-        // //save todo and add event to events array, (get ID of todo?)  
-        // // this.newTodo.event_id = eventID;    
-        // this.emitTodo.emit(this.newTodo)
-        // if (this.eventsService.addEvent(body))
+    onSubmit() {
+        this.emitTodo.emit(this.todoForm.value)
     }
 
 }

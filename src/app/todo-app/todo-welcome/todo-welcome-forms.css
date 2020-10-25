@@ -6,7 +6,7 @@
 }
 
 .success {
-    background-color: greenyellow;
+    background-color: rgb(47, 179, 255);
     padding: 3%;
     border-radius: 5px;
 }

@@ -39,8 +39,8 @@ export class WelcomeComponent implements OnInit {
     return this.digitalRoot(sum)
   }
 
-  do(booly) {
-    console.log(booly)
+  clear() {
+    this.showName = false;
   }
 
 }

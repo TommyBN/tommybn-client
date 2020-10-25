@@ -4,21 +4,10 @@ button {
     border-radius: 5px;
 }
 
-.bar {
-    /* margin: 1% 5%; */
-    width: 80%;
-}
-
-#logo {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    width: 20%;
-    border: 1px solid white;
-    padding: 0% 0% 0% 1%;
-    border-radius: 5px;
-}
 
 #skip {
     margin: 10%;
+    cursor: pointer;
 }
 
 .form-container {

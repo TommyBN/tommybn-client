@@ -1,11 +1,11 @@
 
 
 <div class="container">
-    <span class="deleteTodos clickable" *ngIf="userTodos" 
+    <span class="deleteTodos clickable" *ngIf="todos" 
         (click)="showDeleteIcon = true"><span>&#10007;&nbsp;</span>מחיקת מטלות
     </span>
     <div class="main">
-        <div class="todo" *ngFor="let todo of userTodos; let i = index"> 
+        <div class="todo" *ngFor="let todo of todos; let i = index"> 
             <div *ngIf="currentTodoIndex != i" >
                 <span class="clickable deleteTodo" *ngIf="showDeleteIcon" 
                     (click)="currentTodoToDelete = i">&#10007;
@@ -23,7 +23,7 @@
                 <button (click)="editTodo(todo._id, todo.title)">Save</button>
             </div>
         </div>
-        <button (click)="toggleAddForm()" >הוסף משימה&nbsp;&#43;</button>
+        <button (click)="this.viewAddForm = !this.viewAddForm" >הוסף משימה&nbsp;&#43;</button>
         <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNewTodo($event)"></app-add-todo>
     </div>
 </div>

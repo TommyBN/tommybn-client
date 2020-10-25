@@ -1,11 +1,4 @@
 
-<div class="bar">
-  <div id="logo">
-    <h4>TommyBN <br> Software Developer</h4>
-  </div>
-</div>
-
-
 <div class="container" >
 
   <div class="form-container" 
@@ -16,18 +9,18 @@
     </div>
     <div>
       <input [(ngModel)]="name"  type="text" (click)="checkValidation()" (keyup)="checkValidation()">
-      <span id="skip">skip</span>
+      <span routerLink="/home" id="skip">skip</span>
     </div>
     <div>
       <button [disabled]="!formValid" (click)="calculateLetters(); showName=true">OK, now what?</button>
     </div>
   </div>
 
-  <app-hello (refreshPageEmitter)="do($event)" [name]="name" [hollyNumber]="hollyNumber" *ngIf="showName"></app-hello>
+  <app-hello (refreshPageEmitter)="clear()" [name]="name" [hollyNumber]="hollyNumber" *ngIf="showName"></app-hello>
 
   <div id="codeMaster" [style.marginTop]="showName ? '50%' : '-10%'" >
     <h2>Thanks to:</h2>
-      My greatfull thanks to EG-coder, my code master, who helped me upload the site.
+      My greatfull thanks to EGcoder who helped me upload the site.
   </div>
  
   

@@ -1,25 +1,25 @@
 <div id="main" class="add-todo">
-    <form (ngSubmit)="onSubmit()" #newTodoForm="ngForm">
+    <form  [formGroup]="todoForm" (ngSubmit)="onSubmit()">
         <div class="container">
             <div class="form-group">
                 <label for="title">מה צריך לעשות?</label>
-                <input type="text" class="form-control" 
-                [(ngModel)]="newTodo.title" name="title" id="title" 
-                 #title="ngModel" required>
+                <input type="text" formControlName="title"
+                class="form-control" required>
             </div>
-            <div class="form-group">
-                <label for="start">(בשעות)כמה זמן זה לוקח?</label>
-                <input type="number" class="form-control"  
-                [(ngModel)]="event.duration" #duration="ngModel" name="duration" 
-                id="duration" required >
+            <button (click)="this.createEvent = true">הוסף אירוע ביומן</button>
+            <div *ngIf="createEvent" class="event-details">
+                <div class="form-group">
+                    <label for="date">תאריך?</label>
+                    <input type="date" formControlName="date"
+                    class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="duration">(בשעות)כמה זמן זה לוקח?</label>
+                    <input type="number" formControlName="duration"
+                    class="form-control">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="start">עד מתי?</label>
-                <input type="date" class="form-control"  
-                [(ngModel)]="event.start" #start="ngModel" name="start" 
-                id="start" required >
-            </div>
-            <button type="submit" [disabled]="!newTodoForm.valid">הוסף</button>
+            <button type="submit" [disabled]="!todoForm.valid">הוסף</button>
         </div>
     </form>
 </div>
