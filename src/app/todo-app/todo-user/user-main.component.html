@@ -1,15 +1,16 @@
 
 <div class="container">
   
-  <app-cal-main></app-cal-main>
+  <app-cal-main [events]="calendarEvents"></app-cal-main>
   
   <div id="main">
     <div id="nav-bar">
         <div id="welcome-back">
-            <h5> שלמה להט, הידוע בכינויו צ'יץ', ברוך שובך</h5>
+            <h2> ! {{userName}} ,ברוך שובך</h2>
+            <h2 class="rotate-screen">יש לסובב את המסך על מנת לראות את היומן כולו</h2>
         </div>
     </div>
-    <app-todos></app-todos>
+    <app-todos [todos]="todos" (DBChangeNotification)=setTodos()></app-todos>
 </div>
   
 </div>

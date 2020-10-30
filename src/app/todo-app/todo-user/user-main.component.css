@@ -2,8 +2,40 @@
  .container { 
     padding: 3%;
     display: flex;
-    flex-direction: row; 
-    justify-content: space-between;
+    flex-direction: column-reverse; 
+    justify-content: space-evenly;
+    color: rgb(18, 7, 122);
+    height: 1600px;
 } 
+
+#welcome-back {
+    direction: rtl;
+    padding-top: 10%;
+
+}
+
+.rotate-screen {
+    display: block;
+    background-color: red;
+    padding: 5%;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    /* .container {
+        flex-direction: row;
+    } */
+
+    .rotate-screen {
+        display: none;
+    }
+}
+
+
 
 

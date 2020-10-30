@@ -1,21 +1,14 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-   }
 
-   #day {
-       border: 1px solid springgreen;
-   }
+.pane-content { 
+    padding: 0 10px; 
+}
 
-   #event {
-       border: 1px solid steelblue;
-   }
+#day {
+    width: 0%;
+}
 
-   #month {
-       border: 1px solid salmon;
-   }
-
-   .pane-content { padding: 0 10px; }
-h3 { font-size: 1.2em; margin: 10px 0; padding: 0; }
-p { margin: 0; padding: 0; }
+@media only screen and (min-width: 768px) {
+    #day {
+        display: 70%;
+    }
+}

@@ -6,8 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TodoAppRoutingModule } from './todo-app-routing.module';
 import { TodoWelcomeComponent } from './todo-welcome/todo-welcome.component';
-import { LoginComponent } from './todo-welcome/login/login.component';
-import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
 import { UserMainComponent } from './todo-user/user-main.component';
 import { AllTodosComponent } from './todo-user/todo/all-todos/all-todos.component';
 import { EditTodoComponent } from './todo-user/todo/edit/edit-todo.component';
@@ -20,21 +18,21 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { SplitterModule} from '@progress/kendo-angular-layout';
 import { UserService } from './todo-user/user.service';
 import { TodoService } from './todo-user/todo/todo.service';
-import { EventsService } from './todo-user/calendar/events.service';
+import { LoginComponent } from './todo-welcome/login/login.component';
+import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     TodoWelcomeComponent,
-    LoginComponent,
-    SignUpComponent,
     UserMainComponent,
     AllTodosComponent,
     EditTodoComponent,
     CalendarComponent,
     CalendarHeaderComponent,
     CalMonthComponent,
-    CalDayComponent
-    
+    CalDayComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,
@@ -46,14 +44,10 @@ import { EventsService } from './todo-user/calendar/events.service';
       useFactory: adapterFactory
     }),
     SplitterModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
   ],
   providers: [
     UserService,
     TodoService,
-    EventsService
   ]
 })
 export class TodoAppModule { }

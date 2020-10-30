@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { TodoService } from '../todo.service';
-import { Todo } from '../../user.service';
+import { Todo } from '../../../todo-user/todo/todo.service';
 import { UserService } from '../../user.service';
-import { EventsService } from '../../calendar/events.service';
 
 @Component({
     selector: 'app-todos',
@@ -11,67 +10,32 @@ import { EventsService } from '../../calendar/events.service';
 })
 export class AllTodosComponent implements OnInit{
 
+    @Input() todos:Todo[] = [];
+    @Output() DBChangeNotification:EventEmitter<any> = new EventEmitter<any>();
     viewAddForm: boolean = false;
-    todos:Todo[] = [];
     currentTodoIndex:number;
     showDeleteIcon: boolean = false;
     currentTodoToDelete: number;
 
     constructor ( 
-        private eventsService: EventsService,
         private todoService:TodoService,
         private userService:UserService,
     ){}
 
+    ngOnInit(){}
 
-    ngOnInit(){
-        this.userService.getTodos().subscribe(todos =>{
-            this.todos = todos
-        })
-    }
-
-    // setTodos(){
-    //     this.todoService.getUserTodos(this.userService.userId)
-    //     .subscribe(todos => {
-    //         this.userTodos = todos;
-    //         this.todoService.setTodosInStore(todos);
-    //     })
-    // }
-
-    showTodo(eventID) {
-        console.log(eventID)
-    }
-
-    // toggleAddForm(){
-    //     this.viewAddForm = !this.viewAddForm
-    // }
-
-    openEditForm(i){
-        this.currentTodoIndex = this.currentTodoIndex == i ? -1 : i
-    }
-
-    submitNewTodo(todo: Todo){
-        if (todo.duration && todo.startDate) {
-            this.eventsService.createEvent(todo);
-        }
-        this.userService.addTodo(todo).subscribe(todo => {
-            console.log('todo saved: ',todo);
+    submitNew(todo: Todo) {
+        this.todoService.addTodo(todo).subscribe( () => {
+            this.DBChangeNotification.emit();
             this.viewAddForm = false;
-        })
-        
+        }) 
     }
 
-    editTodo(todoId, newTitle){
-        this.todoService.updateTodo(todoId, newTitle).subscribe(todo => {
-            window.alert('updated todo + event: '+todo)
-            this.currentTodoIndex = -1;
-        })
-    }
-
-    deleteTodo(todoId){
-        this.todoService.deleteTodo(todoId).subscribe(id => {
-            window.alert('todo number '+id+' deleted');
+    deleteTodo(title){
+        this.todoService.deleteTodo(title).subscribe(response => {
             this.currentTodoToDelete = -1;
+            this.showDeleteIcon = false;
+            this.DBChangeNotification.emit()
         })
     }
 

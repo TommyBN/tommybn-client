@@ -1,9 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Todo, TodoService } from '../todo.service';
-import { CalendarEvent } from 'angular-calendar';
-import { UserService } from '../../user.service';
-import * as moment from 'moment';
-import { EventsService } from '../../calendar/events.service';
+import { Todo } from '../todo.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,26 +10,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class EditTodoComponent implements OnInit {
 
     @Output() emitTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
-    @Output() emitEvent: EventEmitter<CalendarEvent> = new EventEmitter<CalendarEvent>();
 
     public createEvent: boolean = false;
 
     public todoForm: FormGroup = new FormGroup({
         title: new FormControl('', Validators.required),
         duration: new FormControl(''),
-        date: new FormControl('')
+        startDate: new FormControl(''),
+        startHour: new FormControl('')
     })
 
-    constructor(
-        private userService: UserService,
-        private todoService: TodoService,
-        private eventsService: EventsService) { }
+    constructor() { }
 
 
     ngOnInit() {    }
 
+    toggleEventForm() {
+        this.createEvent = !this.createEvent
+    }
+
     onSubmit() {
-        this.emitTodo.emit(this.todoForm.value)
+        this.emitTodo.emit(this.todoForm.value as Todo);
     }
 
 }

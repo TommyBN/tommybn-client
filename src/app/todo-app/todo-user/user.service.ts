@@ -1,44 +1,27 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { CalendarEvent } from 'angular-calendar';
-
-export interface User {
-    todos: Todo[];
-    events: CalendarEvent[];
-}
-
-export interface Todo {
-    title: string;
-    duration?: number;
-    startDate?: Date;
-}
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserService{
 
-    SERVER_URL: string = environment.apiBaseUrl;
-    public userID;
-    public user: User;
+    public refreshCalendar:EventEmitter<any> = new EventEmitter<any>();
+    public userID: string;
     
-    constructor (private http:HttpClient) {}
+    constructor (
+        private http:HttpClient,
+        ) {}
 
-    public getTodos(): Observable<Todo[]> {
-        return <Observable<Todo[]>>this.http.get(`${this.SERVER_URL}/todos/${this.userID}`)
+    getName(): Observable<string> {
+        return <Observable<string>>this.http.get(`${environment.apiBaseUrl}/auth/${this.userID}`)
     }
 
-    public addTodo(todo: Todo): Observable<any> {
-        return this.http.post(`${this.SERVER_URL}/todos/${this.userID}`, todo, {'responseType': 'json'})
+    getNotified() {
+        return this.refreshCalendar;
     }
 
-    public getEvents() {
-
-    }
-
-    public addEVent(event: CalendarEvent) {
-        return this.http.post(`${this.SERVER_URL}/events`, event, {'responseType': 'json'})
-    }
+   
 
 
 
@@ -51,30 +34,9 @@ export class UserService{
 
 
 
-    // getUser(id): Observable<User>{
-    //     this.userId = id;
-    //     return <Observable<User>>this.http.get(`${this.usersUrl}?id=${id}`)
-    // }
 
-    // setUserInStore(user){
-    //         this.store.dispatch({
-    //             type:'set-user',
-    //             payload: user
-    //         })
-    // }
-    
-    // getUserEvents():Observable<CalendarEvent[]>{
-    //     return <Observable<CalendarEvent[]>> this.http.get(`${this.eventsUrl}?id=${this.userId}`); 
-    // }
 
-    // setUserEventsInStore(){
-    //     this.getUserEvents().subscribe(events=>{
-    //         this.store.dispatch({
-    //             type:'set-events',
-    //             payload: events
-    //         })
-    //     })    
-    // }
- 
+
+
 
 }

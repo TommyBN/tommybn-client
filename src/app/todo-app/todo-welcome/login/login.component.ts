@@ -4,15 +4,16 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { FormResponse} from '../sign-up/sign-up.component';
+import { UserService } from '../../todo-user/user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../todo-welcome-forms.css']
+  styleUrls: ['../auth-forms.css']
 })
 export class LoginComponent {
 
-  SERVER_URL: string = `${environment.apiBaseUrl}/users/login`;
+  SERVER_URL: string = `${environment.apiBaseUrl}/auth/login`;
   message: string;
 
 
@@ -24,7 +25,7 @@ export class LoginComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
   onSubmit() {

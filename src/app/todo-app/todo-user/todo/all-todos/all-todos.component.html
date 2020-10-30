@@ -1,7 +1,7 @@
 
 
 <div class="container">
-    <span class="deleteTodos clickable" *ngIf="todos" 
+    <span class="deleteTodos clickable" *ngIf="todos.length > 0" 
         (click)="showDeleteIcon = true"><span>&#10007;&nbsp;</span>מחיקת מטלות
     </span>
     <div class="main">
@@ -11,19 +11,17 @@
                     (click)="currentTodoToDelete = i">&#10007;
                 </span>
                 <span *ngIf="!showDeleteIcon">&#10036;&nbsp;</span>
-                    <span (click)="showTodo(todo.event._id)">{{todo.title}}</span>
-                <span class="clickable" (click)="openEditForm(i)">&#9998;</span>
+                <span class="todo-title">{{todo.title}}</span>&nbsp;
+                <span class="todo-date">{{todo.startDate}}</span>&nbsp;
+                <span class="todo-date">{{todo.startHour}}</span>&nbsp;
+                <span class="todo-duration">{{todo.duration}}</span>&nbsp;
                 <div class="deleteTodo" *ngIf="currentTodoToDelete == i">האם למחוק את המטלה? 
-                    <button class="deleteTodo" (click)="deleteTodo(todo._id)">מחק</button>
-                    <button>ביטול</button>
+                    <button class="deleteTodo" (click)="deleteTodo(todo.title)">מחק</button>
+                    <button (click)="currentTodoToDelete = -1">ביטול</button>
                 </div>
             </div>
-            <div *ngIf="currentTodoIndex == i">
-                <input [(ngModel)]="todo.title" type="text">
-                <button (click)="editTodo(todo._id, todo.title)">Save</button>
-            </div>
         </div>
-        <button (click)="this.viewAddForm = !this.viewAddForm" >הוסף משימה&nbsp;&#43;</button>
-        <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNewTodo($event)"></app-add-todo>
+        <button (click)="this.viewAddForm = !this.viewAddForm" >הוסף מטלה&nbsp;&#43;</button>
+        <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNew($event)"></app-add-todo>
     </div>
 </div>

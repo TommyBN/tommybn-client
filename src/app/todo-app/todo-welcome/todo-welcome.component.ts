@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-welcome',
@@ -7,8 +7,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 
 export class TodoWelcomeComponent {
-
-    @ViewChild('test') testOutput: ElementRef;
 
     constructor(
         private elementRef: ElementRef

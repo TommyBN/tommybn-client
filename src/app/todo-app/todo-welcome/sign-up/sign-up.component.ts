@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { FormGroup, FormControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
@@ -12,11 +12,11 @@ export interface FormResponse {
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['../todo-welcome-forms.css']
+  styleUrls: ['../auth-forms.css']
 })
 export class SignUpComponent {
 
-  SERVER_URL: string = `${environment.apiBaseUrl}/users/signup`;
+  SERVER_URL: string = `${environment.apiBaseUrl}/auth/signup`;
   passConfirm: string;
   message: string;
   newUserSignedUp: boolean = false;
