@@ -1,6 +1,8 @@
 * {
     border-radius: 5px;
     margin: 5px;
+    direction: rtl;
+    color: black !important;
 }
 
 .container {
@@ -11,6 +13,7 @@
 button {
     cursor: pointer;
     background-color: wheat;
+    float: right;
 }
 
 #all-companies-container {

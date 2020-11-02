@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Company } from '../companies/all-companies/all-companies.component';
 import { Observable } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { JobsService } from './jobs.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-add-job',
@@ -15,10 +18,11 @@ export class AddJobComponent implements OnInit {
   @Input() jobID: string;
   @Output() formSubmitted: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  private url: string = 'http://127.0.0.1:3000/companies';
-  private title: string = 'הוספת משרה';
+  private url: string = `${environment.apiBaseUrl}/jobs`;
+  public title: string = 'הוספת משרה';
   private edit: boolean = false;
-  private submitButtonText: string = 'הוסף'
+  public submitButtonText: string = 'הוסף';
+  private id: string;
 
 
   jobForm: FormGroup = new FormGroup({
@@ -38,9 +42,15 @@ export class AddJobComponent implements OnInit {
     salary: new FormControl('')
   })
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private jobsService: JobsService,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
   ngOnInit() {
+ 
+
     if (this.jobToEdit) {
       this.jobForm.patchValue({ ...this.jobToEdit });
       this.edit = true;
@@ -54,26 +64,21 @@ export class AddJobComponent implements OnInit {
 
     //update
     if (this.edit) {
-      this.editCompany(company).subscribe(res => {
-        if( res['result']['ok'] == 1) window.alert('Document updated successfully.')
-        this.formSubmitted.emit(true);
+      this.jobsService.deleteCompany(company.name).subscribe(response => {
+        this.jobsService.saveCompany(company).subscribe(res => {
+          if( res['result']['ok'] == 1) window.alert('Document updated successfully.')
+          this.formSubmitted.emit(true);
+        })
       })
 
     } 
 
     //add
-    else this.saveCompany(company).subscribe(companyCreated => {
+    else this.jobsService.saveCompany(company).subscribe(companyCreated => {
       window.alert('Company added successfuly');
       this.formSubmitted.emit(true);
     })
 
   }
 
-  saveCompany(company: Company): Observable<Company> {
-    return <Observable<Company>>this.http.post(`${this.url}/new`, company);
-  }
-
-  editCompany(company: Company): Observable<Company> {
-    return <Observable<Company>>this.http.post(`${this.url}/${this.jobID}`, company);
-  }
 }

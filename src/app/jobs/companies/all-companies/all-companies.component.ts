@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { JobsService } from '../../add-job/jobs.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 export interface Company {
     _id?: string;
@@ -28,24 +31,28 @@ export interface Company {
 
 export class AllCompaniesComponent implements OnInit {
 
-    private url: string = 'http://127.0.0.1:3000/companies';
     allCompanies: Company[];
     currentCompanyIndex: number;
     showForm: boolean = false;
     jobToEdit: Company;
     buttonText: string = 'הוסף משרה'
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient,
+        private jobsService: JobsService,
+        private activatedRoute: ActivatedRoute
+    ) { }
 
     ngOnInit() {
-        this.getCompanies().subscribe(companies => {
+        this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+            this.jobsService.userId = params.get('id');
+        });
+        this.jobsService.getCompanies().subscribe(companies => {
             this.allCompanies = companies;
         })
     }
 
-    getCompanies(): Observable<Company[]> {
-        return <Observable<Company[]>>this.http.get(this.url);
-    }
+
 
     open(i) {
         this.currentCompanyIndex = this.currentCompanyIndex == i ? -1 : i
@@ -63,15 +70,11 @@ export class AllCompaniesComponent implements OnInit {
         this.buttonText = this.showForm ? ' חזרה' : 'הוסף משרה';
     }
 
-    delete(id: string) {
-        this.deleteCompany(id).subscribe(res => {
-            window.alert('Company deleted successfully.');
+    delete(name: string) {
+        this.jobsService.deleteCompany(name).subscribe(res => {
+            console.log(res);
             this.refresh();
         })
-    }
-
-    deleteCompany(id): Observable<Company> {
-        return <Observable<Company>>this.http.delete(`${this.url}/${id}`)
     }
 
     refresh() {

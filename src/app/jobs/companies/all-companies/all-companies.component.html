@@ -9,7 +9,7 @@
                    <button (click)="openForEdit(i)">ערוך פרטים</button>
                 </div>
                 <div class="delete-button">
-                   <button (click)="delete(company._id)"><span>&#10008;&nbsp;</span>מחק</button>
+                   <button (click)="delete(company.name)"><span>&#10008;&nbsp;</span>מחק</button>
                 </div>
              </div>
                 <div *ngIf="company.location">
