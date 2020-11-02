@@ -1,37 +1,76 @@
-<div class="container">
 
+
+<div class="container">
   <div class="title">
-    <h1>TommyBN - Software Developer</h1>
+    <h1 class="title-tommyBN">TommyBN
+    </h1>
+    <span >Software development</span>
+
   </div>
-  
   <div class="intro">
     <div class="int-int">
       <p>
-        Hi. My name is Tom Ben Ner. I am a software developer.
+        Hi. My name is Tom Ben Ner. I am a <strong>full stack</strong> software developer, living in Tel Aviv, Israel. <br> My main specialization is Angular, but I am a fast learner and eager to conquer more fields in the web / software industry
       </p>
     </div>
     <div class="int-int2">
       <p>
-        I have been developing applications in the last 2 years, mainly with 
+        Here are some of the technologies I have mu hands on:
       </p>
-      <h2>Angular (versions 4 ---> 8)</h2> 
-      <h2>JavaScript</h2> 
-      <h2>HTML</h2>        
-      <h2>CSS</h2>     
-      <h2>NodeJs</h2>
-      <h2>MongoDB</h2>
-      <h2>Nginx</h2>
-      <h2>Git</h2>     
+      <div class="techs">
+        <div class="tech">
+          <img src="../../../assets/angular.png" style="width: 80px; height: 80px" alt="">
+          <h2> Angular (versions 4 - 10)</h2>
+        </div>
+        <div class="tech">
+          <div class="js-logo">JS</div>
+          <h2>JavaScript</h2>
+        </div>
+        <div class="tech">
+          <img src="../../../assets/HTML5_Badge_128.png" style="width: 60px; height: 60px" alt="">
+          <h2>HTML5</h2>
+        </div>
+        <div class="tech">
+          <img src="../../../assets/icons8-css3-96.png" style="width: 100px; height: 100px" alt="">
+          <h2>CSS3</h2>
+        </div>
+        <div class="tech">
+          <div class="java-logo">Java</div>
+          <!-- <img src="../../../assets/angular.png" style="width: 60px; height: 60px" alt=""> -->
+          <!-- <h2>Java</h2> -->
+        </div>
+        <div class="tech">
+          <img src="../../../assets/nodejs-new-pantone-white.png" style="width: 180px; height: 180px" alt="">
+        </div>
+        <div class="tech mongo">
+          <img src="../../../assets/MongoDB_Logo_FullColorWhite_RGB.png" style="width: 180px; height: 110px"  alt="">
+        </div>
+        <div class="tech">
+          <img src="../../../assets/Git-Logo-1788C.png" style="width: 150px; height: 80px"  alt="">
+        </div>
+        <div class="tech">
+          <h2>and more...</h2>
+        </div>
+      </div>
     </div>
   </div>
 
 
-  <div class="centerized">Wanna see apps I have been making from scratch?</div>
-  <h3 class="centerized"> &#11015; </h3>
-  
+  <div class="wanna-see">
+    <h1>Check my apps</h1>
+    <h3 class="arrow"> &#11015; </h3>
+  </div>
+
   <div id="apps">
-    <a routerLink="/todo" >Todo application</a>
-    <a routerLink="/job-places" >Help me find a job!</a>
+    <div class="todo" routerLink="/todo">
+      <h2>נעשה ונשמע</h2>
+      <p>נהל/י את משימותייך בפשטות וביעילות</p>
+    </div>
+    <div class="jobs" routerLink="/jobs">
+      <h2>בוא נמצא עבודה!</h2>
+      <p>רכז/י פרטים לגבי משרות שהגשת להם מועמדות - הכל במקום אחד.</p>
+      <p>(בקרוב..)</p>
+    </div>
   </div>
 
 </div>

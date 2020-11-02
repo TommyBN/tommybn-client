@@ -15,9 +15,16 @@ const routes: Routes = [
       // ('./todo-app/todo-app.module#TodoAppModule'),
       .then(m=>m.TodoAppModule),
       pathMatch:'prefix'
+    },
+    { 
+      path: 'jobs',
+      loadChildren: 
+      () => import
+      ('./jobs/jobs.module')
+      // ('./todo-app/todo-app.module#TodoAppModule'),
+      .then(m=>m.JobsModule),
+      pathMatch:'prefix'
     }
-    
-    //'./modules/auth/auth.module#AuthModule'
   ];
 
 

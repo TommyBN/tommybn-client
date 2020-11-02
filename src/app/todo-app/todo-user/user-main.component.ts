@@ -46,7 +46,7 @@ export class UserMainComponent implements OnInit {
   //set todos and events
   setTodos() {
     this.todoService.getTodosFromDB().subscribe(todos => {
-      this.todos = todos;
+      if(todos) this.todos = todos;
       this.createCalEvents();
       this.userService.refreshCalendar.emit();
     })

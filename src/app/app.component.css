@@ -1,58 +1,86 @@
 .bar {
-    /* margin: 1% 5%; */
-    width: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #logo {
-    margin-left: 10%;
+    margin-bottom: 10%;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    width: 100%;
-    border: 1px solid white;
+    width: 28%;
+    border: 1px solid black;
     padding: 0% 0% 0% 1%;
     border-radius: 5px;
+}
+
+.my-apps {
+    margin-left: 10%;
+    margin-bottom: 10%;
+    width: 30%;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0% 0% 0% 1%;
+    border-radius: 5px;
+}   
+
+a {
+    text-decoration: none;
+    color: rgb(85, 63, 57);
+}
+
+.my-apps-text {
+    line-height: 20px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 16px;
+    color:rgb(85, 63, 57);
+    text-shadow: 5px 5px 10px rgb(219, 209, 219), 0 0 20px rgb(138, 82, 56);;
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 10%;
+    transform: scale(1,1);
+    animation: myapps;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes myapps {
+    0% { transform: scale(1, 1);}
+    100% { transform: scale(1.5, 1.5);}
 }
 
 
 h4 {
     text-align: center;
-    text-shadow: 0 0 10px rgb(240, 229, 229), 0 0 20px rgb(226, 188, 20), 0 0 30px #e60073, 0 0 40px #6b0639, 0 0 50px #e71c82, 0 0 60px #7b5ce4, 0 0 70px #5de25d;
+    text-shadow: 0 0 10px rgb(240, 229, 229);
+    color: black;
+
     /* animation: glow 1s ease-in-out infinite alternate; */
 }
 
+
 @media only screen and (min-width: 768px) {
-    .bar {
-        /* margin: 1% 5%; */
-        width: 80%;
-        margin-left: -50px;
-    }
     
     #logo {
         font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-        width: 20%;
-        border: 1px solid white;
+        width: 8%;
         padding: 0% 0% 0% 1%;
         border-radius: 5px;
     }
-
-    .sd {
-        width: 200000px;
-        margin-left: 10px;
-    }
-    
     
     h4 {
         text-align: left;
-        text-shadow: 0 0 10px rgb(240, 229, 229), 0 0 20px rgb(226, 188, 20), 0 0 30px #e60073, 0 0 40px #6b0639, 0 0 50px #e71c82, 0 0 60px #7b5ce4, 0 0 70px #5de25d;
-        /* animation: glow 1s ease-in-out infinite alternate; */
+        text-shadow: 0 0 10px rgb(240, 229, 229), 0 0 20px rgb(226, 188, 20);
     }
+
+    .my-apps {
+        margin-left: 10%;
+        margin-bottom: 10%;
+        width: 15%;
+        text-align: center;
+        border: 1px solid black;
+        padding: 0% 0% 0% 1%;
+        border-radius: 5px;
+    }   
 }
-/* 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  }
-  
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  }
-} */

@@ -11,11 +11,12 @@ export class HelloComponent implements OnInit {
 
   @Input() name: string;
   @Input() hollyNumber: number;
-  yourAsciiText: string = 'Did you know that your Ascii-Numerologic number is . . . . .     ';
+  @Output() refreshPageEmitter:EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('yourAscii') yourAsciiElement: ElementRef;
+  
+  yourAsciiText: string = 'Did you know that your Ascii-Numerologic number is . . . . .     ';
   inter: any = interval(80);
   showHollyNumber: boolean = false;
-  @Output() refreshPageEmitter:EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
   
@@ -35,11 +36,7 @@ export class HelloComponent implements OnInit {
         }
       )
     }, 2500);
-    obs.subscribe(
-
-    )
-  
-
+    obs.subscribe()
   }
 
   refresh() {

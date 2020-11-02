@@ -1,0 +1,73 @@
+* {
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    cursor: pointer;
+    background-color: wheat;
+}
+
+#all-companies-container {
+    border: 1px solid black;
+    padding: 2%;
+    margin: 2%;
+    width: 100%;
+    background-color: darkkhaki;
+    display: flex;
+    flex-direction: column;
+}
+
+#all-companies-container > div {
+    width: 20%;
+    background-color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.delete-button span {
+    color: red;
+}
+
+h3 {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2%;
+    text-align: center;
+}
+
+h3:hover {
+    background-color: rgb(156, 141, 82);
+}
+
+.company-div {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.company-details {}
+
+.company-details > div {
+    margin: 2%;
+}
+
+.company-details > div > span {
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+app-add-job {
+    border: 1px solid black;
+    margin: 2%;
+    border-radius: 5px;
+    background-color: darkkhaki;
+}

@@ -1,11 +1,11 @@
 
 
 <div class="container">
-    <span class="deleteTodos clickable" *ngIf="todos.length > 0" 
-        (click)="showDeleteIcon = true"><span>&#10007;&nbsp;</span>מחיקת מטלות
-    </span>
-    <div class="main">
-        <div class="todo" *ngFor="let todo of todos; let i = index"> 
+    <div class="main" *ngIf="todos">
+        <span class="deleteTodos clickable" *ngIf="todos.length > 0" 
+            (click)="showDeleteIcon = true"><span>&#10007;&nbsp;</span>מחיקת מטלות
+        </span>
+        <div class="todo"  *ngFor="let todo of todos; let i = index"> 
             <div *ngIf="currentTodoIndex != i" >
                 <span class="clickable deleteTodo" *ngIf="showDeleteIcon" 
                     (click)="currentTodoToDelete = i">&#10007;
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <button (click)="this.viewAddForm = !this.viewAddForm" >הוסף מטלה&nbsp;&#43;</button>
-        <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNew($event)"></app-add-todo>
     </div>
+    <button (click)="this.viewAddForm = !this.viewAddForm" >הוסף מטלה&nbsp;&#43;</button>
+    <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNew($event)"></app-add-todo>
 </div>

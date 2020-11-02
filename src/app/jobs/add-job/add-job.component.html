@@ -1,0 +1,51 @@
+<div id="add-job">
+    <h2>{{title}}</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="jobForm">
+      <div class="container">
+        <div class="formControl">
+            <label>שם החברה:<br><input type="text" formControlName="name" required></label>
+        </div>
+        <div class="formControl">
+            <label>מיקום:<br><input type="text" formControlName="location"></label>
+        </div>
+        <div class="formControl">
+            <label>איש קשר:<br><input type="text" formControlName="contactMan"></label>
+        </div>
+        <div class="formControl">
+            <label>טלפון:<br><input type="text" formControlName="phoneNumber"></label>
+        </div>
+        <div class="formControl">
+            <label>תאור החברה:<br><input type="text" size="50" formControlName="companyDescription"></label>
+        </div>
+        <div class="formControl">
+            <label>תאור משרה:<br><input type="text" size="50" formControlName="jobDescription"></label>
+        </div>
+        <div class="formControl">
+            <label>כישורים:<br><input type="text" size="50" formControlName="handsOn"></label>
+        </div>
+        <div class="formControl">
+            <label>נסיון:<br><input type="text" formControlName="experienceNeeded"></label>
+        </div>
+        <div class="formControl">
+            <label>מיקור חוץ?<br><input type="text" formControlName="outSourcing"></label>
+        </div>
+        <div class="formControl">
+            <label>הערות:<br><input type="text" formControlName="remarks"></label>
+        </div>
+        <div class="formControl">
+            <label>שכר:<br><input type="text" formControlName="salary"></label>
+        </div>
+        <div class="formControl">
+            <label>ימים / שעות:<br><input type="text" formControlName="daysAndHours"></label>
+        </div>
+        <div class="formControl">
+            <label>שאלות?<br><input type="text" size="50" formControlName="questions"></label>
+        </div>
+        <div class="formControl">
+            <label>הגעתי דרך...<br><input type="text" formControlName="jobBoard"></label>
+        </div>
+
+    </div>
+    <button type="submit" [disabled]="!jobForm.valid">{{submitButtonText}}</button>
+  </form>
+</div>
