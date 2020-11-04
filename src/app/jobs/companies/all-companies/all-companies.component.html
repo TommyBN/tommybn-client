@@ -1,15 +1,26 @@
-<button (click)="toggleAddForm()">{{buttonText}}</button>
+<div class="button">
+   <button (click)="toggleAddForm()">{{buttonText}}</button>
+</div>
+<br><br>
 <div class="container">
     <div id="all-companies-container" *ngIf="!showForm">
        <div *ngFor="let company of allCompanies; let i = index;" class="company-div">
           <h3 (click)="open(i)">{{company.name}}</h3>
-          <div *ngIf="currentCompanyIndex == i" class="company-details">
+          <div class="delete-div" *ngIf="jobToDelete == i">
+            האם את/ה בטוח/ה שברצונך למחוק את המשרה? 
+            <div class="delete-buttons">
+               <button class="delete-button" (click)="delete(company.name)">מחק</button>
+               <button (click)="jobToDelete = -1">ביטול</button>
+            </div>
+         </div>
+          <div *ngIf="currentCompanyIndex == i && jobToDelete == -1" class="company-details">
              <div class="buttons">
                 <div class="open-edit-form-button">
                    <button (click)="openForEdit(i)">ערוך פרטים</button>
                 </div>
                 <div class="delete-button">
-                   <button (click)="delete(company.name)"><span>&#10008;&nbsp;</span>מחק</button>
+                   <button class="delete-button" (click)="jobToDelete = i"><span>&#10008;&nbsp;</span>מחק</button>
+                  
                 </div>
              </div>
                 <div *ngIf="company.location">

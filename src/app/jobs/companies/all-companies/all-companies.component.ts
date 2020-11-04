@@ -35,7 +35,8 @@ export class AllCompaniesComponent implements OnInit {
     currentCompanyIndex: number;
     showForm: boolean = false;
     jobToEdit: Company;
-    buttonText: string = 'הוסף משרה'
+    buttonText: string = 'הוסף משרה';
+    jobToDelete: number = -1;
 
     constructor(
         private http: HttpClient,
@@ -72,7 +73,7 @@ export class AllCompaniesComponent implements OnInit {
 
     delete(name: string) {
         this.jobsService.deleteCompany(name).subscribe(res => {
-            console.log(res);
+            if(res.nModified == 1) window.alert('Document deleted successfully');
             this.refresh();
         })
     }

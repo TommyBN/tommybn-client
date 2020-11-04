@@ -17,7 +17,7 @@
 .my-apps {
     margin-left: 10%;
     margin-bottom: 10%;
-    width: 30%;
+    width: 40%;
     text-align: center;
     border: 1px solid black;
     padding: 0% 0% 0% 1%;
@@ -34,7 +34,7 @@ a {
     font-family: Impact, Charcoal, sans-serif;
     font-size: 16px;
     color:rgb(85, 63, 57);
-    text-shadow: 5px 5px 10px rgb(219, 209, 219), 0 0 20px rgb(138, 82, 56);;
+    /* text-shadow: 5px 5px 10px rgb(219, 209, 219), 0 0 20px rgb(138, 82, 56);; */
     width: 70%;
     margin-left: 10%;
     margin-top: 10%;

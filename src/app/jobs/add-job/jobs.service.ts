@@ -26,7 +26,7 @@ export class JobsService {
 
 
 
-    deleteCompany(name): Observable<Company> {
+    deleteCompany(name): Observable<any> {
         return <Observable<Company>>this.http.post(`${this.url}/delete/${this.userId}`, {name}, {'responseType': 'json'})
     }
 

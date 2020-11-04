@@ -3,19 +3,27 @@
 }
 
 #add-job {
-    /* width: 30%; */
     margin: 3%;
     padding: 3%;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .container > div {
-    width: fit-content;
-    margin: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
 .formControl {

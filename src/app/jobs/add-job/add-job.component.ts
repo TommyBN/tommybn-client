@@ -75,7 +75,7 @@ export class AddJobComponent implements OnInit {
 
     //add
     else this.jobsService.saveCompany(company).subscribe(companyCreated => {
-      window.alert('Company added successfuly');
+      window.alert('Document added successfuly');
       this.formSubmitted.emit(true);
     })
 
