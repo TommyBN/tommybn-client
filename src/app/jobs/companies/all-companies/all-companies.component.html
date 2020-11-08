@@ -1,87 +1,92 @@
-<div class="button">
-   <button (click)="toggleAddForm()">{{buttonText}}</button>
-</div>
-<br><br>
-<div class="container">
-    <div id="all-companies-container" *ngIf="!showForm">
-       <div *ngFor="let company of allCompanies; let i = index;" class="company-div">
-          <h3 (click)="open(i)">{{company.name}}</h3>
-          <div class="delete-div" *ngIf="jobToDelete == i">
-            האם את/ה בטוח/ה שברצונך למחוק את המשרה? 
-            <div class="delete-buttons">
-               <button class="delete-button" (click)="delete(company.name)">מחק</button>
-               <button (click)="jobToDelete = -1">ביטול</button>
+<div class="main" [style.opacity]="this.showModal ? 0.5 : 1">
+
+   <div class="button">
+      <button (click)="toggleAddForm()">{{buttonText}}</button>
+   </div>
+   <br><br>
+   <div class="container">
+      <div id="all-companies-container" *ngIf="!showForm">
+         <div *ngFor="let company of allCompanies; let i = index;" class="company-div">
+            <h3 (click)="open(i)">{{company.name}}</h3>
+            <div class="delete-div" *ngIf="jobToDelete == i">
+               האם את/ה בטוח/ה שברצונך למחוק את המשרה?
+               <div class="delete-buttons">
+                  <button class="delete-button" (click)="delete(company.name)">מחק</button>
+                  <button (click)="jobToDelete = -1">ביטול</button>
+               </div>
+            </div>
+            <div *ngIf="currentCompanyIndex == i && jobToDelete == -1" class="company-details">
+               <div class="buttons">
+                  <div class="open-edit-form-button">
+                     <button (click)="openForEdit(i)">ערוך פרטים</button>
+                  </div>
+                  <div class="delete-button">
+                     <button class="delete-button" (click)="jobToDelete = i"><span>&#10008;&nbsp;</span>מחק</button>
+
+                  </div>
+               </div>
+               <div *ngIf="company.location">
+                  <span> מיקום: </span>
+                  {{company.location}}
+               </div>
+               <div *ngIf="company.contactMan">
+                  <span> איש קשר: </span>
+                  {{company.contactMan}}
+               </div>
+               <div *ngIf="company.phoneNumber">
+                  <span> טלפון: </span>
+                  {{company.phoneNumber}}
+               </div>
+               <div *ngIf="company.jobBoard">
+                  <span> אתר / לוח:</span>
+                  {{company.jobBoard}}
+               </div>
+               <div *ngIf="company.companyDescription">
+                  <span> תאור העסק:</span>
+                  {{company.companyDescription}}
+               </div>
+               <div *ngIf="company.jobDescription">
+                  <span> תאור העבודה:</span>
+                  {{company.jobDescription}}
+               </div>
+               <div *ngIf="company.handsOn">
+                  <span> כישורים נדרשים:</span>
+                  {{company.handsOn}}
+               </div>
+               <div *ngIf="company.handsOn">
+                  <span> שכר:</span>
+                  {{company.salary}}
+               </div>
+               <div *ngIf="company.daysAndHours">
+                  <span> ימים / שעות:</span>
+                  {{company.daysAndHours}}
+               </div>
+               <div *ngIf="company.experienceNeeded">
+                  <span> נסיון:</span>
+                  {{company.experienceNeeded}}
+               </div>
+               <div *ngIf="company.remarks">
+                  <span> הערות:</span>
+                  {{company.remarks}}
+               </div>
+               <div *ngIf="company.outSourcing">
+                  <span> מיקור חוץ:</span>
+                  {{company.outSourcing}}
+               </div>
+               <div *ngIf="company.questions">
+                  <span> שאלות:</span>
+                  {{company.questions}}
+               </div>
             </div>
          </div>
-          <div *ngIf="currentCompanyIndex == i && jobToDelete == -1" class="company-details">
-             <div class="buttons">
-                <div class="open-edit-form-button">
-                   <button (click)="openForEdit(i)">ערוך פרטים</button>
-                </div>
-                <div class="delete-button">
-                   <button class="delete-button" (click)="jobToDelete = i"><span>&#10008;&nbsp;</span>מחק</button>
-                  
-                </div>
-             </div>
-                <div *ngIf="company.location">
-                   <span> מיקום: </span>
-                   {{company.location}}
-                </div>
-                <div *ngIf="company.contactMan">
-                   <span> איש קשר: </span>
-                   {{company.contactMan}}
-                </div>
-                <div *ngIf="company.phoneNumber">
-                   <span> טלפון: </span>
-                   {{company.phoneNumber}}
-                </div>
-                <div *ngIf="company.jobBoard">
-                   <span> אתר / לוח:</span> 
-                   {{company.jobBoard}}
-                </div>
-                <div *ngIf="company.companyDescription">
-                   <span> תאור העסק:</span>
-                   {{company.companyDescription}}
-                </div>
-                <div *ngIf="company.jobDescription">
-                   <span> תאור העבודה:</span>
-                   {{company.jobDescription}}
-                </div>
-                <div *ngIf="company.handsOn">
-                   <span> כישורים נדרשים:</span> 
-                   {{company.handsOn}}
-                </div>
-                <div *ngIf="company.handsOn">
-                   <span> שכר:</span> 
-                   {{company.salary}}
-                </div>
-                <div *ngIf="company.daysAndHours">
-                   <span> ימים / שעות:</span> 
-                   {{company.daysAndHours}}
-                </div>
-                <div *ngIf="company.experienceNeeded">
-                   <span> נסיון:</span>
-                   {{company.experienceNeeded}}
-                </div>
-                <div *ngIf="company.remarks">
-                   <span> הערות:</span>
-                   {{company.remarks}}
-                </div>
-                <div *ngIf="company.outSourcing">
-                   <span> מיקור חוץ:</span>
-                   {{company.outSourcing}}
-                </div>
-                <div *ngIf="company.questions">
-                   <span> שאלות:</span> 
-                   {{company.questions}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <app-add-job 
-      *ngIf="showForm" 
-      [jobID]="jobToEdit ? jobToEdit._id : null" 
-      [jobToEdit]="jobToEdit" 
-      (formSubmitted)="refresh()">
-   </app-add-job>
+      </div>
+      <app-add-job *ngIf="showForm" [jobID]="jobToEdit ? jobToEdit._id : null" [jobToEdit]="jobToEdit"
+         (formSubmitted)="popUpAndRefresh($event)">
+      </app-add-job>
+   </div>
+</div>
+
+<div *ngIf="showModal" class="modal">
+   <h1>{{modalText}}</h1>
+   <button (click)="this.showModal = false"> תודה</button>
 </div>

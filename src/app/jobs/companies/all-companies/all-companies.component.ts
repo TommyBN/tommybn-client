@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { JobsService } from '../../add-job/jobs.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -37,6 +35,8 @@ export class AllCompaniesComponent implements OnInit {
     jobToEdit: Company;
     buttonText: string = 'הוסף משרה';
     jobToDelete: number = -1;
+    showModal: boolean = false;
+    modalText: string = 'this is the popup modal'
 
     constructor(
         private http: HttpClient,
@@ -73,14 +73,18 @@ export class AllCompaniesComponent implements OnInit {
 
     delete(name: string) {
         this.jobsService.deleteCompany(name).subscribe(res => {
-            if(res.nModified == 1) window.alert('Document deleted successfully');
-            this.refresh();
+            if(res.nModified == 1) {
+                this.popUpAndRefresh('בטוח תמצא/י משרה שהולמת אותך יותר!');
+                this.jobToDelete = -1;
+            } 
         })
     }
 
-    refresh() {
+    popUpAndRefresh(message: string) {
         this.ngOnInit();
         this.showForm = false;
         this.buttonText = this.showForm ? ' חזרה' : 'הוסף משרה';
+        this.showModal = true;
+        this.modalText = message;
     }
 }

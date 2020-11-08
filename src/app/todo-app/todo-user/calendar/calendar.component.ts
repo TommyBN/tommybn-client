@@ -21,30 +21,14 @@ export class CalendarComponent implements OnInit {
     localStorage.setItem('sidebarSize', newSize);
   }
 
-  //   view: CalendarView = CalendarView.Month;
-  //   viewDate: Date = new Date();
   @Input() events: CalendarEvent[];
 
   constructor(
   ) { }
 
   ngOnInit() {
-    // console.log(document.getElementsByTagName('kendo-splitter-pane')[1].attributes[1].value)
     
   }
-  
-  ngAfterViewInit() {
-    // console.log(document.getElementsByTagName('kendo-splitter-pane')[1].attributes[1].value)
-    // if (window.screen.width < 768) {
-    //   document.getElementsByTagName('kendo-splitter-pane')[1].attributes[1].value = '100%'
-      // document.getElementsByTagName('kendo-splitter-pane')[1].attributes[1].nodeValue = "horizontal"
-    // }
-    // else document.getElementsByTagName('kendo-splitter')[0].attributes[1].nodeValue = "vertical"
-  }
-
-
-
-
 
 
 }

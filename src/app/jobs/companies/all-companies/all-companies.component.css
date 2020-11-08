@@ -81,8 +81,6 @@ h3:hover {
     padding: 20px;
 }
 
-.company-details {}
-
 .company-details > div {
     margin: 2%;
 }
@@ -98,4 +96,21 @@ app-add-job {
     border-radius: 5px;
     background-color: darkkhaki;
     width: 100%;
+}
+
+.modal {
+    position: absolute;
+    width: 50%;
+    height: fit-content;
+    padding: 8%;
+    top: 31%;
+    left: 21%;
+    background: forestgreen;
+    border: 1px solid black;
+}
+
+@media only screen and (min-width: 768px) {
+    .modal {
+        width: 25%;
+    }   
 }

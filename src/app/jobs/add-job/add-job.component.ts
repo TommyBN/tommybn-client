@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Company } from '../companies/all-companies/all-companies.component';
-import { Observable } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { JobsService } from './jobs.service';
@@ -16,7 +15,7 @@ export class AddJobComponent implements OnInit {
 
   @Input() jobToEdit: Company;
   @Input() jobID: string;
-  @Output() formSubmitted: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() formSubmitted: EventEmitter<string> = new EventEmitter<string>();
 
   private url: string = `${environment.apiBaseUrl}/jobs`;
   public title: string = 'הוספת משרה';
@@ -66,8 +65,7 @@ export class AddJobComponent implements OnInit {
     if (this.edit) {
       this.jobsService.deleteCompany(company.name).subscribe(response => {
         this.jobsService.saveCompany(company).subscribe(res => {
-          if( res['result']['ok'] == 1) window.alert('Document updated successfully.')
-          this.formSubmitted.emit(true);
+          if( res['result']['ok'] == 1) this.formSubmitted.emit('פרטי משרה עודכנו בהצלחה :)');
         })
       })
 
@@ -75,8 +73,7 @@ export class AddJobComponent implements OnInit {
 
     //add
     else this.jobsService.saveCompany(company).subscribe(companyCreated => {
-      window.alert('Document added successfuly');
-      this.formSubmitted.emit(true);
+      this.formSubmitted.emit('נוספה לרשימת המשרות שלך :)');
     })
 
   }
