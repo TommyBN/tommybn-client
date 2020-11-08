@@ -15,12 +15,6 @@
     justify-content: space-between;
 }
 
-button{
-    cursor: default;
-    border-radius: 3px;
-    /* width: fit-content; */
-}
-button:hover { background-color: rgb(117, 113, 107) }
 
 .header{
     float: right;

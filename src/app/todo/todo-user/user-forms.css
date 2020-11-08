@@ -29,16 +29,14 @@
     justify-content: space-between;
 }
 button, input{
-    cursor: default;
-    border-radius: 3px;
     width: fit-content;
     margin: 2%;
 }
-button:hover, input:hover{ background-color: rgb(117, 113, 107); }
+
 
 input { 
-    border-radius: 10px;
-    width: 100% }
+    width: 100% 
+}
 
 input[formControlName="description"] {
     width: 70%;

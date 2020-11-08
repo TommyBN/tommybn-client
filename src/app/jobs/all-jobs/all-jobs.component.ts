@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
-import { JobsService } from '../../add-job/jobs.service';
+import { JobsService } from '../jobs.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-export interface Company {
+export interface Job {
     _id?: string;
     name: string;
     location?: string;
@@ -22,17 +22,17 @@ export interface Company {
 }
 
 @Component({
-    selector: 'app-companies',
-    templateUrl: './all-companies.component.html',
-    styleUrls: ['./all-companies.component.css']
+    selector: 'app-jobs',
+    templateUrl: './all-jobs.component.html',
+    styleUrls: ['./all-jobs.component.css']
 })
 
-export class AllCompaniesComponent implements OnInit {
+export class AllJobsComponent implements OnInit {
 
-    allCompanies: Company[];
-    currentCompanyIndex: number;
+    allJobs: Job[];
+    currentJobIndex: number;
     showForm: boolean = false;
-    jobToEdit: Company;
+    jobToEdit: Job;
     buttonText: string = 'הוסף משרה';
     jobToDelete: number = -1;
     showModal: boolean = false;
@@ -48,15 +48,15 @@ export class AllCompaniesComponent implements OnInit {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
             this.jobsService.userId = params.get('id');
         });
-        this.jobsService.getCompanies().subscribe(companies => {
-            this.allCompanies = companies;
+        this.jobsService.getJobs().subscribe(companies => {
+            this.allJobs = companies;
         })
     }
 
 
 
     open(i) {
-        this.currentCompanyIndex = this.currentCompanyIndex == i ? -1 : i
+        this.currentJobIndex = this.currentJobIndex == i ? -1 : i
     }
 
     toggleAddForm() {
@@ -66,13 +66,13 @@ export class AllCompaniesComponent implements OnInit {
     }
 
     openForEdit(i: number) {
-        this.jobToEdit = this.allCompanies[i];
+        this.jobToEdit = this.allJobs[i];
         this.showForm = true;
         this.buttonText = this.showForm ? ' חזרה' : 'הוסף משרה';
     }
 
     delete(name: string) {
-        this.jobsService.deleteCompany(name).subscribe(res => {
+        this.jobsService.deleteJob(name).subscribe(res => {
             if(res.nModified == 1) {
                 this.popUpAndRefresh('בטוח תמצא/י משרה שהולמת אותך יותר!');
                 this.jobToDelete = -1;

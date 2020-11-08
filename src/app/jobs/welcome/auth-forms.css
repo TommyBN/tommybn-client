@@ -29,9 +29,4 @@
 }
 
 
-button, input{
-    cursor: default;
-    border-radius: 5%;
-    margin: 3%;
-} 
-button:hover, input:hover { background-color: rgb(117, 113, 107) }
+

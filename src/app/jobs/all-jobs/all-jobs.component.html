@@ -5,77 +5,76 @@
    </div>
    <br><br>
    <div class="container">
-      <div id="all-companies-container" *ngIf="!showForm">
-         <div *ngFor="let company of allCompanies; let i = index;" class="company-div">
-            <h3 (click)="open(i)">{{company.name}}</h3>
+      <div id="all-jobs-container" *ngIf="!showForm">
+         <div *ngFor="let job of allJobs; let i = index;" class="job-div">
+            <h3 (click)="open(i)">{{job.name}}</h3>
             <div class="delete-div" *ngIf="jobToDelete == i">
                האם את/ה בטוח/ה שברצונך למחוק את המשרה?
                <div class="delete-buttons">
-                  <button class="delete-button" (click)="delete(company.name)">מחק</button>
+                  <button class="delete-button" (click)="delete(job.name)">מחק</button>
                   <button (click)="jobToDelete = -1">ביטול</button>
                </div>
             </div>
-            <div *ngIf="currentCompanyIndex == i && jobToDelete == -1" class="company-details">
+            <div *ngIf="currentJobIndex == i && jobToDelete == -1" class="job-details">
                <div class="buttons">
                   <div class="open-edit-form-button">
                      <button (click)="openForEdit(i)">ערוך פרטים</button>
                   </div>
-                  <div class="delete-button">
+                  <div>
                      <button class="delete-button" (click)="jobToDelete = i"><span>&#10008;&nbsp;</span>מחק</button>
-
                   </div>
                </div>
-               <div *ngIf="company.location">
+               <div *ngIf="job.location">
                   <span> מיקום: </span>
-                  {{company.location}}
+                  {{job.location}}
                </div>
-               <div *ngIf="company.contactMan">
+               <div *ngIf="job.contactMan">
                   <span> איש קשר: </span>
-                  {{company.contactMan}}
+                  {{job.contactMan}}
                </div>
-               <div *ngIf="company.phoneNumber">
+               <div *ngIf="job.phoneNumber">
                   <span> טלפון: </span>
-                  {{company.phoneNumber}}
+                  {{job.phoneNumber}}
                </div>
-               <div *ngIf="company.jobBoard">
+               <div *ngIf="job.jobBoard">
                   <span> אתר / לוח:</span>
-                  {{company.jobBoard}}
+                  {{job.jobBoard}}
                </div>
-               <div *ngIf="company.companyDescription">
+               <div *ngIf="job.jobDescription">
                   <span> תאור העסק:</span>
-                  {{company.companyDescription}}
+                  {{job.jobDescription}}
                </div>
-               <div *ngIf="company.jobDescription">
+               <div *ngIf="job.companyDescription">
                   <span> תאור העבודה:</span>
-                  {{company.jobDescription}}
+                  {{job.companyDescription}}
                </div>
-               <div *ngIf="company.handsOn">
+               <div *ngIf="job.handsOn">
                   <span> כישורים נדרשים:</span>
-                  {{company.handsOn}}
+                  {{job.handsOn}}
                </div>
-               <div *ngIf="company.handsOn">
+               <div *ngIf="job.handsOn">
                   <span> שכר:</span>
-                  {{company.salary}}
+                  {{job.salary}}
                </div>
-               <div *ngIf="company.daysAndHours">
+               <div *ngIf="job.daysAndHours">
                   <span> ימים / שעות:</span>
-                  {{company.daysAndHours}}
+                  {{job.daysAndHours}}
                </div>
-               <div *ngIf="company.experienceNeeded">
+               <div *ngIf="job.experienceNeeded">
                   <span> נסיון:</span>
-                  {{company.experienceNeeded}}
+                  {{job.experienceNeeded}}
                </div>
-               <div *ngIf="company.remarks">
+               <div *ngIf="job.remarks">
                   <span> הערות:</span>
-                  {{company.remarks}}
+                  {{job.remarks}}
                </div>
-               <div *ngIf="company.outSourcing">
+               <div *ngIf="job.outSourcing">
                   <span> מיקור חוץ:</span>
-                  {{company.outSourcing}}
+                  {{job.outSourcing}}
                </div>
-               <div *ngIf="company.questions">
+               <div *ngIf="job.questions">
                   <span> שאלות:</span>
-                  {{company.questions}}
+                  {{job.questions}}
                </div>
             </div>
          </div>

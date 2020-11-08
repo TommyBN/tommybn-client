@@ -5,3 +5,20 @@ body {
     background: rgb(134, 99, 85);
     color: white;
 }
+
+input {
+    border-radius: 8px;
+    cursor: text;
+    height: 20px;
+    margin: 3%;
+}
+
+input:hover {
+    background-color: rgb(148, 144, 151);
+}
+
+button {
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 3%;
+}

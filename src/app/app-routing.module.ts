@@ -11,9 +11,9 @@ const routes: Routes = [
       path: 'todo',
       loadChildren: 
       () => import
-      ('./todo-app/todo-app.module')
+      ('./todo/todo.module')
       // ('./todo-app/todo-app.module#TodoAppModule'),
-      .then(m=>m.TodoAppModule),
+      .then(m=>m.TodoModule),
       pathMatch:'prefix'
     },
     { 

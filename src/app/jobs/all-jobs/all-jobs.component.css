@@ -14,9 +14,10 @@ button {
     cursor: pointer;
     background-color: wheat;
     float: right;
+    margin: 0;
 }
 
-#all-companies-container {
+#all-jobs-container {
     width: 100%;
     padding: 10px;
     border: 1px solid black;
@@ -26,12 +27,12 @@ button {
     gap: 0;
 }
 
-#all-companies-container > div {
+#all-jobs-container > div {
     background-color: white;
 }
 
 @media only screen and (min-width: 768px) {
-    #all-companies-container {
+    #all-jobs-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 1em;
@@ -76,16 +77,16 @@ h3:hover {
     background-color: rgb(156, 141, 82);
 }
 
-.company-div {
+.job-div {
     border: 1px solid black;
     padding: 20px;
 }
 
-.company-details > div {
+.jobs-details > div {
     margin: 2%;
 }
 
-.company-details > div > span {
+.job-details > div > span {
     text-decoration: underline;
     margin-left: 10px;
 }

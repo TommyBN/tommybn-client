@@ -1,9 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Company } from '../companies/all-companies/all-companies.component';
+import { Job } from '../all-jobs/all-jobs.component';
 import { FormGroup, FormControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { JobsService } from './jobs.service';
+import { JobsService } from '../jobs.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class AddJobComponent implements OnInit {
 
-  @Input() jobToEdit: Company;
+  @Input() jobToEdit: Job;
   @Input() jobID: string;
   @Output() formSubmitted: EventEmitter<string> = new EventEmitter<string>();
 
@@ -59,12 +59,12 @@ export class AddJobComponent implements OnInit {
   }
 
   onSubmit() {
-    let company = <Company>this.jobForm.value;
+    let job = <Job>this.jobForm.value;
 
     //update
     if (this.edit) {
-      this.jobsService.deleteCompany(company.name).subscribe(response => {
-        this.jobsService.saveCompany(company).subscribe(res => {
+      this.jobsService.deleteJob(job.name).subscribe(response => {
+        this.jobsService.addJob(job).subscribe(res => {
           if( res['result']['ok'] == 1) this.formSubmitted.emit('פרטי משרה עודכנו בהצלחה :)');
         })
       })
@@ -72,7 +72,7 @@ export class AddJobComponent implements OnInit {
     } 
 
     //add
-    else this.jobsService.saveCompany(company).subscribe(companyCreated => {
+    else this.jobsService.addJob(job).subscribe(jobCreated => {
       this.formSubmitted.emit('נוספה לרשימת המשרות שלך :)');
     })
 

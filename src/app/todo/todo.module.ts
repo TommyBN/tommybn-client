@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
-import { TodoAppRoutingModule } from './todo-app-routing.module';
+import { TodoRoutingModule } from './todo-routing.module';
 import { TodoWelcomeComponent } from './todo-welcome/todo-welcome.component';
 import { UserMainComponent } from './todo-user/user-main.component';
 import { AllTodosComponent } from './todo-user/todo/all-todos/all-todos.component';
@@ -36,7 +36,7 @@ import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
   ],
   imports: [
     CommonModule,
-    TodoAppRoutingModule,
+    TodoRoutingModule,
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
     CalendarModule.forRoot({
@@ -50,4 +50,4 @@ import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
     TodoService,
   ]
 })
-export class TodoAppModule { }
+export class TodoModule { }
