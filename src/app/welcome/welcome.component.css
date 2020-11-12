@@ -1,13 +1,9 @@
 
-
-button {
-    border-radius: 5px;
-}
-
-
-#skip {
-    margin: 10%;
-    cursor: pointer;
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1000px;
 }
 
 .form-container {
@@ -25,10 +21,6 @@ app-hello {
     .form-container { margin-left: 10% }
     #codeMaster { margin: 50% }
 
-}
-
-.form-container > div {
-    margin: 30px;
 }
 
 #codeMaster {

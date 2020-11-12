@@ -1,67 +1,31 @@
+<!-- <div class="wanna-see">
+  <h1>Check my apps</h1>
+  <h3 class="arrow"> &#11015; </h3>
+</div> -->
 
 
 <div class="container">
+
   <div class="title">
     <h1 class="title-tommyBN">TommyBN
     </h1>
-    <span >Software developer</span>
-
+      <span id="s">Software &nbsp; </span><span id="d">  developer</span>
   </div>
-  <div class="intro">
-    <div class="int-int">
+
+  <div class="wrapper">
+    <h2 (click)="this.about = !this.about">About me</h2>
+    <div class="int-int" [style.height]="this.about ? '332px' : '0px'">
       <p>
-        Hi. My name is Tom Ben Ner. I am a <strong>full stack</strong> software developer, living in Tel Aviv, Israel. <br> My main specialization in software development is Angular. <br> I am a devoted team player with great social skills and keeeeeen attention to details!
+        Hi. My name is Tom Ben Ner. I am a <strong>full stack</strong> software developer, living in Tel Aviv, Israel.
+        <br> My main specialization in software development is Angular. <br> I am a devoted team player with great
+        social skills and keeeeeen attention to details!
       </p>
     </div>
-    <div class="int-int2">
-      <p>
-        Here are some of the technologies I have been creating this site with:
-      </p>
-      <div class="techs">
-        <div class="tech">
-          <img src="../../../assets/angular.png" style="width: 80px; height: 80px" alt="">
-          <h2> Angular (versions 4 - 10)</h2>
-        </div>
-        <div class="tech">
-          <div class="js-logo">JS</div>
-          <h2>JavaScript</h2>
-        </div>
-        <div class="tech">
-          <img src="../../../assets/HTML5_Badge_128.png" style="width: 60px; height: 60px" alt="">
-          <h2>HTML5</h2>
-        </div>
-        <div class="tech">
-          <img src="../../../assets/icons8-css3-96.png" style="width: 100px; height: 100px" alt="">
-          <h2>CSS3</h2>
-        </div>
-        <div class="tech">
-          <div class="java-logo">Java</div>
-          <!-- <img src="../../../assets/angular.png" style="width: 60px; height: 60px" alt=""> -->
-          <!-- <h2>Java</h2> -->
-        </div>
-        <div class="tech">
-          <img src="../../../assets/nodejs-new-pantone-white.png" style="width: 180px; height: 180px" alt="">
-        </div>
-        <div class="tech mongo">
-          <img src="../../../assets/MongoDB_Logo_FullColorWhite_RGB.png" style="width: 218px; height: 95px;"  alt="">
-        </div>
-        <div class="tech">
-          <img src="../../../assets/Git-Logo-1788C.png" style="width: 150px; height: 80px"  alt="">
-        </div>
-        <div class="tech">
-          <h2>and more...</h2>
-        </div>
-      </div>
-    </div>
   </div>
 
-
-  <div class="wanna-see">
-    <h1>Check my apps</h1>
-    <h3 class="arrow"> &#11015; </h3>
-  </div>
-
-  <div id="apps">
+<div class="wrapper">
+  <h2 (click)="this.apps = !this.apps">My apps</h2>
+  <div id="apps" [style.height]="this.apps ? '332px' : '0px'">
     <div class="todo" routerLink="/todo">
       <h2>נעשה ונשמע</h2>
       <p>נהל/י את משימותייך בפשטות וביעילות</p>
@@ -69,8 +33,58 @@
     <div class="jobs" routerLink="/jobs">
       <h2>בוא נמצא עבודה!</h2>
       <p>רכז/י פרטים לגבי משרות שהגשת להם מועמדות - הכל במקום אחד.</p>
-      <p>(בקרוב..)</p>
     </div>
   </div>
+</div>
+
+
+<div class="wrapper">
+<h2 (click)="this.techs = !this.techs">What do I do?</h2>
+  <div class="int-int2" [style.height]="this.techs ? '400px' : '0px'"
+      [style.overflow]="this.techs ? 'scroll' : 'hidden'">
+    <p>
+      Here are some of the technologies I have been creating this site with:
+    </p>
+    <div class="techs">
+      <div class="tech">
+        <img src="../../../assets/angular.png" style="width: 80px; height: 80px" alt="">
+        <h2> Angular (versions 4 - 10)</h2>
+      </div>
+      <div class="tech">
+        <div class="js-logo">JS</div>
+        <h2>JavaScript</h2>
+      </div>
+      <div class="tech">
+        <img src="../../../assets/HTML5_Badge_128.png" style="width: 60px; height: 60px" alt="">
+        <h2>HTML5</h2>
+      </div>
+      <div class="tech">
+        <img src="../../../assets/icons8-css3-96.png" style="width: 100px; height: 100px" alt="">
+        <h2>CSS3</h2>
+      </div>
+      <div class="tech">
+        <div class="java-logo">Java</div>
+        <!-- <img src="../../../assets/angular.png" style="width: 60px; height: 60px" alt=""> -->
+        <!-- <h2>Java</h2> -->
+      </div>
+      <div class="tech">
+        <img src="../../../assets/nodejs-new-pantone-white.png" style="width: 180px; height: 180px" alt="">
+      </div>
+      <div class="tech mongo">
+        <img src="../../../assets/MongoDB_Logo_FullColorWhite_RGB.png" style="width: 218px; height: 95px;" alt="">
+      </div>
+      <div class="tech">
+        <img src="../../../assets/Git-Logo-1788C.png" style="width: 150px; height: 80px" alt="">
+      </div>
+      <div class="tech">
+        <h2>and more...</h2>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+
+
 
 </div>

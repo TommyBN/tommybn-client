@@ -8,17 +8,20 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
 
   name: string;
+  about: boolean = false;
+  apps: boolean = false;
+  techs: boolean = false;
 
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() { }
 
   ngAfterViewInit() {
-    this.elementRef.nativeElement.ownerDocument.body.style.background = 'radial-gradient(black, transparent)';
+    this.elementRef.nativeElement.ownerDocument.body.style.background = 'radial-gradient(#80e27e, #bef67a)';
   }
 
   ngOnDestroy() {
-    this.elementRef.nativeElement.ownerDocument.body.style.background = 'rgb(134, 99, 85)';
+    this.elementRef.nativeElement.ownerDocument.body.style.background = '#eeeeee';
   }
 
  

@@ -5,20 +5,32 @@
         <div class="errors" [style.visibility]="signUpForm.valid ? 'hidden' : 'visible'">
         {{message}}
         </div>
-        <div class="form-input">
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label> שם משתמש:</mat-label>
+            <input formControlName="username" matInput>
+        </mat-form-field>
+        <!-- <div class="form-input">
             שם משתמש:
             <br><input type="text" formControlName="username">
-        </div>
-        <div class="form-input">
+        </div> -->
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label> סיסמא:</mat-label>
+            <input type="password" formControlName="password" matInput>
+        </mat-form-field>
+        <!-- <div class="form-input">
             סיסמא: 
             <br><input type="password" formControlName="password">
-        </div>
-        <div class="form-input">
+        </div> -->
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>  אשר סיסמא:</mat-label>
+            <input type="password" formControlName="passConfirm" matInput>
+        </mat-form-field>
+        <!-- <div class="form-input">
             אשר סיסמא: 
             <br><input type="password" formControlName="passConfirm">
-        </div>
+        </div> -->
         <div>
-            <button type="submit">הרשם</button>
+            <button type="submit" mat-stroked-button color="primary">הרשם</button>
         </div>
     </form>  
     <div *ngIf="newUserSignedUp" class="success">

@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
+/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
 
 body {
-    background: rgb(134, 99, 85);
-    color: white;
+    background: #eeeeee;
+    color: #5a9216;
 }
 
 input {
@@ -13,12 +14,11 @@ input {
     margin: 3%;
 }
 
-input:hover {
-    background-color: rgb(148, 144, 151);
-}
-
 button {
     border-radius: 7px;
     cursor: pointer;
     margin: 3%;
 }
+
+html, body { height: 100%; }
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

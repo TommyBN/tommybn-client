@@ -10,6 +10,9 @@ import { MainComponent } from './welcome/main/main.component';
 import { HelloComponent } from './welcome/hello/hello.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 
@@ -24,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatInputModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

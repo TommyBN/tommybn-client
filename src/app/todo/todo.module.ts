@@ -2,6 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { SplitterModule } from '@progress/kendo-angular-layout';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 
 import { TodoRoutingModule } from './todo-routing.module';
@@ -13,9 +20,6 @@ import { CalendarComponent } from './todo-user/calendar/calendar.component';
 import { CalendarHeaderComponent } from './todo-user/calendar/month/header/calendar-header.component';
 import { CalMonthComponent } from './todo-user/calendar/month/cal-month.component';
 import { CalDayComponent } from './todo-user/calendar/day/cal-day.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { SplitterModule} from '@progress/kendo-angular-layout';
 import { UserService } from './todo-user/user.service';
 import { TodoService } from './todo-user/todo/todo.service';
 import { LoginComponent } from './todo-welcome/login/login.component';
@@ -44,6 +48,7 @@ import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
       useFactory: adapterFactory
     }),
     SplitterModule,
+    MatInputModule, MatButtonModule
   ],
   providers: [
     UserService,

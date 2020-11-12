@@ -1,21 +1,29 @@
 <div class="container">
-    
+
     <h3>כניסה</h3>
     <div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="errors" [style.visibility]="loginForm.valid ? 'hidden' : 'visible'">
                 {{message}}
-                </div>
-            <div class="form-input">
-                שם: <br><input type="text" formControlName="username">
             </div>
             <div class="form-input">
-                סיסמא: <br><input type="password" formControlName="password">
+                <!-- שם: <br><input type="text" formControlName="username"> -->
+                <mat-form-field appearance="fill">
+                    <mat-label>שם</mat-label>
+                    <input formControlName="username" matInput>
+                </mat-form-field>
+            </div>
+            <div class="form-input">
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>סיסמא</mat-label>
+                    <input type="password" formControlName="password" matInput>
+                </mat-form-field>
+                <!-- סיסמא: <br><input type="password" formControlName="password"> -->
             </div>
             <div>
-                <button type="submit">כניסה</button>
+                <button type="submit" mat-stroked-button color="primary">כניסה</button>
             </div>
-        </form>    
+        </form>
     </div>
 
 </div>

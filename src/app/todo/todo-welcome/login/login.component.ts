@@ -4,7 +4,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { FormResponse} from '../sign-up/sign-up.component';
-import { UserService } from '../../todo-user/user.service';
 
 @Component({
   selector: 'app-login',

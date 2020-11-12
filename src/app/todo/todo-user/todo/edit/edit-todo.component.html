@@ -3,7 +3,11 @@
         <div class="container">
             <div class="form-group">
                 <label for="title">מה צריך לעשות?</label>
-                <input type="text" formControlName="title" class="form-control" required>
+                <!-- <input type="text" formControlName="title" class="form-control" required> -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Your name please</mat-label>
+                    <input formControlName="title" matInput required>
+                  </mat-form-field>
             </div>
             <button type="button" (click)="toggleEventForm()">הוסף אירוע ביומן</button>
             <div *ngIf="createEvent" class="event-details">

@@ -14,11 +14,11 @@ export class TodoWelcomeComponent {
 
 
     ngAfterViewInit() {
-        this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(187, 238, 234)';
+        // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(187, 238, 234)';
     }
 
     ngOnDestroy() {
-        this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(134, 99, 85)';
+        // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(134, 99, 85)';
     }
 
  

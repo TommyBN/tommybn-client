@@ -1,37 +1,23 @@
+<div class="container">
 
-<div class="container" >
+  <div class="form-container" [style.display]="showName ? 'none' : 'block'">
+    <mat-form-field>
+      <mat-label>Your name please</mat-label>
+      <input [(ngModel)]="name" matInput (click)="checkValidation()" (keyup)="checkValidation()">
+    </mat-form-field>
 
-  <div class="form-container" 
-    
-    [style.display]="showName ? 'none' : 'block'">
     <div>
-      <h3>Your name please:</h3>
-    </div>
-    <div>
-      <input [(ngModel)]="name"  type="text" (click)="checkValidation()" (keyup)="checkValidation()">
-      <span routerLink="/home" id="skip">skip</span>
-    </div>
-    <div>
-      <button [disabled]="!formValid" (click)="calculateLetters(); showName=true">OK, now what?</button>
+      <button mat-stroked-button color="primary" [disabled]="!formValid" (click)="calculateLetters(); showName=true">
+        OK, now what?</button>
     </div>
   </div>
 
   <app-hello (refreshPageEmitter)="clear()" [name]="name" [hollyNumber]="hollyNumber" *ngIf="showName"></app-hello>
 
-  <div id="codeMaster" [style.marginTop]="showName ? '50%' : '-10%'" >
+  <div id="codeMaster" [style.marginTop]="showName ? '50%' : '-10%'">
     <h2>Thanks to:</h2>
-      My greatfull thanks to EGcoder who helped me upload the site.
+    My greatfull thanks to EGcoder who helped me upload the site.
   </div>
- 
-  
+
+
 </div>
-
-
-
-
-
-
-
-
-
-
