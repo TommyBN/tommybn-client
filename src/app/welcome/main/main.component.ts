@@ -24,6 +24,25 @@ export class MainComponent implements OnInit {
     this.elementRef.nativeElement.ownerDocument.body.style.background = '#eeeeee';
   }
 
- 
+  toggleDiv(divName: string) {
+    switch (divName) {
+      case 'about' : 
+        this.about = !this.about;
+        this.apps = false;
+        this.techs = false;
+        break;
+      case 'apps' : 
+        this.about = false;
+        this.apps = !this.apps;
+        this.techs = false;
+        break;
+      case 'techs' : 
+        this.about = false;
+        this.apps = false;
+        this.techs = !this.techs;
+        break;
+
+    }
+  }
 
 }

@@ -7,6 +7,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { SplitterModule } from '@progress/kendo-angular-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -24,6 +26,7 @@ import { UserService } from './todo-user/user.service';
 import { TodoService } from './todo-user/todo/todo.service';
 import { LoginComponent } from './todo-welcome/login/login.component';
 import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,7 @@ import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
       useFactory: adapterFactory
     }),
     SplitterModule,
-    MatInputModule, MatButtonModule
+    MatInputModule, MatButtonModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule
   ],
   providers: [
     UserService,

@@ -1,0 +1,33 @@
+*{ 
+    direction:rtl;
+}
+
+#main{
+    height: 100%;
+    margin: 10%;
+    border-radius: 5px;
+}
+
+.container{
+    padding:5%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.add-todo{
+    border: 1px solid #087f23;
+    padding: 4%;
+}
+
+.mat-form-field {
+    text-align: right;
+}
+
+input[type="datetime-local"] {
+    cursor: pointer;
+}
+
+

@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { TodoService } from '../todo.service';
 import { Todo } from '../../../todo-user/todo/todo.service';
 import { UserService } from '../../user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { deleteTodoDialog } from './delete-todo-dialog';
 
 @Component({
     selector: 'app-todos',
@@ -20,6 +22,7 @@ export class AllTodosComponent implements OnInit{
     constructor ( 
         private todoService:TodoService,
         private userService:UserService,
+        public dialog: MatDialog
     ){}
 
     ngOnInit(){}
@@ -38,7 +41,22 @@ export class AllTodosComponent implements OnInit{
             this.DBChangeNotification.emit()
         })
     }
-
+    openDialog(i: number): void {
+        this.currentTodoToDelete = i;
+        const dialogRef = this.dialog.open(deleteTodoDialog, { 
+            width: '250px', 
+            data: {todoTitle: this.todos[i].title}
+         });
+    
+        dialogRef.afterClosed().subscribe(deleteCurrentTodo => {
+            let title = this.todos[this.currentTodoToDelete].title;
+            if (deleteCurrentTodo) this.deleteTodo(title);
+            this.currentTodoToDelete = -1;
+            this.showDeleteIcon = false;
+          });
+    
+    
+    }
 
 
 

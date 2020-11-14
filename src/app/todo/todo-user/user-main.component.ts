@@ -60,7 +60,8 @@ export class UserMainComponent implements OnInit {
           let startHour = todo.startHour ? todo.startHour : '08:00'
           let event: CalendarEvent = {
             title: todo.title,
-            start: moment(todo.startDate + ' ' + startHour).toDate(),
+            start: new Date(todo.startDate),
+            // start: moment(todo.startDate + ' ' + startHour).toDate(),
             draggable: true
           }
           // event.end = todo.startDate;

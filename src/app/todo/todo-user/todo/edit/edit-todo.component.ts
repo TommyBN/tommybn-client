@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
     selector: 'app-add-todo',
     templateUrl: './edit-todo.component.html',
-    styleUrls: ['../../user-forms.css']
+    styleUrls: ['./edit-todo.component.css']
 })
 export class EditTodoComponent implements OnInit {
 
