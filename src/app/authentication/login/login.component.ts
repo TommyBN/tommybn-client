@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +14,7 @@ export class LoginComponent {
 
   SERVER_URL: string = `${environment.apiBaseUrl}/auth/login`;
   message: string;
+  @Input() appName;
 
 
   loginForm: FormGroup = new FormGroup({
@@ -30,7 +31,7 @@ export class LoginComponent {
   onSubmit() {
     this.http.post<FormResponse>(this.SERVER_URL, this.loginForm.value).subscribe(
       (res) => {
-        if(res.valid) this.router.navigate(['../', res.id], {relativeTo: this.route})
+        if(res.valid) this.router.navigate([`../../${this.appName}`, res.id], {relativeTo: this.route})
         else {
           this.message = res.msg;
           this.loginForm.setErrors({'invalid': true})

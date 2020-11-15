@@ -1,16 +1,30 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: 'app-welcome',
-    templateUrl: './todo-welcome.component.html',
-    styleUrls: ['./todo-welcome.component.css']
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.css']
 })
 
-export class TodoWelcomeComponent {
+export class AuthComponent implements OnInit {
+
+    appName: string;
+    funkyText: string;
+    title: string;
 
     constructor(
-        private elementRef: ElementRef
+        private elementRef: ElementRef,
+        private activatedRoute: ActivatedRoute
     ) { }
+
+    ngOnInit() {
+
+        //set user
+        this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+          this.appName = params.get('appName');
+        })
+      }
 
 
     ngAfterViewInit() {
