@@ -1,7 +1,7 @@
-<div class="main" [style.opacity]="this.showModal ? 0.5 : 1">
+<div class="main">
 
    <div class="button">
-      <button (click)="toggleAddForm()">{{buttonText}}</button>
+      <button mat-raised-button (click)="toggleAddForm()">{{buttonText}}</button>
    </div>
    <br><br>
    <div class="container">
@@ -83,9 +83,4 @@
          (formSubmitted)="popUpAndRefresh($event)">
       </app-add-job>
    </div>
-</div>
-
-<div *ngIf="showModal" class="modal">
-   <h1>{{modalText}}</h1>
-   <button (click)="this.showModal = false"> תודה</button>
 </div>

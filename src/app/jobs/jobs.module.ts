@@ -11,6 +11,10 @@ import { LoginComponent } from './welcome/login/login.component';
 import { SignUpComponent } from './welcome/sign-up/sign-up.component';
 import { TodoWelcomeComponent } from './welcome/todo-welcome.component';
 import { JobsService } from './jobs.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { JobsService } from './jobs.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    JobsRoutingModule
+    JobsRoutingModule,
+    MatInputModule, MatButtonModule, MatDialogModule
   ],
   providers: [JobsService],
   bootstrap: []

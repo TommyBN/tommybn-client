@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
 import { JobsService } from '../jobs.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { jobsMessagesDialog } from './jobs-messages-dialog';
 
 export interface Job {
     _id?: string;
@@ -35,13 +37,12 @@ export class AllJobsComponent implements OnInit {
     jobToEdit: Job;
     buttonText: string = 'הוסף משרה';
     jobToDelete: number = -1;
-    showModal: boolean = false;
-    modalText: string = 'this is the popup modal'
 
     constructor(
         private http: HttpClient,
         private jobsService: JobsService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        public dialog: MatDialog
     ) { }
 
     ngOnInit() {
@@ -73,10 +74,10 @@ export class AllJobsComponent implements OnInit {
 
     delete(name: string) {
         this.jobsService.deleteJob(name).subscribe(res => {
-            if(res.nModified == 1) {
+            if (res.nModified == 1) {
                 this.popUpAndRefresh('בטוח תמצא/י משרה שהולמת אותך יותר!');
                 this.jobToDelete = -1;
-            } 
+            }
         })
     }
 
@@ -84,7 +85,19 @@ export class AllJobsComponent implements OnInit {
         this.ngOnInit();
         this.showForm = false;
         this.buttonText = this.showForm ? ' חזרה' : 'הוסף משרה';
-        this.showModal = true;
-        this.modalText = message;
+        this.openDialog(message);
+    }
+
+    openDialog(message: string): void {
+        const dialogRef = this.dialog.open(jobsMessagesDialog, {
+            width: '250px',
+            data: { text: message }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+
+        });
+
+
     }
 }

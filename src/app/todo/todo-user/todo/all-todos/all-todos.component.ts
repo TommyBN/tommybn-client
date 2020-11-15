@@ -41,6 +41,7 @@ export class AllTodosComponent implements OnInit{
             this.DBChangeNotification.emit()
         })
     }
+    
     openDialog(i: number): void {
         this.currentTodoToDelete = i;
         const dialogRef = this.dialog.open(deleteTodoDialog, { 

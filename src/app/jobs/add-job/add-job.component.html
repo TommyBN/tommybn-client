@@ -1,51 +1,65 @@
 <div id="add-job">
     <h2>{{title}}</h2>
-  <form (ngSubmit)="onSubmit()" [formGroup]="jobForm">
-      <div class="container">
-        <div class="formControl">
-            <label>שם החברה:<br><input type="text" formControlName="name" required></label>
-        </div>
-        <div class="formControl">
-            <label>מיקום:<br><input type="text" formControlName="location"></label>
-        </div>
-        <div class="formControl">
-            <label>איש קשר:<br><input type="text" formControlName="contactMan"></label>
-        </div>
-        <div class="formControl">
-            <label>טלפון:<br><input type="text" formControlName="phoneNumber"></label>
-        </div>
-        <div class="formControl">
-            <label>תאור החברה:<br><input type="text" formControlName="companyDescription"></label>
-        </div>
-        <div class="formControl">
-            <label>תאור משרה:<br><input type="text" formControlName="jobDescription"></label>
-        </div>
-        <div class="formControl">
-            <label>כישורים:<br><input type="text" formControlName="handsOn"></label>
-        </div>
-        <div class="formControl">
-            <label>נסיון:<br><input type="text" formControlName="experienceNeeded"></label>
-        </div>
-        <div class="formControl">
-            <label>מיקור חוץ?<br><input type="text" formControlName="outSourcing"></label>
-        </div>
-        <div class="formControl">
-            <label>הערות:<br><input type="text" formControlName="remarks"></label>
-        </div>
-        <div class="formControl">
-            <label>שכר:<br><input type="text" formControlName="salary"></label>
-        </div>
-        <div class="formControl">
-            <label>ימים / שעות:<br><input type="text" formControlName="daysAndHours"></label>
-        </div>
-        <div class="formControl">
-            <label>שאלות?<br><input type="text" formControlName="questions"></label>
-        </div>
-        <div class="formControl">
-            <label>הגעתי דרך...<br><input type="text" formControlName="jobBoard"></label>
-        </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="jobForm">
+        <div class="container">
+            <mat-form-field color="blue">
+                <mat-label>שם החברה:</mat-label>
+                <input formControlName="name" matInput required>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>מיקום:</mat-label>
+                <input formControlName="location" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>איש קשר:</mat-label>
+                <input formControlName="contactMan" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>טלפון:</mat-label>
+                <input formControlName="phoneNumber" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>תאור החברה:</mat-label>
+                <input formControlName="companyDescription" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>תאור משרה:</mat-label>
+                <input formControlName="jobDescription" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>כישורים:</mat-label>
+                <input formControlName="handsOn" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>נסיון:</mat-label>
+                <input formControlName="experienceNeeded" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>מיקור חוץ?</mat-label>
+                <input formControlName="outSourcing" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>הערות:</mat-label>
+                <input formControlName="remarks" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>שכר:</mat-label>
+                <input formControlName="salary" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>ימים / שעות:</mat-label>
+                <input formControlName="daysAndHours" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>שאלות?</mat-label>
+                <input formControlName="questions" matInput>
+            </mat-form-field>
+            <mat-form-field color="accent">
+                <mat-label>הגעתי דרך...</mat-label>
+                <input formControlName="jobBoard" matInput>
+            </mat-form-field>
 
-    </div>
-    <button type="submit" [disabled]="!jobForm.valid">{{submitButtonText}}</button>
-  </form>
+        </div>
+        <button mat-raised-button color="accent" type="submit" [disabled]="!jobForm.valid">{{submitButtonText}}</button>
+    </form>
 </div>

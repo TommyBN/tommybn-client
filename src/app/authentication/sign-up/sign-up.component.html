@@ -5,7 +5,7 @@
         <div class="errors" [style.visibility]="signUpForm.valid ? 'hidden' : 'visible'">
         {{message}}
         </div>
-        <mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
             <mat-label> שם משתמש:</mat-label>
             <input formControlName="username" matInput>
         </mat-form-field>
@@ -13,7 +13,7 @@
             שם משתמש:
             <br><input type="text" formControlName="username">
         </div> -->
-        <mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
             <mat-label> סיסמא:</mat-label>
             <input type="password" formControlName="password" matInput>
         </mat-form-field>
@@ -21,7 +21,7 @@
             סיסמא: 
             <br><input type="password" formControlName="password">
         </div> -->
-        <mat-form-field >
+        <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>  אשר סיסמא:</mat-label>
             <input type="password" formControlName="passConfirm" matInput>
         </mat-form-field>

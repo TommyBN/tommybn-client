@@ -14,7 +14,7 @@ export class TodoWelcomeComponent {
 
 
     ngAfterViewInit() {
-        // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'darkkhaki';
+        // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(187, 238, 234)';
     }
 
     ngOnDestroy() {
