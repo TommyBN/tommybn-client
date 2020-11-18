@@ -6,11 +6,11 @@
   <div id="main">
     <div id="nav-bar">
         <div id="welcome-back">
-            <h2>{{userName}} ,ברוך שובך ! </h2>
+            <h2>אז מה עושים היום {{userName}} ? </h2>
             <h2 class="rotate-screen">יש לסובב את המסך על מנת לראות את היומן כולו</h2>
         </div>
     </div>
-    <app-todos [todos]="todos" (DBChangeNotification)=setTodos()></app-todos>
+    <app-todos [todos]="todos" (DBChangeNotification)=setTodosAndEvents()></app-todos>
 </div>
   
 </div>

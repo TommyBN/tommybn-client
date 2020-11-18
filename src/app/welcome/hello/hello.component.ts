@@ -14,7 +14,7 @@ export class HelloComponent implements OnInit {
   @Output() refreshPageEmitter:EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('yourAscii') yourAsciiElement: ElementRef;
   
-  yourAsciiText: string = 'Did you know that your Ascii-Numerologic number is . . . . .     ';
+  yourAsciiText: string = 'Did you know that your Ascii Numerologic number is . . . . .     ';
   inter: any = interval(80);
   showHollyNumber: boolean = false;
 

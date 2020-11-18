@@ -14,52 +14,7 @@
     border-radius: 5px; */
 }
 
-.my-apps {
-    float: right;
-    margin-left: 10%;
-    width: 50%;
-    height: 50px;
-    border: none;
-    /* border: 1px solid #5a9216; */
-    padding: 0% 0% 0% 1%;
-    border-radius: 5px;
-    animation: myappsCont;
-    animation-duration: 2s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-}   
 
-@keyframes myappsCont {
-    0% { transform: scale(1, 1);}
-    100% { transform: scale(1.5, 1.5);}
-}
-
-a {
-    text-decoration: none;
-    color: #5a9216;
-}
-
-.my-apps-text {
-    /* line-height: 20px;
-    font-family: Impact, Charcoal, sans-serif;
-    font-size: 16px;
-    color:rgb(85, 63, 57);
-    width: 70%;
-    margin-left: 10%;
-    margin-top: 10%; */
-    text-align: center;
-    margin-top: 10%;
-    transform: scale(1,1);
-    animation: myapps;
-    animation-duration: 2s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-}
-
-@keyframes myapps {
-    0% { transform: scale(1, 1);}
-    100% { transform: scale(1.5, 1.5);}
-}
 
 
 h4 {

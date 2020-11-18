@@ -18,6 +18,8 @@ export class AllTodosComponent implements OnInit{
     currentTodoIndex:number;
     showDeleteIcon: boolean = false;
     currentTodoToDelete: number;
+    addTodoButtonText: string = 'הוסף מטלה';
+    deleteButtonText: string = 'מחיקת מטלות';
 
     constructor ( 
         private todoService:TodoService,
@@ -58,6 +60,17 @@ export class AllTodosComponent implements OnInit{
     
     
     }
+   
+    addTodoButtonClicked() {
+        this.viewAddForm = !this.viewAddForm;
+        this.addTodoButtonText = this.viewAddForm ? 'ביטול' : 'הוסף מטלה'
+    }
+
+    deleteButtonClicked() {
+        this.showDeleteIcon = !this.showDeleteIcon;
+        this.deleteButtonText = this.showDeleteIcon ? 'ביטול' : 'מחיקת מטלות'
+    }
+
 
 
 

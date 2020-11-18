@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h3>כניסה</h3>
+    <h3>כניסה למשתמשים רשומים</h3>
     <div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="errors" [style.visibility]="loginForm.valid ? 'hidden' : 'visible'">
@@ -8,9 +8,9 @@
             </div>
             <div class="form-input">
                 <!-- שם: <br><input type="text" formControlName="username"> -->
-                <mat-form-field appearance="standard">
-                    <mat-label>שם</mat-label>
-                    <input formControlName="username" matInput>
+                <mat-form-field >
+                    <mat-label>שם משתמש</mat-label>
+                    <input formControlName="username" matInput autocomplete="off">
                 </mat-form-field>
             </div>
             <div class="form-input">

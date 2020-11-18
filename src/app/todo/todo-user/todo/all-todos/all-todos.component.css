@@ -28,17 +28,42 @@ h5{
     color: red
 }
 
-.deleteTodos{
-    border: 1px solid red;
-    border-radius: 5px;
-    padding: 5px;
-    width: fit-content;
+.buttons {
+    width: 322px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.todo{
-    padding: 5%;
+table {
     width: 100%;
+    padding: 5%;
+    background: lightgrey;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+table > tr {
+    margin: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    table {
+        width: 65%;
+    }
+
+    .buttons {
+        width: 345px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    table {
+        width: 142%;
+        margin-right: -55px;
+    }
+}
+
 
 
 

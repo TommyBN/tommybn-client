@@ -14,7 +14,7 @@
 
   <app-hello (refreshPageEmitter)="clear()" [name]="name" [hollyNumber]="hollyNumber" *ngIf="showName"></app-hello>
 
-  <div id="codeMaster" [style.marginTop]="showName ? '50%' : '-10%'">
+  <div id="codeMaster" [style.marginTop]="setMargin()">
     <h2>Thanks to:</h2>
     My greatfull thanks to EGcoder who helped me upload the site.
   </div>

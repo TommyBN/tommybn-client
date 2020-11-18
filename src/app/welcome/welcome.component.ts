@@ -43,4 +43,12 @@ export class WelcomeComponent implements OnInit {
     this.showName = false;
   }
 
+  setMargin() {
+    if(screen.width > 600 && screen.width < 760) {
+      return this.showName ? '50%' : '24%'
+    }
+    if(screen.width > 760) return this.showName ? '50%' : '-27%' 
+    return this.showName ? '50%' : '-10%' 
+  }
+
 }

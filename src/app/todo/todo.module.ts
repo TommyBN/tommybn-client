@@ -8,13 +8,9 @@ import { SplitterModule } from '@progress/kendo-angular-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-
-
-
+import {MatDividerModule} from '@angular/material/divider';
 
 import { TodoRoutingModule } from './todo-routing.module';
-import { TodoWelcomeComponent } from './todo-welcome/todo-welcome.component';
 import { UserMainComponent } from './todo-user/user-main.component';
 import { AllTodosComponent } from './todo-user/todo/all-todos/all-todos.component';
 import { EditTodoComponent } from './todo-user/todo/edit/edit-todo.component';
@@ -24,13 +20,10 @@ import { CalMonthComponent } from './todo-user/calendar/month/cal-month.componen
 import { CalDayComponent } from './todo-user/calendar/day/cal-day.component';
 import { UserService } from './todo-user/user.service';
 import { TodoService } from './todo-user/todo/todo.service';
-import { LoginComponent } from './todo-welcome/login/login.component';
-import { SignUpComponent } from './todo-welcome/sign-up/sign-up.component';
-import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
-    TodoWelcomeComponent,
     UserMainComponent,
     AllTodosComponent,
     EditTodoComponent,
@@ -38,8 +31,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     CalendarHeaderComponent,
     CalMonthComponent,
     CalDayComponent,
-    LoginComponent,
-    SignUpComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +42,7 @@ import { MatNativeDateModule } from '@angular/material/core';
       useFactory: adapterFactory
     }),
     SplitterModule,
-    MatInputModule, MatButtonModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule
+    MatInputModule, MatButtonModule, MatDialogModule, MatDividerModule
   ],
   providers: [
     UserService,

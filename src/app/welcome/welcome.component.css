@@ -6,22 +6,27 @@
     height: 1000px;
 }
 
-.form-container {
+.form-container { 
+    margin-left: 10%;
+    margin-top: 10%; 
     width: 50%;
     height: 30%;
     padding: 5%;
-    margin-left: 40%;
+}
+
+
+.form-container {
+    /* width: 50%;
+    height: 30%;
+    padding: 5%;
+    margin-left: 40%; */
 }
 
 app-hello {
     top: -9500px;
+    margin-left: 0;
 }
 
-@media only screen and (max-width: 768px) {
-    .form-container { margin-left: 10% }
-    #codeMaster { margin: 50% }
-
-}
 
 #codeMaster {
     margin: auto;
@@ -31,4 +36,31 @@ app-hello {
     transition-duration: 2s;
 }
 
+@media only screen and (min-width: 600px) and (max-width: 760px) {
+    
+    .container {
+        flex-direction: row;
+    }
+
+    app-hello {
+        margin-left: 0px;
+    }
+
+    #codeMaster {
+        margin-top: 24%;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) {
+    .form-container { 
+        margin-left: 30%;
+        margin-top: 0%;
+    }
+    #codeMaster { 
+        margin-top: 27%;
+        margin-left: 0%; 
+    }
+
+}
 

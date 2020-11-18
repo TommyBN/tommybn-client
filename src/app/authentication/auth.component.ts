@@ -20,9 +20,11 @@ export class AuthComponent implements OnInit {
 
     ngOnInit() {
 
-        //set user
+        // setup app stuff
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
           this.appName = params.get('appName');
+          this.title = this.appName == 'todo' ? 'נעשה ונשמע' : 'בוא נמצא עבודה';
+          this.funkyText = this.appName == 'todo' ? 'הכל מסתכם במשימה אחת פשוטה' : 'ריכוז פרטים לגבי משרות ששלחתי אליהם קורות חיים. הכל במקום אחד.'
         })
       }
 

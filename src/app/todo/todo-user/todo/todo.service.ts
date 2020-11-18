@@ -37,4 +37,18 @@ export class TodoService {
         return this.http.post(`${this.SERVER_URL}/delete/${this.userService.userID}`,{title: todoTitle}, {'responseType': 'json'} )
     }
 
+    //create todos for display
+    createTodos(todos: Todo[]): any[] {
+        let todosForDisplay = [];
+        for( let todo of todos) {
+            let todoForDisplay = { 
+                title: todo.title,
+                startDate: todo.startDate.toString().split('T')[0],
+                startHour: todo.startDate.toString().split('T')[1]
+            }
+            todosForDisplay.push(todoForDisplay)
+        }
+        return todosForDisplay;
+    }
+
 }

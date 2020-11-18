@@ -32,7 +32,7 @@ export class UserMainComponent implements OnInit {
       this.userService.userID = id;
       this.userService.getName().subscribe(name => this.userName = name)
     })
-    this.setTodos()
+    this.setTodosAndEvents()
   }
 
   ngAfterViewInit() {
@@ -44,32 +44,34 @@ export class UserMainComponent implements OnInit {
   }
 
   //set todos and events
-  setTodos() {
+  setTodosAndEvents() {
     this.todoService.getTodosFromDB().subscribe(todos => {
-      if(todos) this.todos = todos;
-      this.createCalEvents();
-      this.userService.refreshCalendar.emit();
+      if(todos) {
+        this.calendarEvents = this.userService.createCalEvents(todos)
+        this.todos = this.todoService.createTodos(todos);
+        this.userService.refreshCalendar.emit();
+      }
     })
   }
 
   createCalEvents() {
-    this.resetEvents();
-    if (Array.isArray(this.todos)) {
-      for (let todo of this.todos) {
-        if (todo.startDate) {
-          let startHour = todo.startHour ? todo.startHour : '08:00'
-          let event: CalendarEvent = {
-            title: todo.title,
-            start: new Date(todo.startDate),
-            // start: moment(todo.startDate + ' ' + startHour).toDate(),
-            draggable: true
-          }
-          // event.end = todo.startDate;
-          this.calendarEvents.push(event);
-        }
-      }
+    // if (Array.isArray(this.todos)) {
+    //   for (let todo of this.todos) {
+    //     if (todo.startDate) {
+    //       console.log('date: ', todo.startDate)
+    //       let startHour = todo.startHour ? todo.startHour : '08:00'
+    //       let event: CalendarEvent = {
+    //         title: todo.title,
+    //         start: new Date(todo.startDate),
+    //         // start: moment(todo.startDate + ' ' + startHour).toDate(),
+    //         draggable: true
+    //       }
+    //       // event.end = todo.startDate;
+    //       this.calendarEvents.push(event);
+    //     }
+    //   }
 
-    }
+    // }
   }
 
   getEvents(): CalendarEvent[] {
