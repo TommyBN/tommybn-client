@@ -1,23 +1,8 @@
 
 /*container, image*/
 #container {
-  /* height:; */
   display: flex;
   flex-direction: row;
-}
-
-#container::after {
-  content: "";
-  background: url('../../../assets/jumping.jpg');
-  opacity: 0.5;
-  height: 500%;
-  width: 2000px;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
 }
 
 .img1 {
@@ -35,14 +20,33 @@ img {
   transition-duration: 3s;
 }
 
-.image-text {
+#sorry {
   display: none;
 }
 
+@media only screen and (max-width: 600px) {
+  #container::after {
+    content: "";
+    background: url('../../../assets/jumping.jpg');
+    opacity: 0.5;
+    height: 135%;
+    width: 122%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  .image-text {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 600px) and (max-width: 760px) {
-  .img1 { 
-    display: block;
-   }
+
+  .img1 { display: block }
 
   .image-text {
     display: block;
@@ -62,23 +66,35 @@ img {
     transition-duration: 3s;
   }  
 
-  .image-text > .app {
-    font-weight: bold;
-  }
+  .image-text > .app { font-weight: bold }
 
-  .image-text > .techs {
-    grid-template-columns: 1fr;
-  } 
-
+  .image-text > .techs { grid-template-columns: 1fr  } 
 
   .text-container { width: 30% }
-  #container { flex-direction: row-reverse }
-  #container::after { opacity: 0 }
+
+  #container { 
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+
+  #sorry {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+
 }
 
 @media only screen and (min-width: 768px) {
   .img1 { display: block }
-  #container::after { opacity: 0 }
+  #container { width: 100%;}
+  #container::after { 
+    opacity: 0;
+    width: 100%; 
+  }
+  .image-text {
+    display: none;
+  }
 }
 
 
@@ -93,13 +109,17 @@ img {
     flex-direction: column;
     padding: 0 30px;
     justify-content: space-around;
-    color: #195327;
+    color: black;
     text-align: center;
     line-height: 1.6;
     font-weight: bold;
 }
 
-p { font-size: 20px }
+
+p { 
+  font-size: 20px;
+  color: white;
+}
 
 .wrapper {
   border: 2px solid #135f25;
@@ -122,8 +142,13 @@ p { font-size: 20px }
     flex-direction: column;
 }
 
+.ul {
+  color: black;
+}
+
 @media only screen and (min-width: 600px) and (max-width: 767px) {
-  .text-container { max-width: 183px;}
+  .text-container { max-width: 183px }
+  #about, #apps, #what-do { height: 330px }
 }
 
 
@@ -151,6 +176,7 @@ p { font-size: 20px }
 }
 
 @media only screen and (min-width: 768px) {
+
   #apps {
     flex-direction: row;
     justify-content: space-around;
@@ -189,6 +215,10 @@ p { font-size: 20px }
   text-align: center;
 }
 
+.tech > img {
+  margin-top: 0;
+}
+
 .mongo { margin-top: -20% }
 
 .js-logo {
@@ -204,11 +234,15 @@ p { font-size: 20px }
   font-size: 40px;
   color: black;
   background-color: white;
-  width: 40%;
+  width: 50%;
   border-radius: 10px;
   height: 100px;
   line-height: 100px;
   margin-left: 30%;
+}
+
+.last {
+  padding-top: 20%;
 }
 
 @media (min-width: 600px) and (max-width: 760px) {
