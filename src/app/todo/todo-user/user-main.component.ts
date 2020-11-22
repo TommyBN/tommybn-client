@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { UserService } from './user.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import { CalendarEvent } from 'angular-calendar';
 import { Todo, TodoService } from './todo/todo.service';
 import * as moment from 'moment';
@@ -21,10 +21,16 @@ export class UserMainComponent implements OnInit {
     private userService: UserService,
     private todoService: TodoService,
     private activatedRoute: ActivatedRoute,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
+
+    this.router.events.subscribe(evt=>{
+      if(!(evt instanceof NavigationEnd)) return
+      document.body.scrollTop = 0;
+    })
 
     //set user
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {

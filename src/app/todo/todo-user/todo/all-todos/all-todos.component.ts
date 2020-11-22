@@ -40,6 +40,7 @@ export class AllTodosComponent implements OnInit{
         this.todoService.deleteTodo(title).subscribe(response => {
             this.currentTodoToDelete = -1;
             this.showDeleteIcon = false;
+            this.deleteButtonText = 'מחיקת מטלות';
             this.DBChangeNotification.emit()
         })
     }

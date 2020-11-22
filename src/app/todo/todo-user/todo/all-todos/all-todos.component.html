@@ -18,9 +18,13 @@
     </div>
     <div class="buttons">
         <button mat-raised-button color="primary" (click)="addTodoButtonClicked()">
-            &#43;&nbsp;{{addTodoButtonText}} </button>
-        <button mat-raised-button color="warn" class="deleteTodos" *ngIf="todos && todos.length > 0"
-            (click)="deleteButtonClicked()"><span>&#10007;&nbsp;</span>{{deleteButtonText}}
+            <span *ngIf="this.addTodoButtonText == 'הוסף מטלה'">&#43;&nbsp;</span>
+            {{addTodoButtonText}} 
+        </button>
+        <button mat-raised-button color="warn" class="deleteTodos" 
+            *ngIf="todos && todos.length > 0" (click)="deleteButtonClicked()">
+            <span *ngIf="this.deleteButtonText == 'מחיקת מטלות'">&#10007;&nbsp;</span>
+            {{deleteButtonText}}
         </button>
     </div>
     <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNew($event)"></app-add-todo>
