@@ -8,7 +8,7 @@ import { SplitterModule } from '@progress/kendo-angular-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { TodoRoutingModule } from './todo-routing.module';
 import { UserMainComponent } from './todo-user/user-main.component';
@@ -42,7 +42,7 @@ import { TodoService } from './todo-user/todo/todo.service';
       useFactory: adapterFactory
     }),
     SplitterModule,
-    MatInputModule, MatButtonModule, MatDialogModule, MatDividerModule
+    MatInputModule, MatButtonModule, MatDialogModule, MatCheckboxModule
   ],
   providers: [
     UserService,

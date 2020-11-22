@@ -10,7 +10,9 @@
             <tr *ngFor="let todo of todos; let i = index">
                 <td *ngIf="showDeleteIcon"><span class="clickable deleteTodo" (click)="openDialog(i)">&#10007;
                     </span></td>
-                <td *ngIf="!showDeleteIcon">&#10036;</td>
+                <td *ngIf="!showDeleteIcon">
+                    <mat-checkbox color="primary"></mat-checkbox>
+                </td>
                 <td>{{todo.title}}</td>
                 <td *ngIf="todo.startDate">{{todo.startDate}}, {{todo.startHour}}</td>
             </tr>

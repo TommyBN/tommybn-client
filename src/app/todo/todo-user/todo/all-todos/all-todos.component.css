@@ -28,6 +28,10 @@ h5{
     color: red
 }
 
+.glyphicon {
+    font-size: 30px;
+}
+
 .buttons {
     width: 322px;
     display: flex;

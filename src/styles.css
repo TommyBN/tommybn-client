@@ -1,28 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 /* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+/* @import "https://fonts.googleapis.com/icon?family=Material+Icons"; */
 
 body {
     background: #eeeeee;
     color: #5a9216;
 }
 
-/* input {
-    border-radius: 8px;
-    cursor: text;
-    height: 20px;
-    margin: 3%;
-} */
-
-/* button {
-    border-radius: 7px;
-    cursor: pointer;
-    margin: 3%;
-} */
-
-/* .small-button {
-    width: 200px !important;
-} */
-
 html, body { height: 100%; }
-/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
