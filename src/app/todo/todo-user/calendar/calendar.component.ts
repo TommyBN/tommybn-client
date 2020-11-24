@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { CalendarEvent }
-  from 'angular-calendar';
+import { Component, OnInit, Input } from '@angular/core';
+import { CalendarEvent } from 'angular-calendar';
 // import { colors } from './colors';
 
 @Component({
@@ -22,13 +21,15 @@ export class CalendarComponent implements OnInit {
   }
 
   @Input() events: CalendarEvent[];
+  currentDay: Date = new Date();
 
   constructor(
   ) { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {  }
 
+  changeDay(newDay) {
+    this.currentDay = newDay
+  }
 
 }

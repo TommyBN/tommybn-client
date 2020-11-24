@@ -12,6 +12,7 @@ import { UserService } from '../../user.service';
 export class CalMonthComponent implements OnInit {
 
   @Input() events: CalendarEvent[];
+  @Output() changeDay: EventEmitter<Date> = new EventEmitter<Date>()
   view: CalendarView = CalendarView.Month;
   viewDate: Date = new Date(); 
   refresh: Subject<any> = new Subject();
@@ -22,7 +23,10 @@ export class CalMonthComponent implements OnInit {
 
    ngOnInit() {
     this.userService.getNotified().subscribe(()=> this.refresh.next())
+  }
 
+  dayClicked(e) {
+    this.changeDay.emit(e.day.date)
   }
 
   eventTimesChanged({

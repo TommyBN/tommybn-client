@@ -14,7 +14,7 @@ export class CalDayComponent implements OnInit {
   @Input() events: CalendarEvent[];
 
   view: CalendarView = CalendarView.Day;
-  viewDate: Date = new Date();
+  @Input() viewDate: Date;
   refresh: Subject<any> = new Subject();
 
 

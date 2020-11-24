@@ -5,24 +5,17 @@ import { CalendarView } from 'angular-calendar';
 @Component({
   selector: 'calendar-header',
   templateUrl: './calendar-header.component.html',
-  styles:[
-    `
-    .arrow{
-      font-size:200%;
-      cursor:pointer
-    }
+  styles:[`
     .container{
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
     }
 
-    h3{
-      font-size: 1.25em;
-      text-align: left;
-      display: inline-block }
-
-    `
-  ]
+    .middle {
+      margin-left: 20px
+    }
+  `]
 })
 export class CalendarHeaderComponent   {
 

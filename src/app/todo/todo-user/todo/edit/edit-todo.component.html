@@ -9,7 +9,7 @@
                 (click)="toggleEventForm()">הוסף אירוע ביומן</button>
             <div *ngIf="createEvent" class="event-details">
                 <mat-form-field id="time-picker">
-                    <mat-label>שעה?</mat-label>
+                    <mat-label>מתי?</mat-label>
                     <input type="datetime-local" matInput formControlName="startDate" min=6 max=22>
                 </mat-form-field>
             </div>

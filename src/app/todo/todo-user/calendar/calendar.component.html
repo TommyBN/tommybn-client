@@ -2,13 +2,13 @@
 
     <kendo-splitter-pane id="day">
         <div class="pane-content">
-            <app-cal-day [events]="events"></app-cal-day>
+            <app-cal-day [viewDate]="currentDay" [events]="events"></app-cal-day>
         </div>
     </kendo-splitter-pane>
 
     <kendo-splitter-pane [collapsible]="true" size="70%">
         <div class="pane-content">
-            <app-cal-month [events]="events" ></app-cal-month>
+            <app-cal-month (changeDay)="changeDay($event)" [events]="events" ></app-cal-month>
         </div>
     </kendo-splitter-pane>
 

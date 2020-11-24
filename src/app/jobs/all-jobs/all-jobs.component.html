@@ -24,58 +24,111 @@
                      <button class="delete-button" (click)="jobToDelete = i"><span>&#10008;&nbsp;</span>מחק</button>
                   </div>
                </div>
-               <div *ngIf="job.location">
-                  <span> מיקום: </span>
-                  {{job.location}}
-               </div>
-               <div *ngIf="job.contactMan">
-                  <span> איש קשר: </span>
-                  {{job.contactMan}}
-               </div>
-               <div *ngIf="job.phoneNumber">
-                  <span> טלפון: </span>
-                  {{job.phoneNumber}}
-               </div>
-               <div *ngIf="job.jobBoard">
-                  <span> אתר / לוח:</span>
-                  {{job.jobBoard}}
-               </div>
-               <div *ngIf="job.jobDescription">
-                  <span> תאור העסק:</span>
-                  {{job.jobDescription}}
-               </div>
-               <div *ngIf="job.companyDescription">
-                  <span> תאור העבודה:</span>
-                  {{job.companyDescription}}
-               </div>
-               <div *ngIf="job.handsOn">
-                  <span> כישורים נדרשים:</span>
-                  {{job.handsOn}}
-               </div>
-               <div *ngIf="job.handsOn">
-                  <span> שכר:</span>
-                  {{job.salary}}
-               </div>
-               <div *ngIf="job.daysAndHours">
-                  <span> ימים / שעות:</span>
-                  {{job.daysAndHours}}
-               </div>
-               <div *ngIf="job.experienceNeeded">
-                  <span> נסיון:</span>
-                  {{job.experienceNeeded}}
-               </div>
-               <div *ngIf="job.remarks">
-                  <span> הערות:</span>
-                  {{job.remarks}}
-               </div>
-               <div *ngIf="job.outSourcing">
-                  <span> מיקור חוץ:</span>
-                  {{job.outSourcing}}
-               </div>
-               <div *ngIf="job.questions">
-                  <span> שאלות:</span>
-                  {{job.questions}}
-               </div>
+               <!-- 
+               <mat-grid-list cols="1" rowHeight="50px">
+                  <mat-grid-tile
+                     *ngFor="let item of job | keyvalue; let i = index"
+                     [colspan]="1"
+                     [rowspan]="getRows(item.key, item.value)"
+                     [style.border]=" i%2 == 0 ? 'none' : '1px solid black' ">
+                     <span *ngIf="item.value"> {{getHebTitle(item.key)}}: </span>
+                     {{item.value}}
+                  </mat-grid-tile>
+                </mat-grid-list> -->
+
+               <mat-list>
+                  <div *ngIf="job.location">
+                     <mat-list-item>
+                        <span> מיקום: </span>
+                        {{job.location}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.contactMan">
+                     <mat-list-item>
+                        <span> איש קשר: </span>
+                        {{job.contactMan}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.phoneNumber">
+                     <mat-list-item>
+                        <span> טלפון: </span>
+                        {{job.phoneNumber}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.jobBoard">
+                     <mat-list-item>
+                        <span> אתר / לוח:</span>
+                        {{job.jobBoard}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.jobDescription">
+                     <mat-list-item>
+                        <span> תאור העסק:</span>
+                        {{job.jobDescription}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.companyDescription">
+                     <mat-list-item>
+                        <span> תאור העבודה:</span>
+                        {{job.companyDescription}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.handsOn">
+                     <mat-list-item>
+                        <span> כישורים נדרשים:</span>
+                        {{job.handsOn}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.salary">
+                     <mat-list-item>
+                        <span> שכר:</span>
+                        {{job.salary}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.daysAndHours">
+                     <mat-list-item>
+                        <span> ימים / שעות:</span>
+                        {{job.daysAndHours}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.experienceNeeded">
+                     <mat-list-item>
+                        <span> נסיון:</span>
+                        {{job.experienceNeeded}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.remarks">
+                     <mat-list-item>
+                        <span> הערות:</span>
+                        {{job.remarks}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.outSourcing">
+                     <mat-list-item>
+                        <span> מיקור חוץ:</span>
+                        {{job.outSourcing}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.questions">
+                     <mat-list-item>
+                        <span> שאלות:</span>
+                        {{job.questions}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+               </mat-list>
             </div>
          </div>
       </div>

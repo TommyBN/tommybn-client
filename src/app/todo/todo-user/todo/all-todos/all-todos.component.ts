@@ -33,6 +33,7 @@ export class AllTodosComponent implements OnInit{
         this.todoService.addTodo(todo).subscribe( () => {
             this.DBChangeNotification.emit();
             this.viewAddForm = false;
+            this.addTodoButtonText = 'הוסף מטלה';
         }) 
     }
 

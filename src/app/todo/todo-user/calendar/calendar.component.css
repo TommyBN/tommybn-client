@@ -3,6 +3,10 @@
     padding: 0 10px; 
 }
 
+kendo-splitter {
+    border-radius: 5px;
+}
+
 #day {
     width: 0%;
 }
