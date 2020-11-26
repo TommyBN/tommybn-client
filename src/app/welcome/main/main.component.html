@@ -5,78 +5,7 @@
     <img #image src="../../../assets/jumping.jpg" alt="">
     <div #imageText class="image-text">
 
-      <!--did'nt work out-->
-      <!-- <div *ngIf="about">
-        <h2>About me</h2>
-        <div id="about">
-          <p>
-            Hi. My name is Tom Ben Ner. I am a <strong>full stack</strong> software developer, living in Tel Aviv,
-            Israel.
-            <br> My main specialization in software development is Angular. <br> I am a devoted team player with great
-            social skills and keeeeeen attention to details!
-          </p>
-        </div>
-      </div>
 
-      <div *ngIf="apps">
-        <h2>My apps</h2>
-        <div id="apps">
-          <p>click to enter</p>
-          <div class="app" routerLink="/login/todo">
-            <h2>נעשה ונשמע</h2>
-            <p>נהל/י את משימותייך בפשטות וביעילות</p>
-          </div>
-          <div class="app" routerLink="/login/jobs">
-            <h2>בוא נמצא עבודה!</h2>
-            <p>רכז/י פרטים לגבי משרות שהגשת להם מועמדות - הכל במקום אחד.</p>
-          </div>
-        </div>
-      </div>
-
-
-      <div *ngIf="techs">
-        <h2>What do I do?</h2>
-        <div id="what-do" [style.overflow]="this.techs ? 'scroll' : 'hidden'">
-          <p>
-            Here are some of the technologies I have been creating this site with:
-          </p>
-          <p>(scroll down)</p>
-          <div class="techs">
-            <div class="tech">
-              <img src="../../../assets/angular.png" style="width: 80px; height: 80px; margin-top: -12px" alt="">
-              <h2> Angular</h2>
-            </div>
-            <div class="tech">
-              <div class="js-logo">JS</div>
-              <h2>JavaScript</h2>
-            </div>
-            <div class="tech">
-              <img src="../../../assets/HTML5_Badge_128.png" style="width: 60px; height: 60px" alt="">
-              <h2>HTML5</h2>
-            </div>
-            <div class="tech">
-              <img src="../../../assets/icons8-css3-96.png" style="width: 100px; height: 100px" alt="">
-              <h2>CSS3</h2>
-            </div>
-            <div class="tech">
-              <div class="java-logo">Java</div>
-            </div>
-            <div class="tech">
-              <img src="../../../assets/nodejs-new-pantone-white.png"
-                style="width: 180px; height: 180px; margin-top: -30px" alt="">
-            </div>
-            <div class="tech mongo">
-              <img src="../../../assets/MongoDB_Logo_FullColorWhite_RGB.png" style="width: 190px; height: 75px;" alt="">
-            </div>
-            <div class="tech">
-              <img src="../../../assets/Git-Logo-1788C.png" style="width: 100px; height: 60px" alt="">
-            </div>
-            <div class="tech last">
-              <h2>and more...</h2>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div id="sorry">
         <h1>I am sorry</h1>
         <h2>This component does not support a screen width higher than 600 px.</h2>
@@ -100,7 +29,7 @@
       <div id="about" [style.height]="setHeight('about')">
         <p>Hello!</p>
         <p>
-           My name is Tom Ben Ner. I am a <strong>full stack</strong> software developer, living in Tel Aviv,
+          My name is Tom Ben Ner. I am a <strong>full stack</strong> software developer, living in Tel Aviv,
           Israel. Been working mostly with Angular, versions 4-10.
         </p>
       </div>
@@ -111,15 +40,12 @@
     <div class="wrapper">
       <h2 (click)="toggleDiv('techs')">What is this site?</h2>
       <div id="what-do" [style.height]="setHeight('techs')" [style.overflow]="this.techs ? 'scroll' : 'hidden'">
-        <p class="ul">
+        <h2>
           A demonstration of my abilities as a front-end / full-stack developer
-        </p>
-        <p>
-          In the next section - applications I have been making from scratch (sign in, it's free)
-        </p>
-        <p class="ul">
+        </h2>
+        <h3>
           techs used to create this site: <br> (scroll down)
-        </p>
+        </h3>
         <div class="techs">
           <div class="tech">
             <img src="../../../assets/angular.png" style="width: 80px; height: 80px; margin-top: -12px" alt="">
@@ -136,10 +62,6 @@
           <div class="tech">
             <img src="../../../assets/icons8-css3-96.png" style="width: 100px; height: 100px" alt="">
             <h2>CSS3</h2>
-          </div>
-          <div class="tech">
-            <div class="java-logo">Java</div>
-            <h2>The myth ex.</h2>
           </div>
           <div class="tech">
             <img src="../../../assets/nodejs-new-pantone-white.png"
@@ -161,14 +83,15 @@
     <div class="wrapper">
       <h2 (click)="toggleDiv('apps')">My apps</h2>
       <div id="apps" [style.height]="setHeight('apps')">
-        <h3>click to enter</h3>
-        <div class="app" routerLink="/login/todo">
-          <p>נעשה ונשמע</p>
-          <h3>נהל/י את משימותייך בפשטות וביעילות</h3>
-        </div>
         <div class="app" routerLink="/login/jobs">
-          <p>בוא נמצא עבודה!</p>
-          <h3>רכז/י פרטים לגבי משרות שהגשת להם מועמדות - הכל במקום אחד.</h3>
+          <h2>צ'ופי הוא ברווז צהוב</h2>
+          <h3>ריכוז פרטים על משרות שהגשת אליהן מועמדות - הכל במקום אחד.</h3>
+          <span style="font-size: 50px">🏹</span>
+        </div>
+        <div class="app" routerLink="/login/todo">
+          <h2>נעשה ונשמע</h2>
+          <h3>נהל/י את משימותייך בפשטות וביעילות</h3>
+          <span style="font-size: 50px">🧗‍♀️</span>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ export interface Job {
     phoneNumber?: string;
     jobDescription?: string;
     companyDescription?: string;
-    handsOn?: string;
+    skills?: string[];
     experienceNeeded?: string;
     remarks?: string;
     questions?: string;

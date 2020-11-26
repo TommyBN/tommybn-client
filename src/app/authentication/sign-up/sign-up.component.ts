@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
 export interface FormResponse {
   valid: boolean,
   msg: string,
-  id?: string
+  id?: string,
+  token: string
 }
 
 @Component({

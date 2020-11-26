@@ -6,6 +6,8 @@ body {
     color: #5a9216;
 }
 
+:focus {outline:0 !important;}
+
 *::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
   }

@@ -44,3 +44,9 @@ input {
 button {
     cursor: pointer;
 }
+
+.mat-standard-chip .mat-chip-remove, .mat-standard-chip .mat-chip-trailing-icon {
+    margin-left: -8px;
+    margin-right: 13px;
+}
+

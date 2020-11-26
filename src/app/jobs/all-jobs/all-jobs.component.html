@@ -24,18 +24,6 @@
                      <button class="delete-button" (click)="jobToDelete = i"><span>&#10008;&nbsp;</span>מחק</button>
                   </div>
                </div>
-               <!-- 
-               <mat-grid-list cols="1" rowHeight="50px">
-                  <mat-grid-tile
-                     *ngFor="let item of job | keyvalue; let i = index"
-                     [colspan]="1"
-                     [rowspan]="getRows(item.key, item.value)"
-                     [style.border]=" i%2 == 0 ? 'none' : '1px solid black' ">
-                     <span *ngIf="item.value"> {{getHebTitle(item.key)}}: </span>
-                     {{item.value}}
-                  </mat-grid-tile>
-                </mat-grid-list> -->
-
                <mat-list>
                   <div *ngIf="job.location">
                      <mat-list-item>
@@ -79,10 +67,10 @@
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
-                  <div *ngIf="job.handsOn">
+                  <div *ngIf="job.skills">
                      <mat-list-item>
                         <span> כישורים נדרשים:</span>
-                        {{job.handsOn}}
+                        {{job.skills}}
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>

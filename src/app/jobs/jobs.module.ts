@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
     ReactiveFormsModule,
     HttpClientModule,
     JobsRoutingModule,
-    MatInputModule, MatButtonModule, MatDialogModule, MatDividerModule
+    MatInputModule, MatButtonModule, MatDialogModule, MatDividerModule, MatChipsModule
   ],
   providers: [JobsService],
   bootstrap: []

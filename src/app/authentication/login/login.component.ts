@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { FormResponse} from '../sign-up/sign-up.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -26,12 +27,17 @@ export class LoginComponent {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   onSubmit() {
-    this.http.post<FormResponse>(this.SERVER_URL, this.loginForm.value).subscribe(
+    // this.http.post<FormResponse>(this.SERVER_URL, this.loginForm.value).subscribe(
+      this.authService.logIn(this.loginForm.value).subscribe(
       (res) => {
-        if(res.valid) this.router.navigate([`../../${this.appName}`, res.id], {relativeTo: this.route})
+        if(res.valid) {
+          this.authService.setTokenAndID(res.id, res.token)
+          this.router.navigate([`../../${this.appName}`, res.id], {relativeTo: this.route})
+        } 
         else {
           this.message = res.msg;
           this.loginForm.setErrors({'invalid': true})

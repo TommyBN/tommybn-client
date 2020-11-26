@@ -14,27 +14,11 @@ export class MainComponent implements OnInit {
   about: boolean = false;
   apps: boolean = false;
   techs: boolean = false;
-  // imageTextContent: string = `
-  // <h1>heading</h1>
-  // <p>bla bla bla bla </p>
-  // `
 
 
-  constructor(private elementRef: ElementRef) { }
+  constructor() { }
 
   ngOnInit() { }
-
-  ngAfterViewInit() {
-    // console.log(this.imageText.nativeElement.innerHTML = `
-    // <h1>heading</h1>
-    // <p>bla bla bla bla </p>
-    // `)
-    this.elementRef.nativeElement.ownerDocument.body.style.background = '#52c7b8';
-  }
-
-  ngOnDestroy() {
-    this.elementRef.nativeElement.ownerDocument.body.style.background = '#eeeeee';
-  }
 
   toggleDiv(divName: string) {
     switch (divName) {
@@ -79,7 +63,7 @@ export class MainComponent implements OnInit {
       case 'apps':
         if (screen.width > 760) return this.apps ? '291px' : '0px'
         if (screen.width > 600) return '0px'
-        return this.apps ? '400px' : '0px'
+        return this.apps ? '600px' : '0px'
       case 'techs':
         if (screen.width > 760) return this.techs ? '500px' : '0px'
         if (screen.width > 600) return '0px'

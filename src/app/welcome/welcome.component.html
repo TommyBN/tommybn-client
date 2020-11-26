@@ -3,7 +3,7 @@
   <div class="form-container" [style.display]="showName ? 'none' : 'block'">
     <mat-form-field>
       <mat-label>Your name please</mat-label>
-      <input [(ngModel)]="name" matInput (click)="checkValidation()" (keyup)="checkValidation()">
+      <input [(ngModel)]="name" matInput autocomplete="off" (click)="checkValidation()" (keyup)="checkValidation()">
     </mat-form-field>
 
     <div>
