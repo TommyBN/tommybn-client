@@ -33,6 +33,7 @@ button {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 1em;
     }
+
 }
 
 .buttons {
@@ -76,7 +77,7 @@ h3:hover {
 .job-div {
     /* border: 1px solid black; */
     padding: 20px;
-    background: linear-gradient(rgb(235, 233, 213), darkkhaki);
+    /* background: linear-gradient(rgb(235, 233, 213), darkkhaki); */
 }
 
 .jobs-details > div {
@@ -93,8 +94,15 @@ app-add-job {
     /* border: 1px solid black; */
     margin: 2%;
     border-radius: 5px;
-    background-color: darkkhaki;
+    background: radial-gradient( rgb(158, 8, 8), rgb(241, 211, 150));
     width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    app-add-job {
+        background: radial-gradient(rgb(223, 169, 23), rgb(158, 8, 8));
+        border-radius: 150px;
+    }
 }
 
 .modal {

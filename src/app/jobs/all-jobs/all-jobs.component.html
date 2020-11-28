@@ -81,10 +81,16 @@
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
-                  <div *ngIf="job.daysAndHours">
+                  <div *ngIf="job.rolePercentage">
                      <mat-list-item>
-                        <span> ימים / שעות:</span>
-                        {{job.daysAndHours}}
+                        {{job.rolePercentage}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.days">
+                     <mat-list-item>
+                        <span> ימים:</span>
+                        {{job.days}}
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
@@ -92,6 +98,20 @@
                      <mat-list-item>
                         <span> נסיון:</span>
                         {{job.experienceNeeded}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.stayHome">
+                     <mat-list-item>
+                        <span> נסיון:</span>
+                        {{job.stayHome}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.rolePercentage">
+                     <mat-list-item>
+                        <span> נסיון:</span>
+                        {{job.rolePercentage}}
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>

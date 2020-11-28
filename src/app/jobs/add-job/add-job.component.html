@@ -2,69 +2,108 @@
     <h2>{{title}}</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="jobForm">
         <div class="container">
+            
             <mat-form-field color="accent">
                 <mat-label>שם החברה:</mat-label>
                 <input formControlName="name" matInput autocomplete="off" required>
             </mat-form-field>
+            
             <mat-form-field color="accent">
                 <mat-label>מיקום:</mat-label>
                 <input formControlName="location" matInput autocomplete="off">
             </mat-form-field>
+            
+            
             <mat-form-field color="accent">
                 <mat-label>איש קשר:</mat-label>
                 <input formControlName="contactMan" matInput autocomplete="off">
             </mat-form-field>
+            
             <mat-form-field color="accent">
                 <mat-label>טלפון:</mat-label>
                 <input formControlName="phoneNumber" matInput autocomplete="off">
             </mat-form-field>
-            <mat-form-field color="accent">
-                <mat-label>תאור החברה:</mat-label>
+
+            <!--מיקור חוץ?-->
+            <div class="long" id="out-source">
+                <mat-checkbox (change)="this.isOutSourcing = !this.isOutSourcing" 
+                    color="primary">מיקור חוץ<span *ngIf="!isOutSourcing">?</span>
+                </mat-checkbox>
+                <mat-form-field style="width: 100%" *ngIf="isOutSourcing" color="accent">
+                    <mat-label>שם חברת מיקור חוץ:</mat-label>
+                    <input formControlName="outSourcing" matInput autocomplete="off">
+                </mat-form-field>
+            </div>
+            
+            <mat-form-field class="long" color="accent">
+                <mat-label>תאור החברה בה אני הולך לעבוד:</mat-label>
                 <input formControlName="companyDescription" matInput autocomplete="off">
             </mat-form-field>
-            <mat-form-field color="accent">
-                <mat-label>תאור משרה:</mat-label>
+
+            <mat-form-field class="long" color="accent">
+                <mat-label>תאור המשרה אותה אמלא:</mat-label>
                 <input formControlName="jobDescription" matInput autocomplete="off">
             </mat-form-field>
-            <mat-form-field color="accent">
-                <mat-chip-list #skillsChips formControlName="skills">
-                  <mat-chip *ngFor="let skill of skills.value" [selectable]="selectable"
-                           [removable]="removable" (removed)="remove(skill)">
-                    {{skill}}
-                    <mat-icon matChipRemove *ngIf="removable">&#10008;</mat-icon>
-                  </mat-chip>
-                  <input placeholder="כישורים נדרשים:"
-                         [matChipInputFor]="skillsChips"
-                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                         [matChipInputAddOnBlur]="addOnBlur"
-                         (matChipInputTokenEnd)="add($event)">
-                </mat-chip-list>
-              </mat-form-field>
-            <mat-form-field color="accent">
-                <mat-label>נסיון:</mat-label>
-                <input formControlName="experienceNeeded" matInput autocomplete="off">
-            </mat-form-field>
-            <mat-form-field color="accent">
-                <mat-label>מיקור חוץ?</mat-label>
-                <input formControlName="outSourcing" matInput autocomplete="off">
-            </mat-form-field>
-            <mat-form-field color="accent">
-                <mat-label>הערות:</mat-label>
-                <input formControlName="remarks" matInput autocomplete="off">
-            </mat-form-field>
-            <mat-form-field color="accent">
+
+            <!--כישורים-->
+            <app-chips class="long" [chips]="jobForm.value.skills" (emitChips)="setChips('skills', $event)"
+                [placeholder]="'כישורים נדרשים:'"></app-chips>
+
+            <!--נסיון-->
+            <div id="experience">
+                <mat-checkbox (change)="this.isExperience = !this.isExperience" color="primary">דרוש נסיון קודם<span *ngIf="!isExperience">?</span></mat-checkbox>
+                <mat-form-field *ngIf="isExperience" color="accent">
+                    <mat-label>שנות נסיון:</mat-label>
+                    <input type="number" formControlName="experienceNeeded" matInput autocomplete="off">
+                </mat-form-field>
+            </div>
+
+
+            <!--הערות-->
+            <app-chips class="long" [chips]="jobForm.value.remarks" (emitChips)="setChips('remarks', $event)"
+                [placeholder]="'הערות:'"></app-chips>
+
+
+            <!--עבודה מהבית?-->
+            <label>עבודה מהבית?</label>
+            <div class="long" id="stay-home">
+                <mat-radio-group formControlName="stayHome">
+                    <div class="radio-button-div">
+                        <mat-radio-button [checked]="true" value="0">
+                            עבודה מהבית בפיג'מה
+                        </mat-radio-button>
+                    </div>
+                    <div class="radio-button-div">
+                        <mat-radio-button value="1">
+                            צריך להתלבש וללכת למשרד
+                        </mat-radio-button>
+                    </div>
+                    <div class="radio-button-div">
+                        <mat-radio-button value="2">
+                            גם וגם
+                        </mat-radio-button>
+                    </div>
+                </mat-radio-group>
+            </div>
+
+            <!--שכר-->
+            <mat-form-field class="long" color="accent">
                 <mat-label>שכר:</mat-label>
                 <input formControlName="salary" matInput autocomplete="off">
             </mat-form-field>
+
             <mat-form-field color="accent">
                 <mat-label>ימים / שעות:</mat-label>
-                <input formControlName="daysAndHours" matInput autocomplete="off">
+                <input formControlName="days" matInput autocomplete="off">
             </mat-form-field>
-            <mat-form-field color="accent">
-                <mat-label>שאלות?</mat-label>
-                <input formControlName="questions" matInput autocomplete="off">
-            </mat-form-field>
-            <mat-form-field color="accent">
+
+            <!--ימים-->
+            <app-checks></app-checks>
+
+            <!--שאלות-->
+            <app-chips class="long" [chips]="jobForm.value.questions" (emitChips)="setChips('questions', $event)"
+                [placeholder]="'שאלות?'"></app-chips>
+            <mat-form-field class="long" color="accent">
                 <mat-label>הגעתי דרך...</mat-label>
                 <input formControlName="jobBoard" matInput autocomplete="off">
             </mat-form-field>

@@ -1,0 +1,19 @@
+<section>
+    <span>
+        <mat-checkbox [checked]="fullTime" [indeterminate]="partTime()"
+            (change)="allDaysSame($event.checked)">
+            {{fullOrPart}}
+        </mat-checkbox>
+    </span>
+    <span *ngIf="!fullTime">
+        ימים:
+        <ul>
+            <li *ngFor="let day of days">
+                <mat-checkbox [(ngModel)]="day.checked" [color]="day.color"
+                    (ngModelChange)="checkAllDays()">
+                    {{day.name}}
+                </mat-checkbox>
+            </li>
+        </ul>
+    </span>
+</section>

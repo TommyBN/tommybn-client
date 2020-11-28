@@ -7,24 +7,53 @@ h2 {
 }
 
 #add-job {
-    margin: 3%;
     padding: 3%;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 12%;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0;
 }
 
 .mat-form-field {
     text-align: right;
-    width: 100%;
+    width: 60%;
+}
+
+.long {
+    width: 80%;
+    grid-column: span 2;
+}
+
+app-chips {
+    width: 133% !important;
 }
 
 input {
     color: black;
 }
+
+::ng-deep .mat-checkbox-inner-container, ::ng-deep .mat-radio-container  {
+    margin-left: 10px
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: transparent;
+}
+
+::ng-deep .mat-checkbox-mixedmark {
+    background-color: black;
+}
+
+.radio-button-div {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 4px;
+  }
 
 @media only screen and (min-width: 600px) {
     .container {
@@ -34,6 +63,18 @@ input {
 @media only screen and (min-width: 768px) {
     .container {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+
+    button {
+        margin-right: 539px
+    }
+
+    #add-job {
+        padding: 5%;
     }
 }
 
