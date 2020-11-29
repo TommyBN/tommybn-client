@@ -4,6 +4,10 @@
     color: black !important;
 }
 
+h1 {
+    text-align: center;
+}
+
 .container {
     display: flex;
     flex-direction: row;
@@ -100,24 +104,8 @@ app-add-job {
 
 @media only screen and (min-width: 768px) {
     app-add-job {
-        background: radial-gradient(rgb(223, 169, 23), rgb(158, 8, 8));
+        /* background: radial-gradient(rgb(223, 169, 23), rgb(158, 8, 8)); */
         border-radius: 150px;
     }
 }
 
-.modal {
-    position: absolute;
-    width: 50%;
-    height: fit-content;
-    padding: 8%;
-    top: 31%;
-    left: 21%;
-    background: forestgreen;
-    border: 1px solid black;
-}
-
-@media only screen and (min-width: 768px) {
-    .modal {
-        width: 25%;
-    }   
-}

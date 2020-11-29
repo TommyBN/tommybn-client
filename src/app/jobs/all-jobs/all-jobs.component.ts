@@ -4,26 +4,7 @@ import { JobsService } from '../jobs.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { jobsMessagesDialog } from './jobs-messages-dialog';
-
-export interface Job {
-    _id?: string;
-    name: string;
-    location?: string;
-    contactMan?: string;
-    phoneNumber?: string;
-    jobDescription?: string;
-    companyDescription?: string;
-    skills?: string[];
-    experienceNeeded?: string;
-    remarks?: string[];
-    stayHome?: string;
-    questions?: string;
-    outSourcing?: string;
-    jobBoard?: string;
-    rolePercentage: number;
-    days?: string[];
-    salary?: string;
-}
+import { Job } from '../Job';
 
 @Component({
     selector: 'app-jobs',
@@ -53,6 +34,7 @@ export class AllJobsComponent implements OnInit {
         });
         this.jobsService.getJobs().subscribe(companies => {
             this.allJobs = companies;
+            console.log(this.allJobs)
         })
     }
 

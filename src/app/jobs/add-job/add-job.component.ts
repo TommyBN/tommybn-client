@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Job } from '../all-jobs/all-jobs.component';
+import { Job } from '../Job';
 import { FormGroup, FormControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { JobsService } from '../jobs.service';
@@ -20,10 +20,20 @@ export class AddJobComponent implements OnInit {
   private url: string = `${environment.apiBaseUrl}/jobs`;
   public title: string = 'הוספת משרה';
   private edit: boolean = false;
-  public submitButtonText: string = 'הוסף';
+  public submitButtonText: string = 'שמור משרה';
   private id: string;
   isOutSourcing: boolean = false;
   isExperience: boolean = false;
+
+  days = [
+    {name: 'ראשון', checked: false},
+    {name: 'שני', checked: false},
+    {name: 'שלישי', checked: false},
+    {name: 'רביעי', checked: false},
+    {name: 'חמישי', checked: false},
+    {name: 'שישי', checked: false},
+  ];
+  
   
   jobForm: FormGroup = new FormGroup({
     name: new FormControl(''),
@@ -39,7 +49,15 @@ export class AddJobComponent implements OnInit {
     phoneNumber: new FormControl(''),
     remarks: new FormControl(['הוסף / הסר הערות']),
     stayHome: new FormControl(0),
-    days: new FormControl([]),
+    rolePercentage: new FormControl(0),
+    days: new FormControl([
+      {name: 'ראשון', checked: false},
+      {name: 'רביעי', checked: false},
+      {name: 'שני', checked: false},
+      {name: 'חמישי', checked: false},
+      {name: 'שלישי', checked: false},
+      {name: 'שישי', checked: false},
+    ]),
     salary: new FormControl('')
   })
 
@@ -50,8 +68,6 @@ export class AddJobComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-
     if (this.jobToEdit) {
       this.jobForm.patchValue({ ...this.jobToEdit });
       this.edit = true;
@@ -59,9 +75,21 @@ export class AddJobComponent implements OnInit {
       this.submitButtonText = 'שמור שינויים';
     }
   }
+  
+    setChips(chipsFormControlName: string, chips: string[]) {
+      this.jobForm.get(chipsFormControlName).setValue(chips)
+    }
+
+    checkDay(day) {
+      console.log(day);
+      day.checked = !day.checked;
+      console.log(this.jobForm.value.days)
+    }
 
   onSubmit() {
+    console.log(this.jobForm)
     let job = <Job>this.jobForm.value;
+    console.log(job)
 
     //update
     if (this.edit) {
@@ -78,10 +106,6 @@ export class AddJobComponent implements OnInit {
       this.formSubmitted.emit('נוספה לרשימת המשרות שלך :)');
     })
 
-  }
-
-  setChips(chipsFormControlName: string, chips: string[]) {
-    this.jobForm.get(chipsFormControlName).setValue(chips)
   }
 
 

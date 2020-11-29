@@ -5,7 +5,7 @@
    </div>
    <br><br>
    <div class="container">
-      <div id="all-jobs-container" *ngIf="!showForm">
+      <div id="all-jobs-container" *ngIf="!showForm && allJobs.length > 0">
          <div *ngFor="let job of allJobs; let i = index;" class="job-div">
             <h3 (click)="open(i)">{{job.name}}</h3>
             <div class="delete-div" *ngIf="jobToDelete == i">
@@ -48,26 +48,47 @@
                   </div>
                   <div *ngIf="job.jobBoard">
                      <mat-list-item>
-                        <span> אתר / לוח:</span>
+                        <span> הגעתי דרך:</span>
                         {{job.jobBoard}}
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
-                  <div *ngIf="job.jobDescription">
+                  <div *ngIf="job.rolePercentage">
                      <mat-list-item>
-                        <span> תאור העסק:</span>
-                        {{job.jobDescription}}
+                        <span *ngIf="job.rolePercentage == 0">משרה מלאה</span>
+                        <span *ngIf="job.rolePercentage == 1">משרה חלקית</span>
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
                   <div *ngIf="job.companyDescription">
                      <mat-list-item>
-                        <span> תאור העבודה:</span>
+                        <span>על החברה:</span>
                         {{job.companyDescription}}
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
-                  <div *ngIf="job.skills">
+                  <div *ngIf="job.jobDescription">
+                     <mat-list-item>
+                        <span> מה עושים בתכלס?</span>
+                        {{job.jobDescription}}
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.experienceNeeded">
+                     <mat-list-item>
+                        <span> צריך נסיון?</span>
+                        כן, {{job.experienceNeeded}} שנים
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="!job.experienceNeeded">
+                     <mat-list-item>
+                        <span> צריך נסיון?</span>
+                        לא
+                     </mat-list-item>
+                     <mat-divider></mat-divider>
+                  </div>
+                  <div *ngIf="job.skills.length > 0">
                      <mat-list-item>
                         <span> כישורים נדרשים:</span>
                         {{job.skills}}
@@ -81,41 +102,22 @@
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
-                  <div *ngIf="job.rolePercentage">
-                     <mat-list-item>
-                        {{job.rolePercentage}}
-                     </mat-list-item>
-                     <mat-divider></mat-divider>
-                  </div>
-                  <div *ngIf="job.days">
+                  <div *ngIf="job.days.length > 0">
                      <mat-list-item>
                         <span> ימים:</span>
-                        {{job.days}}
-                     </mat-list-item>
-                     <mat-divider></mat-divider>
-                  </div>
-                  <div *ngIf="job.experienceNeeded">
-                     <mat-list-item>
-                        <span> נסיון:</span>
-                        {{job.experienceNeeded}}
+                        <span *ngFor="let day of job.days">{{day.name}},</span>
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
                   <div *ngIf="job.stayHome">
                      <mat-list-item>
-                        <span> נסיון:</span>
-                        {{job.stayHome}}
+                        <span *ngIf="job.stayHome == 0">עובדים מהבית</span>
+                        <span *ngIf="job.stayHome == 1">עובדים במשרד</span>
+                        <span *ngIf="job.stayHome == 2">עובדים מהבית ומהמשרד</span>
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
-                  <div *ngIf="job.rolePercentage">
-                     <mat-list-item>
-                        <span> נסיון:</span>
-                        {{job.rolePercentage}}
-                     </mat-list-item>
-                     <mat-divider></mat-divider>
-                  </div>
-                  <div *ngIf="job.remarks">
+                  <div *ngIf="job.remarks.length > 0">
                      <mat-list-item>
                         <span> הערות:</span>
                         {{job.remarks}}
@@ -129,7 +131,7 @@
                      </mat-list-item>
                      <mat-divider></mat-divider>
                   </div>
-                  <div *ngIf="job.questions">
+                  <div *ngIf="job.questions.length > 0">
                      <mat-list-item>
                         <span> שאלות:</span>
                         {{job.questions}}

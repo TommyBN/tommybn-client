@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { ENTER, SINGLE_QUOTE } from '@angular/cdk/keycodes';
+import { ENTER, SINGLE_QUOTE, TAB } from '@angular/cdk/keycodes';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -19,7 +19,7 @@ export class ChipsComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  readonly separatorKeysCodes: number[] = [ENTER, SINGLE_QUOTE];
+  readonly separatorKeysCodes: number[] = [ENTER, SINGLE_QUOTE, TAB];
 
 
   constructor() { }
