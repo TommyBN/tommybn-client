@@ -12,6 +12,7 @@ export interface Job {
     remarks?: string[];
     stayHome?: string;
     questions?: string;
+    isOustSourcing?: boolean;
     outSourcing?: string;
     jobBoard?: string;
     rolePercentage?: number;

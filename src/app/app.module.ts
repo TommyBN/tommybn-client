@@ -11,6 +11,7 @@ import { HelloComponent } from './welcome/hello/hello.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { AuthComponent } from './authentication/auth.component';
+import { MainPageService } from './welcome/main/main-page.service';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule, ReactiveFormsModule,
     MatInputModule, MatButtonModule
   ],
-  providers: [],
+  providers: [MainPageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

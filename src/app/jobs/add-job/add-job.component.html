@@ -35,10 +35,13 @@
             <!--מיקור חוץ?-->
             <div class="section">
                 <div class="long" id="out-source">
-                    <mat-checkbox (change)="this.isOutSourcing = !this.isOutSourcing" color="primary">מיקור חוץ<span
-                            *ngIf="!isOutSourcing">?</span>
+                    <mat-checkbox 
+                    [checked]="jobForm.value.isOutSourcing" 
+                    (change)="jobForm.get('isOutSourcing').setValue(!jobForm.value.isOutSourcing)" 
+                    color="primary">מיקור חוץ
+                    <span *ngIf="!jobForm.value.isOutSourcing">?</span>
                     </mat-checkbox>
-                    <mat-form-field style="width: 100%" *ngIf="isOutSourcing" color="accent">
+                    <mat-form-field style="width: 100%" *ngIf="jobForm.value.isOutSourcing" color="accent">
                         <mat-label>שם חברת מיקור חוץ:</mat-label>
                         <input formControlName="outSourcing" matInput autocomplete="off">
                     </mat-form-field>
@@ -61,8 +64,9 @@
 
             <!--כישורים-->
             <div class="section long">
+                <p>כישורים נדרשים:</p>
                 <app-chips [chips]="jobForm.value.skills" (emitChips)="setChips('skills', $event)"
-                    [placeholder]="'כישורים נדרשים:'"></app-chips>
+                    [placeholder]="'הוסף כישורים על ידי לחיצה על ENTER / TAB'"></app-chips>
             </div>
 
             <!--נסיון-->
@@ -108,7 +112,7 @@
                 </mat-form-field>
             </div>
 
-
+            <!--ימים-->
             <div class="section long">
                 <mat-radio-group formControlName="rolePercentage">
                     <div class="radio-button-div">
@@ -137,18 +141,6 @@
                 </div>
             </div>
 
-            <!-- <div class="section">
-                <mat-form-field color="accent">
-                    <mat-label>ימים / שעות:</mat-label>
-                    <input formControlName="days" matInput autocomplete="off">
-                </mat-form-field>
-            </div> -->
-
-            <!--ימים-->
-            <div class="section">
-
-            </div>
-
             <!--הגעתי דרך...-->
             <div class="section long">
                 <mat-form-field color="accent">
@@ -159,14 +151,16 @@
 
             <!--שאלות-->
             <div class="section long">
+                <p>שאלות?</p>
                 <app-chips [chips]="jobForm.value.questions" (emitChips)="setChips('questions', $event)"
-                    [placeholder]="'שאלות?'"></app-chips>
+                    [placeholder]="'הוסף שאלה על ידי לחיצה על ENTER / TAB'"></app-chips>
             </div>
 
             <!--הערות-->
             <div class="section long">
+                <p>הערות</p>
                 <app-chips [chips]="jobForm.value.remarks" (emitChips)="setChips('remarks', $event)"
-                    [placeholder]="'הערות:'"></app-chips>
+                    [placeholder]="'הוסף הערה על ידי לחיצה על ENTER / TAB'"></app-chips>
             </div>
 
         </div>

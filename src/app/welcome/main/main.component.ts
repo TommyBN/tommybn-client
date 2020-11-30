@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MainPageService } from './main-page.service';
 
 @Component({
   selector: 'app-main',
@@ -11,42 +12,39 @@ export class MainComponent implements OnInit {
   @ViewChild('imageText') imageText: ElementRef;
 
   name: string;
-  about: boolean = false;
-  apps: boolean = false;
-  techs: boolean = false;
 
 
-  constructor() { }
+  constructor(private mainPageService: MainPageService) { }
 
   ngOnInit() { }
 
   toggleDiv(divName: string) {
     switch (divName) {
       case 'about':
-        this.about = !this.about;
-        this.apps = false;
-        this.techs = false;
+        this.mainPageService.about = !this.mainPageService.about;
+        this.mainPageService.apps = false;
+        this.mainPageService.techs = false;
         if (screen.width < 768 && screen.width > 600) {
-          this.imageText.nativeElement.style.opacity = this.about ? 1 : 0;
-          this.image.nativeElement.style.opacity = this.about ? 0.3 : 1;
+          this.imageText.nativeElement.style.opacity = this.mainPageService.about ? 1 : 0;
+          this.image.nativeElement.style.opacity = this.mainPageService.about ? 0.3 : 1;
         }
         break;
       case 'apps':
-        this.about = false;
-        this.apps = !this.apps;
-        this.techs = false;
+        this.mainPageService.about = false;
+        this.mainPageService.apps = !this.mainPageService.apps;
+        this.mainPageService.techs = false;
         if (screen.width < 768 && screen.width > 600) {
-          this.imageText.nativeElement.style.opacity = this.apps ? 1 : 0;
-          this.image.nativeElement.style.opacity = this.apps ? 0.3 : 1;
+          this.imageText.nativeElement.style.opacity = this.mainPageService.apps ? 1 : 0;
+          this.image.nativeElement.style.opacity = this.mainPageService.apps ? 0.3 : 1;
         }
         break;
       case 'techs':
-        this.about = false;
-        this.apps = false;
-        this.techs = !this.techs;
+        this.mainPageService.about = false;
+        this.mainPageService.apps = false;
+        this.mainPageService.techs = !this.mainPageService.techs;
         if (screen.width < 768 && screen.width > 600) {
-          this.imageText.nativeElement.style.opacity = this.techs ? 1 : 0;
-          this.image.nativeElement.style.opacity = this.techs ? 0.3 : 1;
+          this.imageText.nativeElement.style.opacity = this.mainPageService.techs ? 1 : 0;
+          this.image.nativeElement.style.opacity = this.mainPageService.techs ? 0.3 : 1;
         }
         break;
 
@@ -57,17 +55,17 @@ export class MainComponent implements OnInit {
   setHeight(divName: string) {
     switch (divName) {
       case 'about':
-        if (screen.width > 760) return this.about ? '170px' : '0px';
+        if (screen.width > 760) return this.mainPageService.about ? '210px' : '0px';
         if (screen.width > 600) return '0px'
-        return this.about ? '200px' : '0px'
+        return this.mainPageService.about ? '300px' : '0px'
       case 'apps':
-        if (screen.width > 760) return this.apps ? '291px' : '0px'
+        if (screen.width > 760) return this.mainPageService.apps ? '291px' : '0px'
         if (screen.width > 600) return '0px'
-        return this.apps ? '600px' : '0px'
+        return this.mainPageService.apps ? '600px' : '0px'
       case 'techs':
-        if (screen.width > 760) return this.techs ? '500px' : '0px'
+        if (screen.width > 760) return this.mainPageService.techs ? '500px' : '0px'
         if (screen.width > 600) return '0px'
-        return this.techs ? '400px' : '0px'
+        return this.mainPageService.techs ? '400px' : '0px'
     }
   }
 

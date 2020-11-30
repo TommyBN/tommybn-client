@@ -1,5 +1,10 @@
 <div class="container">
 
+
+  <div class="btn btn-primary" (click)="viewChange.emit('month')" >
+    <button [class.active]="view === 'month'" mat-stroked-button color="primary"> Month</button>
+  </div>
+
   <button mat-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
     (viewDateChange)="viewDateChange.next(viewDate)">
     Previous
@@ -16,60 +21,10 @@
     Next
   </button>
 
+  <div class="btn btn-primary" (click)="viewChange.emit('day')" >
+    <button [class.active]="view === 'day'" mat-stroked-button color="primary">Day</button>
+  </div>
+
 </div>
 
 <br />
-
-
-
-<!-- 
-
- <div class="row text-center">
-  <div class="col-md-4">
-    <div class="btn-group">
-      <div
-        class="btn btn-primary"
-        mwlCalendarPreviousView
-        [view]="view"
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)">
-        Previous
-      </div>
-      <div
-        class="btn btn-outline-secondary"
-        mwlCalendarToday
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)">
-        Today
-      </div>
-      <div
-        class="btn btn-primary"
-        mwlCalendarNextView
-        [view]="view"
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)">
-        Next
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
-  </div>
-  <div class="col-md-4">
-    <div class="btn-group">
-      <div
-        class="btn btn-primary"
-        (click)="viewChange.emit('month')"
-        [class.active]="view === 'month'">
-        Month
-      </div>
-      <div
-        class="btn btn-primary"
-        (click)="viewChange.emit('day')"
-        [class.active]="view === 'day'">
-        Day
-      </div>
-    </div>
-  </div>
-</div>
-<br> -->

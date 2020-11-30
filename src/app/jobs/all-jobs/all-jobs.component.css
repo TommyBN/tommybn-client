@@ -26,7 +26,7 @@ button {
     /* border: 1px solid black; */
     background: linear-gradient(darkkhaki, rgb(221, 102, 102));
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0;
 }
 
@@ -67,6 +67,12 @@ button {
     color: red !important;
 }
 
+.small {
+    transform: scale(0.8, 0.8);
+    border: 1px solid black;
+    font-size: 15px;
+}
+
 h3 {
     cursor: pointer;
     border-radius: 5px;
@@ -79,9 +85,8 @@ h3:hover {
 }
 
 .job-div {
-    /* border: 1px solid black; */
     padding: 20px;
-    /* background: linear-gradient(rgb(235, 233, 213), darkkhaki); */
+    
 }
 
 .jobs-details > div {
@@ -107,5 +112,9 @@ app-add-job {
         /* background: radial-gradient(rgb(223, 169, 23), rgb(158, 8, 8)); */
         border-radius: 150px;
     }
+}
+
+.days {
+    font-weight: normal !important;
 }
 

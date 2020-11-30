@@ -7,13 +7,15 @@ export interface DialogData {
 
 @Component({
     template: `
-    <div mat-dialog-content>
-    <p>{{data.text}}</p>
-    </div>
-    <div mat-dialog-actions>
-    <button mat-stroke-button color="primary" (click)="onNoClick()">סבבה</button>
-    </div>
-    `,
+      <div mat-dialog-content>
+        <p>{{data.text}}</p>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button color="primary" (click)="onNoClick()">👍</button>
+      </div>
+      `,
+      styleUrls:['./all-jobs.component.css']
+    // styles: ['* { direction: rtl } .container { background-color:  } button { border-radius: 10px;  }']
   })
   export class jobsMessagesDialog {
 

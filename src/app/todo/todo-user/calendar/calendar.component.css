@@ -11,6 +11,10 @@ kendo-splitter {
     width: 0%;
 }
 
+#month {
+    
+}
+
 @media only screen and (min-width: 768px) {
     #day {
         display: 70%;

@@ -15,6 +15,10 @@ import { CalendarView } from 'angular-calendar';
     .middle {
       margin-left: 20px
     }
+
+    .active {
+      background-color: #bcbcbc
+    }
   `]
 })
 export class CalendarHeaderComponent   {

@@ -28,10 +28,10 @@
       <h2 (click)="toggleDiv('about')">About me</h2>
       <div id="about" [style.height]="setHeight('about')">
         <p>Hello!</p>
-        <p>
-          My name is Tom Ben Ner. I am a <strong>full stack</strong> software developer, living in Tel Aviv,
-          Israel. Been working mostly with Angular, versions 4-10.
-        </p>
+        <h2>
+          My name is Tom Ben Ner. I am a <strong>Front End Web Developer</strong>. I live in Tel Aviv,
+          Israel.  <br> <br> Developing and working for 2 years, mainly with HTML, CSS, JavaScript and Angular.
+        </h2>
       </div>
     </div>
 
@@ -39,9 +39,9 @@
 
     <div class="wrapper">
       <h2 (click)="toggleDiv('techs')">What is this site?</h2>
-      <div id="what-do" [style.height]="setHeight('techs')" [style.overflow]="this.techs ? 'scroll' : 'hidden'">
+      <div id="what-do" [style.height]="setHeight('techs')" [style.overflow]="this.mainPageService.techs ? 'scroll' : 'hidden'">
         <h2>
-          A demonstration of my abilities as a front-end / full-stack developer
+          A demonstration of my abilities as a <strong>Front End Web Developer</strong>
         </h2>
         <h3>
           techs used to create this site: <br> (scroll down)
@@ -84,7 +84,7 @@
       <h2 (click)="toggleDiv('apps')">My apps</h2>
       <div id="apps" [style.height]="setHeight('apps')">
         <div class="app" routerLink="/login/jobs">
-          <h2>צ'ופי הוא ברווז צהוב</h2>
+          <h2>בוא נמצא עבודה!</h2>
           <h3>ריכוז פרטים על משרות שהגשת אליהן מועמדות - הכל במקום אחד.</h3>
           <span style="font-size: 50px">🏹</span>
         </div>

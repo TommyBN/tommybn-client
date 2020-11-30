@@ -41,6 +41,7 @@ export class WelcomeComponent implements OnInit {
 
   clear() {
     this.showName = false;
+    this.name = '';
   }
 
   setMargin() {

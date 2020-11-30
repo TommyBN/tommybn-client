@@ -6,7 +6,7 @@
         </div>
     </kendo-splitter-pane>
 
-    <kendo-splitter-pane [collapsible]="true" size="70%">
+    <kendo-splitter-pane id="month" [collapsible]="true" size="70%">
         <div class="pane-content">
             <app-cal-month (changeDay)="changeDay($event)" [events]="events" ></app-cal-month>
         </div>

@@ -14,7 +14,7 @@ import { Job } from '../Job';
 
 export class AllJobsComponent implements OnInit {
 
-    allJobs: Job[];
+    allJobs: Job[] = [];
     currentJobIndex: number;
     showForm: boolean = false;
     jobToEdit: Job;
@@ -54,6 +54,17 @@ export class AllJobsComponent implements OnInit {
         this.buttonText = this.showForm ? ' חזרה' : 'הוסף משרה';
     }
 
+    checkDays(days): boolean {
+        console.log(days)
+        for(let day of days){ 
+            if(day.checked) {
+                console.log(day)
+                return true
+            } 
+        }
+        return false
+    }
+
     delete(name: string) {
         this.jobsService.deleteJob(name).subscribe(res => {
             if (res.nModified == 1) {
@@ -64,7 +75,6 @@ export class AllJobsComponent implements OnInit {
     }
 
     popUpAndRefresh(message: string) {
-        this.ngOnInit();
         this.showForm = false;
         this.buttonText = this.showForm ? ' חזרה' : 'הוסף משרה';
         this.openDialog(message);
