@@ -1,5 +1,5 @@
-<calendar-header [(view)]="view" [(viewDate)]="viewDate">
-</calendar-header>
+<app-day-header [(view)]="view" [(viewDate)]="viewDate">
+</app-day-header>
 
 
 <div [ngSwitch]="view">
@@ -26,8 +26,6 @@
     [events]="events"
     [refresh]="refresh"
     (eventTimesChanged)="eventTimesChanged($event)"
-    [dayStartHour]="8"
-    [dayEndHour]="23"
-  >
+    >
   </mwl-calendar-day-view>
 </div>

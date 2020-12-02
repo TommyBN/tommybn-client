@@ -10,6 +10,7 @@
 
 .container{
     padding:5%;
+    height: 200px;
     text-align: right;
     display: flex;
     flex-direction: column;
@@ -29,5 +30,11 @@
 input[type="datetime-local"] {
     cursor: pointer;
 }
+
+
+#time-picker {
+    width: 100%
+}
+
 
 

@@ -19,6 +19,17 @@ import { CalendarView } from 'angular-calendar';
     .active {
       background-color: #bcbcbc
     }
+
+    #view {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    button {
+      max-height: 40px;
+      min-width: 86px;
+    }
   `]
 })
 export class CalendarHeaderComponent   {

@@ -8,7 +8,7 @@ kendo-splitter {
 }
 
 #day {
-    width: 0%;
+    display: none;
 }
 
 #month {
@@ -17,6 +17,6 @@ kendo-splitter {
 
 @media only screen and (min-width: 768px) {
     #day {
-        display: 70%;
+        display: inline;
     }
 }

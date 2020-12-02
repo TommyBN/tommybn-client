@@ -8,7 +8,7 @@ export interface DialogData {
 @Component({
     template: `
     <div mat-dialog-content>
-    <p>האם למחוק את המטלה {{data.todoTitle}}?</p>
+    <p>האם למחוק את המטלה '{{data.todoTitle}}'?</p>
     </div>
     <div class="row" mat-dialog-actions>
     <button mat-stroked-button color="primary" (click)="onNoClick()">ביטול</button>  

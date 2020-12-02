@@ -1,11 +1,13 @@
 <div class="container">
     <div *ngIf="!todos">אין מטלות להצגה</div>
-    <div class="main" *ngIf="todos">
+    
         <div class="deleteTodo" *ngIf="showDeleteIcon">לחץ על ה<span>&#10007;&nbsp;</span> שבצד המטלה על מנת למחוק אותה
         </div>
-        <table>
+        <!-- <table>
             <tr>
-                <th colspan="3"><h2>נעשה ונשמע</h2></th>
+                <th colspan="3">
+                    <h2>נעשה ונשמע</h2>
+                </th>
             </tr>
             <tr *ngFor="let todo of todos; let i = index">
                 <td *ngIf="showDeleteIcon"><span class="clickable deleteTodo" (click)="openDialog(i)">&#10007;
@@ -16,18 +18,35 @@
                 <td>{{todo.title}}</td>
                 <td *ngIf="todo.startDate">{{todo.startDate}}, {{todo.startHour}}</td>
             </tr>
-        </table>
-    </div>
-    <div class="buttons">
-        <button mat-raised-button color="primary" (click)="addTodoButtonClicked()">
-            <span *ngIf="this.addTodoButtonText == 'הוסף מטלה'">&#43;&nbsp;</span>
-            {{addTodoButtonText}} 
-        </button>
-        <button mat-button color="warn" class="deleteTodos" 
-            *ngIf="todos && todos.length > 0" (click)="deleteButtonClicked()">
-            <span *ngIf="this.deleteButtonText == 'מחיקת מטלות'">&#10007;&nbsp;</span>
-            {{deleteButtonText}}
-        </button>
-    </div>
+        </table> -->
+
+        <h2>נעשה ונשמע</h2>
+        <div class="todos" *ngIf="todos">
+            
+            <div class="todo" *ngFor="let todo of todos; let i = index">
+                <div>
+                    <span *ngIf="showDeleteIcon"><span class="clickable deleteTodo" (click)="openDialog(i)">&#10007;
+                    </span></span>
+                    <span *ngIf="!showDeleteIcon">
+                        <mat-checkbox color="primary"></mat-checkbox>
+                    </span>
+                    <span>{{todo.title}}</span>
+                </div>
+                <div>
+                    <span *ngIf="todo.startDate">{{todo.startDate}}, {{todo.startHour}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button mat-raised-button color="primary" (click)="addTodoButtonClicked()">
+                <span *ngIf="this.addTodoButtonText == 'הוסף מטלה'">&#43;&nbsp;</span>
+                {{addTodoButtonText}}
+            </button>
+            <button mat-button color="warn" class="deleteTodos" *ngIf="todos && todos.length > 0"
+                (click)="deleteButtonClicked()">
+                <span *ngIf="this.deleteButtonText == 'מחיקת מטלות'">&#10007;&nbsp;</span>
+                {{deleteButtonText}}
+            </button>
+        </div>
     <app-add-todo *ngIf="viewAddForm" (emitTodo)="submitNew($event)"></app-add-todo>
 </div>

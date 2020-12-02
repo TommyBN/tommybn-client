@@ -39,7 +39,7 @@
 
     <div class="wrapper">
       <h2 (click)="toggleDiv('techs')">What is this site?</h2>
-      <div id="what-do" [style.height]="setHeight('techs')" [style.overflow]="this.mainPageService.techs ? 'scroll' : 'hidden'">
+      <div id="what-do" [style.height]="setHeight('techs')" [style.overflow]="this.checkTechs() ? 'scroll' : 'hidden'">
         <h2>
           A demonstration of my abilities as a <strong>Front End Web Developer</strong>
         </h2>

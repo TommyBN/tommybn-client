@@ -20,6 +20,7 @@ import { CalMonthComponent } from './todo-user/calendar/month/cal-month.componen
 import { CalDayComponent } from './todo-user/calendar/day/cal-day.component';
 import { UserService } from './todo-user/user.service';
 import { TodoService } from './todo-user/todo/todo.service';
+import { DayHeaderComponent } from './todo-user/calendar/day/day-header/day-header.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { TodoService } from './todo-user/todo/todo.service';
     CalendarHeaderComponent,
     CalMonthComponent,
     CalDayComponent,
+    DayHeaderComponent,
   ],
   imports: [
     CommonModule,

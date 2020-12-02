@@ -12,6 +12,7 @@ export class EditTodoComponent implements OnInit {
     @Output() emitTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
     public createEvent: boolean = false;
+    addEventText = 'הוסף אירוע ביומן';
 
     public todoForm: FormGroup = new FormGroup({
         title: new FormControl('', Validators.required),
@@ -26,7 +27,8 @@ export class EditTodoComponent implements OnInit {
     ngOnInit() {    }
 
     toggleEventForm() {
-        this.createEvent = !this.createEvent
+        this.createEvent = !this.createEvent;
+        this.addEventText = this.createEvent ? 'הסר' : 'הוסף אירוע ביומן'
     }
 
     onSubmit() {

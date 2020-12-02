@@ -32,4 +32,13 @@ export class CalendarComponent implements OnInit {
     this.currentDay = newDay
   }
 
+  setCalendarMonthSize() {
+    if (screen.width < 768) return '70%'
+    else return '100%'
+  }
+
+  isDoubleCalendar() {
+    return screen.width > 768
+  }
+
 }

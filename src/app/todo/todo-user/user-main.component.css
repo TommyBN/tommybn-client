@@ -1,28 +1,25 @@
 
+ #nav-bar {
+     margin: auto;
+     width: 50%;
+ }
+ 
  .container { 
     padding: 3%;
     display: flex;
     flex-direction: column-reverse; 
-    justify-content: space-evenly;
-    height: 1600px;
+    justify-content: center;
 } 
 
 #welcome-back {
     direction: rtl;
     padding-top: 10%;
-
-}
-
-.rotate-screen {
-    display: block;
-    background-color: red;
-    padding: 5%;
 }
 
 @media only screen and (min-width: 768px) {
     .container {
         flex-direction: row;
-        height: 1284px;
+        /* height: 1284px; */
     }
 
     #main {
@@ -34,15 +31,6 @@
     }
 }
 
-@media only screen and (min-width: 500px) {
-    /* .container {
-        flex-direction: row;
-    } */
-
-    .rotate-screen {
-        display: none;
-    }
-}
 
 
 

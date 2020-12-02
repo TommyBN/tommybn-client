@@ -1,11 +1,16 @@
-<div class="container">
-
-
-  <div class="btn btn-primary" (click)="viewChange.emit('month')" >
-    <button [class.active]="view === 'month'" mat-stroked-button color="primary"> Month</button>
+<div id="view">
+  <div (click)="viewChange.emit('month')">
+    <button [class.active]="view === 'month'" mat-button color="primary"> Month</button>
   </div>
 
-  <button mat-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+  <div (click)="viewChange.emit('day')">
+    <button [class.active]="view === 'day'" mat-button color="primary">Day</button>
+  </div>
+</div>
+
+
+<div class="container">
+  <button class="in-container" mat-raised-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
     (viewDateChange)="viewDateChange.next(viewDate)">
     Previous
   </button>
@@ -16,14 +21,11 @@
     </div>
   </div>
 
-  <button mat-button color="primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+  <button class="in-container" mat-raised-button color="primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
     (viewDateChange)="viewDateChange.next(viewDate)">
     Next
   </button>
 
-  <div class="btn btn-primary" (click)="viewChange.emit('day')" >
-    <button [class.active]="view === 'day'" mat-stroked-button color="primary">Day</button>
-  </div>
 
 </div>
 

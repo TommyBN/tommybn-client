@@ -9,6 +9,7 @@
     [viewDate]="viewDate"
     [events]="events"
     [activeDayIsOpen]="true"
+    (beforeViewRender)="beforeMonthViewRender($event)"
     [refresh]="refresh"
     (dayClicked)="dayClicked($event)"
     (eventTimesChanged)="eventTimesChanged($event)"

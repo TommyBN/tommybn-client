@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
-import { CalendarEvent, CalendarEventTimesChangedEvent, CalendarView }
+import { CalendarEvent, CalendarEventTimesChangedEvent, CalendarMonthViewBeforeRenderEvent, CalendarView }
   from 'angular-calendar';
 import { UserService } from '../../user.service';
 
@@ -27,6 +27,15 @@ export class CalMonthComponent implements OnInit {
 
   dayClicked(e) {
     this.changeDay.emit(e.day.date)
+  }
+
+  beforeMonthViewRender(renderEvent: CalendarMonthViewBeforeRenderEvent): void {
+    renderEvent.body.forEach((day) => {
+      // const dayOfMonth = day.date.getDate();
+      // if (dayOfMonth > 5 && dayOfMonth < 10 && day.inMonth) {
+        day.cssClass = 'bg-pink';
+      // }
+    });
   }
 
   eventTimesChanged({

@@ -38,7 +38,7 @@
                     <mat-checkbox 
                     [checked]="jobForm.value.isOutSourcing" 
                     (change)="jobForm.get('isOutSourcing').setValue(!jobForm.value.isOutSourcing)" 
-                    color="primary">מיקור חוץ
+                    color="accent">מיקור חוץ
                     <span *ngIf="!jobForm.value.isOutSourcing">?</span>
                     </mat-checkbox>
                     <mat-form-field style="width: 100%" *ngIf="jobForm.value.isOutSourcing" color="accent">
@@ -71,7 +71,7 @@
 
             <!--נסיון-->
             <div class="section" id="experience">
-                <mat-checkbox (change)="this.isExperience = !this.isExperience" color="primary">דרוש נסיון קודם<span
+                <mat-checkbox (change)="this.isExperience = !this.isExperience">דרוש נסיון קודם<span
                         *ngIf="!isExperience">?</span></mat-checkbox>
                 <br>
                 <mat-form-field *ngIf="isExperience" color="accent">
@@ -117,14 +117,14 @@
                 <mat-radio-group formControlName="rolePercentage">
                     <div class="radio-button-div">
                         <mat-radio-button 
-                        [checked]="jobForm.value.rolePercentage == value" 
+                        [checked]="jobForm.value.rolePercentage == 0" 
                         value="0">
                             משרה מלאה 👨‍⚕️
                         </mat-radio-button>
                     </div>
                     <div class="radio-button-div">
                         <mat-radio-button value="1"
-                        [checked]="jobForm.value.rolePercentage == value">
+                        [checked]="jobForm.value.rolePercentage == 1">
                             משרה חלקית 🛌
                         </mat-radio-button>
                     </div>

@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $tommybn-primary: mat-palette($mat-light-green, 500 );
-$tommybn-accent: mat-palette($mat-grey, 200);
+$tommybn-accent: mat-palette($mat-blue, 200);
 
 // The warn palette is optional (defaults to red).
 $tommybn-warn: mat-palette($mat-red);

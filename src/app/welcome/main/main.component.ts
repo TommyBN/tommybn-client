@@ -18,6 +18,10 @@ export class MainComponent implements OnInit {
 
   ngOnInit() { }
 
+  checkTechs() {
+    return this.mainPageService.techs
+  }
+
   toggleDiv(divName: string) {
     switch (divName) {
       case 'about':
