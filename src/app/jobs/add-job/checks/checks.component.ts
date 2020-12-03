@@ -25,14 +25,12 @@ export class ChecksComponent {
 
   checkAllDays() {
     this.fullTime = this.days != null && this.days.every(t => t.checked);
-    console.log(this.days)
   }
   
   partTime(): boolean {
     if (this.days == null) {
       return false;
     }
-    console.log(this.days)
     return this.days.filter(t => t.checked).length > 0 && !this.fullTime;
   }
   
@@ -43,6 +41,5 @@ export class ChecksComponent {
       return;
     }
     this.days.forEach(t => t.checked = checked);
-    console.log(this.days)
   }
 }

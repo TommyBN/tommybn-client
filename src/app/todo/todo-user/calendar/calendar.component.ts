@@ -37,8 +37,8 @@ export class CalendarComponent implements OnInit {
     else return '100%'
   }
 
-  isDoubleCalendar() {
-    return screen.width > 768
-  }
+  // isDoubleCalendar() {
+  //   return screen.width > 768
+  // }
 
 }

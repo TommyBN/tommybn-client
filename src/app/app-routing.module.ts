@@ -11,20 +11,12 @@ const routes: Routes = [
     { path: 'login/:appName', component: AuthComponent },
     { 
       path: 'todo',
-      loadChildren: 
-      () => import
-      ('./todo/todo.module')
-      // ('./todo-app/todo-app.module#TodoAppModule'),
-      .then(m=>m.TodoModule),
+      loadChildren: () => import('./todo/todo.module').then(m=>m.TodoModule),
       pathMatch:'prefix'
     },
     { 
       path: 'jobs',
-      loadChildren: 
-      () => import
-      ('./jobs/jobs.module')
-      // ('./todo-app/todo-app.module#TodoAppModule'),
-      .then(m=>m.JobsModule),
+      loadChildren: () => import('./jobs/jobs.module').then(m=>m.JobsModule),
       pathMatch:'prefix'
     }
   ];

@@ -9,22 +9,22 @@
 </div>
 
 
-<div class="container">
-  <button class="in-container" mat-raised-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
-    (viewDateChange)="viewDateChange.next(viewDate)">
-    Previous
-  </button>
-
   <div class="middle">
     <div>
       <div style="font-size: 2em;">{{ viewDate | calendarDate: view + 'ViewTitle':locale }}</div>
     </div>
   </div>
 
-  <button class="in-container" mat-raised-button color="primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+<div class="container">
+  <button class="in-container" mat-raised-button color="primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
     (viewDateChange)="viewDateChange.next(viewDate)">
-    Next
+    Previous
   </button>
+  
+  <button class="in-container" mat-raised-button color="primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+  (viewDateChange)="viewDateChange.next(viewDate)">
+  Next
+</button>
 
 
 </div>

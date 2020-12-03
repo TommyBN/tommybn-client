@@ -41,14 +41,6 @@ export class UserMainComponent implements OnInit {
     this.setTodosAndEvents()
   }
 
-  ngAfterViewInit() {
-    // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(187, 238, 234)';
-  }
-
-  ngOnDestroy() {
-    // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(134, 99, 85)';
-  }
-
   //set todos and events
   setTodosAndEvents() {
     this.todoService.getTodosFromDB().subscribe(todos => {
@@ -59,27 +51,6 @@ export class UserMainComponent implements OnInit {
       }
     })
   }
-
-  createCalEvents() {
-    // if (Array.isArray(this.todos)) {
-    //   for (let todo of this.todos) {
-    //     if (todo.startDate) {
-    //       console.log('date: ', todo.startDate)
-    //       let startHour = todo.startHour ? todo.startHour : '08:00'
-    //       let event: CalendarEvent = {
-    //         title: todo.title,
-    //         start: new Date(todo.startDate),
-    //         // start: moment(todo.startDate + ' ' + startHour).toDate(),
-    //         draggable: true
-    //       }
-    //       // event.end = todo.startDate;
-    //       this.calendarEvents.push(event);
-    //     }
-    //   }
-
-    // }
-  }
-
   getEvents(): CalendarEvent[] {
     return this.calendarEvents;
   }

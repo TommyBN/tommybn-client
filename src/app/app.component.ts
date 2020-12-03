@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RoutesRecognized } from '@angular/router';
+import { AuthService } from './authentication/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,12 @@ export class AppComponent {
 
   title = 'app';
   routedToApps: boolean = false;
+  userName: string;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof RoutesRecognized) {
@@ -28,8 +31,24 @@ export class AppComponent {
     });
   }
 
+  ngDoCheck() {
+    this.userName = localStorage.getItem('userName') ? localStorage.getItem('userName') : null
+    console.log('hi')
+    console.log(this.userName)
+  }
+
   onActivated() {
     window.scroll(0, 0)
+  }
+
+  signOut() {
+    localStorage.clear();
+    this.router.navigate(['/home'])
+  }
+
+  signedIn() {
+    if (localStorage.getItem('userToken')) return true
+    else return false
   }
 
 

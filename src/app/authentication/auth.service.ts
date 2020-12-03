@@ -8,7 +8,7 @@ interface AuthResponse {
     valid: boolean,
     msg: string,
     id: string,
-
+    name: string
 }
 
 @Injectable({
@@ -18,6 +18,7 @@ export class AuthService {
 
   SERVER_URL: string = `${environment.apiBaseUrl}/auth`;
   userID: string;
+  userName: string;
 
   constructor(
     private http: HttpClient,
@@ -28,9 +29,11 @@ export class AuthService {
     return this.http.post<FormResponse>(`${this.SERVER_URL}/login`, userDetails)
   }
 
-  setTokenAndID (id: string, token: string, ) {
+  setTokenAndID (id: string, token: string, name: string) {
     this.userID = id;
+    this.userName = name;
     localStorage.setItem('userID', id)
+    localStorage.setItem('userName', name)
     localStorage.setItem('userToken', token);
   }
 

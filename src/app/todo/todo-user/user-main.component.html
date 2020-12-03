@@ -6,20 +6,9 @@
 
 
 <div class="container">
+    <app-cal-main [events]="calendarEvents"></app-cal-main>
+    <div id="main">
+        <app-todos [todos]="todos" (DBChangeNotification)=setTodosAndEvents()></app-todos>
+    </div>
 
-   
-  
-  <app-cal-main [events]="calendarEvents"></app-cal-main>
-  
-  <div id="main">
-  
-    <app-todos [todos]="todos" (DBChangeNotification)=setTodosAndEvents()></app-todos>
 </div>
-  
-</div>
-
-
-
-
-
- 

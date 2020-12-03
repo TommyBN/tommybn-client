@@ -7,7 +7,8 @@ export interface FormResponse {
   valid: boolean,
   msg: string,
   id?: string,
-  token: string
+  token: string,
+  userName: string
 }
 
 @Component({

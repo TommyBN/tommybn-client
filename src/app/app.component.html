@@ -2,7 +2,13 @@
   <div id="logo">
     <h4>TommyBN</h4>
   </div>
-  <div *ngIf="routedToApps" routerLink="home" id="back-button">
+  <div *ngIf="signedIn()" routerLink="home">
+    <h4>הנך מחובר כ: <strong> {{userName}}</strong> <span class="bold cursor-pointer" (click)="signOut()">התנתק</span></h4>
+  </div>
+  <div *ngIf="!signedIn()">
+    <h4>שלום אורח</h4>
+  </div>
+  <div *ngIf="routedToApps" routerLink="home" class="cursor-pointer">
     Back to main page
   </div>
 </div>

@@ -82,15 +82,11 @@ export class AddJobComponent implements OnInit {
     }
 
     checkDay(day) {
-      console.log(day);
       day.checked = !day.checked;
-      console.log(this.jobForm.value.days)
     }
 
   onSubmit() {
-    console.log(this.jobForm)
     let job = <Job>this.jobForm.value;
-    console.log(job)
 
     //update
     if (this.edit) {

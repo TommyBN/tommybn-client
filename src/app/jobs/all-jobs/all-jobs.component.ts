@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { HttpClient } from '@angular/common/http';
 import { JobsService } from '../jobs.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,7 +21,6 @@ export class AllJobsComponent implements OnInit {
     jobToDelete: number = -1;
 
     constructor(
-        private http: HttpClient,
         private jobsService: JobsService,
         private activatedRoute: ActivatedRoute,
         public dialog: MatDialog
@@ -34,7 +32,7 @@ export class AllJobsComponent implements OnInit {
         });
         this.jobsService.getJobs().subscribe(companies => {
             this.allJobs = companies;
-            console.log(this.allJobs)
+            (this.allJobs)
         })
     }
 
@@ -55,10 +53,8 @@ export class AllJobsComponent implements OnInit {
     }
 
     checkDays(days): boolean {
-        console.log(days)
         for(let day of days){ 
             if(day.checked) {
-                console.log(day)
                 return true
             } 
         }
@@ -75,6 +71,7 @@ export class AllJobsComponent implements OnInit {
     }
 
     popUpAndRefresh(message: string) {
+        this.ngOnInit();
         this.showForm = false;
         this.buttonText = this.showForm ? ' חזרה' : 'הוסף משרה';
         this.openDialog(message);

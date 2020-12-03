@@ -93,6 +93,7 @@ label {
 
 
 
+
 /*radio, chips, checks etc.*/
 mat-radio-group {
     margin-top: 10px;
@@ -115,6 +116,10 @@ li {
 
 app-chips {
     width: 133% !important;
+}
+
+.mat-chip.mat-standard-chip {
+    background-color: #90caf9;
 }
 
 .mat-standard-chip .mat-chip-remove, .mat-standard-chip .mat-chip-trailing-icon {

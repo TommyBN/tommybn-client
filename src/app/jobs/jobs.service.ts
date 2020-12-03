@@ -19,12 +19,9 @@ export class JobsService {
         return <Observable<Job[]>>this.http.get(`${this.url}/${this.userId}`);
     }
 
-
     addJob(job: Job): Observable<Job> {
         return <Observable<Job>>this.http.post(`${this.url}/add/${this.userId}`, job, {'responseType': 'json'});
     }
-
-
 
     deleteJob(name): Observable<any> {
         return <Observable<Job>>this.http.post(`${this.url}/delete/${this.userId}`, {name}, {'responseType': 'json'})

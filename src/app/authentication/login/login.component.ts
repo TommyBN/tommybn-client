@@ -35,7 +35,8 @@ export class LoginComponent {
       this.authService.logIn(this.loginForm.value).subscribe(
       (res) => {
         if(res.valid) {
-          this.authService.setTokenAndID(res.id, res.token)
+          console.log(res)
+          this.authService.setTokenAndID(res.id, res.token, res.userName)
           this.router.navigate([`../../${this.appName}`, res.id], {relativeTo: this.route})
         } 
         else {

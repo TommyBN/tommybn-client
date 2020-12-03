@@ -13,7 +13,8 @@ import { CalendarView } from 'angular-calendar';
     }
 
     .middle {
-      margin-left: 20px
+      margin-left: 20px;
+      margin-bottom: 10px;
     }
 
     .active {
@@ -24,6 +25,7 @@ import { CalendarView } from 'angular-calendar';
       display: flex;
       flex-direction: row;
       justify-content: center;
+      margin-bottom: 10px
     }
 
     button {
