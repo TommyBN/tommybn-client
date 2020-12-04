@@ -3,7 +3,12 @@
     <h4>TommyBN</h4>
   </div>
   <div *ngIf="signedIn()" routerLink="home">
-    <h4>הנך מחובר כ: <strong> {{userName}}</strong> <span class="bold cursor-pointer" (click)="signOut()">התנתק</span></h4>
+    <h4>
+      הנך מחובר כ: <strong> {{userName}}</strong>
+    </h4>
+    <h3>
+      <span class="bold cursor-pointer" (click)="signOut()">התנתק</span>
+    </h3>
   </div>
   <div *ngIf="!signedIn()">
     <h4>שלום אורח</h4>

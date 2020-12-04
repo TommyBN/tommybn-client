@@ -1,28 +1,35 @@
-
-<div class="container">
-    <h3>הרשמה</h3>
-    <form *ngIf="!newUserSignedUp" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-        <div class="errors" [style.visibility]="signUpForm.valid ? 'hidden' : 'visible'">
-        {{message}}
+<h3>הרשמה</h3>
+<form *ngIf="!newUserSignedUp" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+        <div class="errors section" [style.visibility]="signUpForm.valid ? 'hidden' : 'visible'">
+            {{message}}
         </div>
-        <mat-form-field>
-            <mat-label> שם משתמש</mat-label>
-            <input formControlName="username" matInput autocomplete="off">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label> סיסמא</mat-label>
-            <input type="password" formControlName="password" matInput>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>  אשר סיסמא</mat-label>
-            <input type="password" formControlName="passConfirm" matInput>
-        </mat-form-field>
-        <div>
+        <div class="section">
+            <mat-form-field>
+                <mat-label> שם משתמש</mat-label>
+                <input formControlName="username" matInput autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="section">
+            <mat-form-field>
+                <mat-label> סיסמא</mat-label>
+                <input type="password" formControlName="password" matInput>
+            </mat-form-field>
+        </div>
+        <div class="section">
+            <mat-form-field>
+                <mat-label> אשר סיסמא</mat-label>
+                <input type="password" formControlName="passConfirm" matInput>
+            </mat-form-field>
+        </div>
+        <div class="section">
             <button type="submit" mat-stroked-button color="primary">הרשם</button>
         </div>
-    </form>  
-    <div *ngIf="newUserSignedUp" class="success">
-        <h2>נרשמת בהצלחה למערכת!</h2>
-        <h3>כעת ניתן להיכנס</h3>
-    </div>  
+    </div>
+</form>
+<div *ngIf="newUserSignedUp" class="success">
+    <h2>נרשמת בהצלחה למערכת!</h2>
+    <h3>כעת ניתן להיכנס</h3>
+    <h3 class="down-arrow">⬇️</h3>
+    <h3 class="left-arrow">⬅️</h3>
 </div>

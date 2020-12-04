@@ -31,10 +31,10 @@ export class AuthComponent implements OnInit {
           if (res.valid) {
             this.router.navigate([`../../${this.appName}`, res.id], { relativeTo: this.activatedRoute })
           }
-          else {
-            this.title = this.appName == 'todo' ? 'נעשה ונשמע' : 'בוא נמצא עבודה';
-            this.funkyText = this.appName == 'todo' ? 'הכל מסתכם במשימה אחת פשוטה' : 'ריכוז פרטים לגבי משרות ששלחתי אליהם קורות חיים. הכל במקום אחד.'
-          }
+          // else {
+          //   this.title = this.appName == 'todo' ? 'נעשה ונשמע' : 'בוא נמצא עבודה';
+          //   this.funkyText = this.appName == 'todo' ? 'הכל מסתכם במשימה אחת פשוטה' : 'ריכוז פרטים לגבי משרות ששלחתי אליהם קורות חיים. הכל במקום אחד.'
+          // }
         })
       }
     })

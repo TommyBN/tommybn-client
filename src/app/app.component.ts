@@ -33,8 +33,6 @@ export class AppComponent {
 
   ngDoCheck() {
     this.userName = localStorage.getItem('userName') ? localStorage.getItem('userName') : null
-    console.log('hi')
-    console.log(this.userName)
   }
 
   onActivated() {

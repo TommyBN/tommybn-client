@@ -1,29 +1,23 @@
-<div class="container">
-
-    <h3>כניסה למשתמשים רשומים</h3>
-    <div>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="errors" [style.visibility]="loginForm.valid ? 'hidden' : 'visible'">
-                {{message}}
-            </div>
-            <div class="form-input">
-                <!-- שם: <br><input type="text" formControlName="username"> -->
-                <mat-form-field >
-                    <mat-label>שם משתמש</mat-label>
-                    <input formControlName="username" matInput autocomplete="off">
-                </mat-form-field>
-            </div>
-            <div class="form-input">
-                <mat-form-field >
-                    <mat-label>סיסמא</mat-label>
-                    <input type="password" formControlName="password" matInput>
-                </mat-form-field>
-                <!-- סיסמא: <br><input type="password" formControlName="password"> -->
-            </div>
-            <div>
-                <button type="submit" mat-stroked-button color="primary">כניסה</button>
-            </div>
-        </form>
+<h3>כניסה למשתמשים רשומים</h3>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+        <div class="errors section" [style.visibility]="loginForm.valid ? 'hidden' : 'visible'">
+            {{message}}
+        </div>
+        <div class="section">
+            <mat-form-field>
+                <mat-label>שם משתמש</mat-label>
+                <input formControlName="username" matInput autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="section">
+            <mat-form-field>
+                <mat-label>סיסמא</mat-label>
+                <input type="password" formControlName="password" matInput>
+            </mat-form-field>
+        </div>
+        <div class="section">
+            <button type="submit" mat-stroked-button color="primary">כניסה</button>
+        </div>
     </div>
-
-</div>
+</form>

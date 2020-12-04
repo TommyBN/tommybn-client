@@ -18,6 +18,15 @@
     padding: 7px;
 } 
 
+h4 {
+    text-shadow: 0 0 10px rgb(240, 229, 229), 0 0 20px rgb(226, 188, 20);
+
+}
+
+h3 {
+    text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
     
     #logo {
@@ -29,7 +38,6 @@
     
     h4 {
         text-align: left;
-        text-shadow: 0 0 10px rgb(240, 229, 229), 0 0 20px rgb(226, 188, 20);
     }
 
     .my-apps {
